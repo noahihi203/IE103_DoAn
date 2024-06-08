@@ -39,6 +39,8 @@
             btXoa = new Button();
             btSua = new Button();
             btThoat = new Button();
+            TENDANGNHAP = new DataGridViewTextBoxColumn();
+            MATKHAU = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgvUsers).BeginInit();
             SuspendLayout();
             // 
@@ -98,8 +100,11 @@
             // 
             // dtgvUsers
             // 
+            dtgvUsers.AllowUserToAddRows = false;
+            dtgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvUsers.BackgroundColor = SystemColors.ButtonFace;
             dtgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvUsers.Columns.AddRange(new DataGridViewColumn[] { TENDANGNHAP, MATKHAU });
             dtgvUsers.Location = new Point(418, 49);
             dtgvUsers.MultiSelect = false;
             dtgvUsers.Name = "dtgvUsers";
@@ -150,6 +155,22 @@
             btThoat.UseVisualStyleBackColor = true;
             btThoat.Click += btThoat_Click;
             // 
+            // TENDANGNHAP
+            // 
+            TENDANGNHAP.DataPropertyName = "TENDANGNHAP";
+            TENDANGNHAP.HeaderText = "Tên đăng nhập";
+            TENDANGNHAP.MinimumWidth = 6;
+            TENDANGNHAP.Name = "TENDANGNHAP";
+            TENDANGNHAP.ReadOnly = true;
+            // 
+            // MATKHAU
+            // 
+            MATKHAU.DataPropertyName = "MATKHAU";
+            MATKHAU.HeaderText = "Mật khẩu";
+            MATKHAU.MinimumWidth = 6;
+            MATKHAU.Name = "MATKHAU";
+            MATKHAU.ReadOnly = true;
+            // 
             // fUsers
             // 
             AutoScaleDimensions = new SizeF(11F, 21F);
@@ -190,5 +211,7 @@
         private Button btXoa;
         private Button btSua;
         private Button btThoat;
+        private DataGridViewTextBoxColumn TENDANGNHAP;
+        private DataGridViewTextBoxColumn MATKHAU;
     }
 }

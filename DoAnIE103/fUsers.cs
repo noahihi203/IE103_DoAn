@@ -36,7 +36,10 @@ namespace DoAnIE103
             dtgvUsers.DataSource = null;
             DataTable data = DataProvider.Instance.executeQuery("SELECT * FROM TAIKHOAN");
             taiKhoanList.DataSource = data;
+
             dtgvUsers.DataSource = taiKhoanList;
+            dtgvUsers.Columns["MACV"].Visible = false;
+            
             dtgvUsers.Refresh();
         }
 

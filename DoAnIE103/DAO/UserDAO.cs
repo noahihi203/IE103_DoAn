@@ -34,14 +34,27 @@ namespace DoAnIE103.DAO
                 return 0;
             }
         }
-        public bool login(string userName, string passWord)
+        public bool checkUserName(string userName)
         {
-            string query = string.Format("SELECT * FROM TAIKHOAN WHERE TENDANGNHAP = N'{0}' AND MATKHAU = N'{1}' " , userName, passWord);
+            string query = string.Format("SELECT * FROM TAIKHOAN WHERE TENDANGNHAP = N'{0}'" , userName);
 
             DataTable result = DataProvider.Instance.executeQuery(query);
 
             return result.Rows.Count > 0;
         }
+        public string GetStoredHashPassword(string username)
+        {
+            string query = string.Format("SELECT MATKHAU FROM TAIKHOAN WHERE TENDANGNHAP = N'{0}'", username);
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["MATKHAU"].ToString();
+            }
+
+            return null; // Trường hợp không tìm thấy tên đăng nhập
+        }
+
         public bool InsertUser(string tendangnhap, string matkhau, int macv)
         {
             string query = string.Format("INSERT dbo.TAIKHOAN ( TENDANGNHAP, MATKHAU, MACV ) VALUES ( N'{0}', N'{1}', {2} )", tendangnhap, matkhau, macv);

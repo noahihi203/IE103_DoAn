@@ -35,6 +35,35 @@ namespace DoAnIE103
             loadEmployeeList();
         }
 
+        void loadPhongBanIntoCBB(ComboBox cb)
+        {
+            cb.DataSource = DepartmentDAO.Instance.getPositionList();
+            cb.DisplayMember = "TENPB";
+            cb.ValueMember = "MAPB";
+            //DoAnIE103.DTO.LoaiTaiKhoan
+        }
+
+        private void LoadDataIntoComboBoxColumn()
+        {
+            // Lấy dữ liệu từ bảng 
+            DataTable dataPB = DataProvider.Instance.executeQuery("SELECT * FROM PHONGBAN");
+            DataTable dataCV = DataProvider.Instance.executeQuery("SELECT * FROM CHUCVU");
+
+            // Lấy cột ComboBox vừa tạo
+            DataGridViewComboBoxColumn comboBoxColumnPB = (DataGridViewComboBoxColumn)dtgvEmployee.Columns["CBBTENPB"];
+            comboBoxColumnPB.DataSource = dataPB;
+            comboBoxColumnPB.ValueMember = "MAPB";
+            comboBoxColumnPB.DisplayMember = "TENPB";
+
+
+
+            DataGridViewComboBoxColumn comboBoxColumnCV = (DataGridViewComboBoxColumn)dtgvEmployee.Columns["CBBTENCV"];
+            comboBoxColumnCV.DataSource = dataCV;
+            comboBoxColumnCV.ValueMember = "MACV";
+            comboBoxColumnCV.DisplayMember = "TENCV";
+
+        }
+
         public void loadEmployeeList()
         {
             if (index < 0)
@@ -42,10 +71,28 @@ namespace DoAnIE103
             //dtgvEmployee = null;
             DataTable data = DataProvider.Instance.executeQuery("SELECT * FROM NHANVIEN");
             emPloyeeList.DataSource = data;
+            LoadDataIntoComboBoxColumn();
+           
+
+            
+
+            dtgvEmployee.Columns["MALUONG"].Visible = false;
+            dtgvEmployee.Columns["NGAYNHANLUONG"].Visible = false;
+            dtgvEmployee.Columns["TENDANGNHAP"].Visible = false;
+
             dtgvEmployee.DataSource = emPloyeeList;
+
+            dtgvEmployee.DefaultCellStyle.Font = new Font("Arial", 10);
+            dtgvEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 8, FontStyle.Bold);
+            dtgvEmployee.RowHeadersDefaultCellStyle.Font = new Font("Arial", 12);
+
             dtgvEmployee.Refresh();
         }
-
+        /*void addUserBinding()
+        {
+            tbTenDangNhap.DataBindings.Add(new Binding("Text", dtgvUsers.DataSource, "TENDANGNHAP", true, DataSourceUpdateMode.Never));
+            tbMatKhau.DataBindings.Add(new Binding("Text", dtgvUsers.DataSource, "MATKHAU", true, DataSourceUpdateMode.Never));
+        }*/
 
         #region events
         private void tsbAdd_Click(object sender, EventArgs e)

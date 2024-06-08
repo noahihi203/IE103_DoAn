@@ -1,6 +1,8 @@
 using DoAnIE103.DAO;
 using DoAnIE103.DTO;
 using System.Data;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DoAnIE103
 {
@@ -13,14 +15,52 @@ namespace DoAnIE103
 
         bool CheckLogin(string username, string password)
         {
-            return UserDAO.Instance.login(username, password);
+            if (UserDAO.Instance.checkUserName(username))
+            {
+                return true;
+            }
+            if (ValidatePassword(username, password))
+                return true;
+            return false;
+        }
+
+        public bool ValidatePassword(string username, string inputPassword)
+        {
+            // 
+            string storedHashPassword = UserDAO.Instance.GetStoredHashPassword(username);
+
+            if (storedHashPassword == null)
+            {
+                return false; // 
+            }
+
+            //
+            string hashedInputPassword = GetHash(inputPassword);
+
+            // 
+            return hashedInputPassword.Equals(storedHashPassword);
+        }
+
+        public static string GetHash(string input)
+        {
+            using (SHA1 sha1 = SHA1.Create())
+            {
+                byte[] bytes = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2")); // Convert byte to hexadecimal string
+                }
+                return builder.ToString();
+            }
         }
 
         private void btDangNhap_Click(object sender, EventArgs e)
         {
 
             string username = tbTenDangNhap.Text;
-            string password = tbMatKhau.Text;
+            string password = GetHash(tbMatKhau.Text.ToString());
 
 
             if (CheckLogin(username, password)) // Check if the entered password account is correct

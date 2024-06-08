@@ -38,6 +38,18 @@
             tsbImport = new ToolStripButton();
             dtgvEmployee = new DataGridView();
             groupBox1 = new GroupBox();
+            MANV = new DataGridViewTextBoxColumn();
+            HOTEN = new DataGridViewTextBoxColumn();
+            GIOITINH = new DataGridViewTextBoxColumn();
+            NGAYSINH = new DataGridViewTextBoxColumn();
+            SDT = new DataGridViewTextBoxColumn();
+            CCCD = new DataGridViewTextBoxColumn();
+            DIACHI = new DataGridViewTextBoxColumn();
+            CBBTENCV = new DataGridViewComboBoxColumn();
+            CBBTENPB = new DataGridViewComboBoxColumn();
+            MALUONG = new DataGridViewTextBoxColumn();
+            NGAYNHANLUONG = new DataGridViewTextBoxColumn();
+            TENDANGNHAP = new DataGridViewTextBoxColumn();
             toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvEmployee).BeginInit();
             groupBox1.SuspendLayout();
@@ -108,12 +120,16 @@
             // 
             // dtgvEmployee
             // 
+            dtgvEmployee.AllowUserToAddRows = false;
+            dtgvEmployee.AllowUserToDeleteRows = false;
             dtgvEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgvEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvEmployee.BackgroundColor = SystemColors.ButtonHighlight;
+            dtgvEmployee.ColumnHeadersHeight = 29;
+            dtgvEmployee.Columns.AddRange(new DataGridViewColumn[] { MANV, HOTEN, GIOITINH, NGAYSINH, SDT, CCCD, DIACHI, CBBTENCV, CBBTENPB, MALUONG, NGAYNHANLUONG, TENDANGNHAP });
+            dtgvEmployee.GridColor = Color.Black;
             dtgvEmployee.Location = new Point(6, 29);
             dtgvEmployee.Name = "dtgvEmployee";
-            dtgvEmployee.ReadOnly = true;
-            dtgvEmployee.RowHeadersWidth = 51;
+            dtgvEmployee.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             dtgvEmployee.Size = new Size(1109, 616);
             dtgvEmployee.TabIndex = 7;
             dtgvEmployee.CellClick += dtgvEmployee_CellClick;
@@ -129,6 +145,120 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách nhân viên";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // MANV
+            // 
+            MANV.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            MANV.DataPropertyName = "MANV";
+            MANV.FillWeight = 20F;
+            MANV.HeaderText = "Mã NV";
+            MANV.MinimumWidth = 6;
+            MANV.Name = "MANV";
+            MANV.ReadOnly = true;
+            MANV.Resizable = DataGridViewTriState.True;
+            // 
+            // HOTEN
+            // 
+            HOTEN.DataPropertyName = "HOTEN";
+            HOTEN.FillWeight = 44.3364143F;
+            HOTEN.HeaderText = "Họ và tên";
+            HOTEN.MinimumWidth = 6;
+            HOTEN.Name = "HOTEN";
+            HOTEN.ReadOnly = true;
+            // 
+            // GIOITINH
+            // 
+            GIOITINH.DataPropertyName = "GIOITINH";
+            GIOITINH.FillWeight = 44.3364143F;
+            GIOITINH.HeaderText = "Giới tính";
+            GIOITINH.MinimumWidth = 6;
+            GIOITINH.Name = "GIOITINH";
+            GIOITINH.ReadOnly = true;
+            // 
+            // NGAYSINH
+            // 
+            NGAYSINH.DataPropertyName = "NGAYSINH";
+            NGAYSINH.FillWeight = 44.3364143F;
+            NGAYSINH.HeaderText = "Ngày sinh";
+            NGAYSINH.MinimumWidth = 6;
+            NGAYSINH.Name = "NGAYSINH";
+            NGAYSINH.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            SDT.DataPropertyName = "SDT";
+            SDT.FillWeight = 44.3364143F;
+            SDT.HeaderText = "Số điện thoại";
+            SDT.MinimumWidth = 6;
+            SDT.Name = "SDT";
+            SDT.ReadOnly = true;
+            // 
+            // CCCD
+            // 
+            CCCD.DataPropertyName = "CCCD";
+            CCCD.FillWeight = 44.3364143F;
+            CCCD.HeaderText = "Căn cước";
+            CCCD.MinimumWidth = 6;
+            CCCD.Name = "CCCD";
+            CCCD.ReadOnly = true;
+            // 
+            // DIACHI
+            // 
+            DIACHI.DataPropertyName = "DIACHI";
+            DIACHI.FillWeight = 44.3364143F;
+            DIACHI.HeaderText = "Địa chỉ";
+            DIACHI.MinimumWidth = 6;
+            DIACHI.Name = "DIACHI";
+            DIACHI.ReadOnly = true;
+            // 
+            // CBBTENCV
+            // 
+            CBBTENCV.DataPropertyName = "MACV";
+            CBBTENCV.FillWeight = 44.3364143F;
+            CBBTENCV.HeaderText = "Chức vụ";
+            CBBTENCV.MinimumWidth = 6;
+            CBBTENCV.Name = "CBBTENCV";
+            CBBTENCV.ReadOnly = true;
+            CBBTENCV.Resizable = DataGridViewTriState.True;
+            CBBTENCV.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // CBBTENPB
+            // 
+            CBBTENPB.DataPropertyName = "MAPB";
+            CBBTENPB.FillWeight = 44.3364143F;
+            CBBTENPB.HeaderText = "Phòng ban";
+            CBBTENPB.MinimumWidth = 6;
+            CBBTENPB.Name = "CBBTENPB";
+            CBBTENPB.ReadOnly = true;
+            CBBTENPB.Resizable = DataGridViewTriState.True;
+            CBBTENPB.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // MALUONG
+            // 
+            MALUONG.DataPropertyName = "MALUONG";
+            MALUONG.FillWeight = 44.3364143F;
+            MALUONG.HeaderText = "Mã lương";
+            MALUONG.MinimumWidth = 6;
+            MALUONG.Name = "MALUONG";
+            MALUONG.ReadOnly = true;
+            // 
+            // NGAYNHANLUONG
+            // 
+            NGAYNHANLUONG.DataPropertyName = "NGAYNHANLUONG";
+            NGAYNHANLUONG.FillWeight = 44.3364143F;
+            NGAYNHANLUONG.HeaderText = "Ngày nhận lương";
+            NGAYNHANLUONG.MinimumWidth = 6;
+            NGAYNHANLUONG.Name = "NGAYNHANLUONG";
+            NGAYNHANLUONG.ReadOnly = true;
+            // 
+            // TENDANGNHAP
+            // 
+            TENDANGNHAP.DataPropertyName = "TENDANGNHAP";
+            TENDANGNHAP.FillWeight = 44.3364143F;
+            TENDANGNHAP.HeaderText = "Tên đăng nhập";
+            TENDANGNHAP.MinimumWidth = 6;
+            TENDANGNHAP.Name = "TENDANGNHAP";
+            TENDANGNHAP.ReadOnly = true;
             // 
             // fEmployee
             // 
@@ -160,5 +290,17 @@
         private GroupBox groupBox1;
         private ToolStripButton tsbExport;
         private ToolStripButton tsbImport;
+        private DataGridViewTextBoxColumn MANV;
+        private DataGridViewTextBoxColumn HOTEN;
+        private DataGridViewTextBoxColumn GIOITINH;
+        private DataGridViewTextBoxColumn NGAYSINH;
+        private DataGridViewTextBoxColumn SDT;
+        private DataGridViewTextBoxColumn CCCD;
+        private DataGridViewTextBoxColumn DIACHI;
+        private DataGridViewComboBoxColumn CBBTENCV;
+        private DataGridViewComboBoxColumn CBBTENPB;
+        private DataGridViewTextBoxColumn MALUONG;
+        private DataGridViewTextBoxColumn NGAYNHANLUONG;
+        private DataGridViewTextBoxColumn TENDANGNHAP;
     }
 }
