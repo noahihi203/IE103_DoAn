@@ -75,7 +75,6 @@ namespace DoAnIE103.DAO
             return result > 0;
         }
 
-        
 
     }
 }

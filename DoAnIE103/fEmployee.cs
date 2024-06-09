@@ -12,6 +12,7 @@ using System.IO;
 using OfficeOpenXml;
 using Excel = Microsoft.Office.Interop.Excel;
 using DoAnIE103.DTO;
+using System.Runtime.InteropServices;
 
 namespace DoAnIE103
 {
@@ -55,8 +56,6 @@ namespace DoAnIE103
             comboBoxColumnPB.ValueMember = "MAPB";
             comboBoxColumnPB.DisplayMember = "TENPB";
 
-
-
             DataGridViewComboBoxColumn comboBoxColumnCV = (DataGridViewComboBoxColumn)dtgvEmployee.Columns["CBBTENCV"];
             comboBoxColumnCV.DataSource = dataCV;
             comboBoxColumnCV.ValueMember = "MACV";
@@ -72,9 +71,6 @@ namespace DoAnIE103
             DataTable data = DataProvider.Instance.executeQuery("SELECT * FROM NHANVIEN");
             emPloyeeList.DataSource = data;
             LoadDataIntoComboBoxColumn();
-           
-
-            
 
             dtgvEmployee.Columns["MALUONG"].Visible = false;
             dtgvEmployee.Columns["NGAYNHANLUONG"].Visible = false;
@@ -125,7 +121,7 @@ namespace DoAnIE103
             }
         }
 
-         private int getMaNV(Employee nhanvien)
+        private int getMaNV(Employee nhanvien)
         {
             int manv = Convert.ToInt32(nhanvien.MaNV);
             return manv;
@@ -159,10 +155,13 @@ namespace DoAnIE103
                 {
                     app.Cells[i + 2, j + 1] = dtgvEmployee.Rows[i].Cells[j].Value;
                 }
-                app.Columns.AutoFit();
-                app.ActiveWorkbook.SaveCopyAs(path);
-                app.ActiveWorkbook.Saved = true;
+
             }
+            app.Columns.AutoFit();
+            app.ActiveWorkbook.SaveCopyAs(path);
+            app.ActiveWorkbook.Saved = true;
+            app.Quit();
+            Marshal.ReleaseComObject(app);
         }
 
         private void tsbExport_Click(object sender, EventArgs e)
@@ -185,9 +184,48 @@ namespace DoAnIE103
         }
         private void ImportExcel(string path)
         {
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(path)))
+            {
+                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
+
+                for (int i = excelWorksheet.Dimension.Start.Row + 1; i <= excelWorksheet.Dimension.End.Row; i++)
+                {
+                    List<string> listRows = new List<string>();
+                    for (int j = excelWorksheet.Dimension.Start.Column; j < excelWorksheet.Dimension.End.Column; j++)
+                    {
+                        listRows.Add(excelWorksheet.Cells[i, j].Value.ToString());
+                    }
+                    int maluong = Convert.ToInt32(listRows[9]);
+                    int mapb = Convert.ToInt32(listRows[8]);
+                    int macv = Convert.ToInt32(listRows[7]);
+                    int manv = Convert.ToInt32(listRows[0]);
+                    
+                    EmployeeDAO.Instance.InsertEmployee(manv, listRows[1], listRows[2], listRows[3], listRows[4], listRows[5], listRows[6], macv, mapb, maluong, listRows[10]);
+                }
+            }
 
         }
 
 
+        private void tsbImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Import Excel";
+            openFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ImportExcel(openFileDialog.FileName);
+                    MessageBox.Show("Nhập file thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Nhập file không thành công!\n" + ex.Message);
+                }
+            }
+            loadEmployeeList();
+        }
     }
 }

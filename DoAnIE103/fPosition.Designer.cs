@@ -36,13 +36,11 @@
             toolStripSeparator2 = new ToolStripSeparator();
             tsbAddPosition = new ToolStripButton();
             tsbDeletePosition = new ToolStripButton();
-            tsbExportPosition = new ToolStripButton();
-            tsbImportPosition = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             tsbExitPosition = new ToolStripButton();
             dtgvPosition = new DataGridView();
-            TENCV = new DataGridViewTextBoxColumn();
             MACV = new DataGridViewTextBoxColumn();
+            TENCV = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvPosition).BeginInit();
@@ -66,7 +64,7 @@
             toolStrip1.Dock = DockStyle.Left;
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripSeparator3, toolStripLabel1, toolStripSeparator2, tsbAddPosition, tsbDeletePosition, tsbExportPosition, tsbImportPosition, toolStripSeparator1, tsbExitPosition });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripSeparator3, toolStripLabel1, toolStripSeparator2, tsbAddPosition, tsbDeletePosition, toolStripSeparator1, tsbExitPosition });
             toolStrip1.Location = new Point(3, 23);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(84, 399);
@@ -113,23 +111,6 @@
             tsbDeletePosition.Text = "Xoá";
             tsbDeletePosition.Click += tsbDeletePosition_Click;
             // 
-            // tsbExportPosition
-            // 
-            tsbExportPosition.Image = (Image)resources.GetObject("tsbExportPosition.Image");
-            tsbExportPosition.ImageAlign = ContentAlignment.MiddleLeft;
-            tsbExportPosition.ImageTransparentColor = Color.Magenta;
-            tsbExportPosition.Name = "tsbExportPosition";
-            tsbExportPosition.Size = new Size(81, 24);
-            tsbExportPosition.Text = "Export";
-            // 
-            // tsbImportPosition
-            // 
-            tsbImportPosition.Image = (Image)resources.GetObject("tsbImportPosition.Image");
-            tsbImportPosition.ImageTransparentColor = Color.Magenta;
-            tsbImportPosition.Name = "tsbImportPosition";
-            tsbImportPosition.Size = new Size(81, 24);
-            tsbImportPosition.Text = "Import";
-            // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
@@ -160,17 +141,7 @@
             dtgvPosition.Size = new Size(317, 393);
             dtgvPosition.TabIndex = 9;
             dtgvPosition.CellClick += dtgvPosition_CellClick;
-            dtgvPosition.CellContentClick += dtgvPosition_CellContentClick;
             dtgvPosition.CellEndEdit += dtgvPosition_CellEndEdit;
-            dtgvPosition.CurrentCellChanged += dtgvPosition_CurrentCellChanged;
-            // 
-            // TENCV
-            // 
-            TENCV.DataPropertyName = "TENCV";
-            TENCV.HeaderText = "Tên chức vụ";
-            TENCV.MinimumWidth = 6;
-            TENCV.Name = "TENCV";
-            TENCV.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // MACV
             // 
@@ -180,6 +151,14 @@
             MACV.MinimumWidth = 6;
             MACV.Name = "MACV";
             MACV.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // TENCV
+            // 
+            TENCV.DataPropertyName = "TENCV";
+            TENCV.HeaderText = "Tên chức vụ";
+            TENCV.MinimumWidth = 6;
+            TENCV.Name = "TENCV";
+            TENCV.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // fPosition
             // 
@@ -206,8 +185,6 @@
         private GroupBox groupBox1;
         private ToolStrip toolStrip1;
         private ToolStripButton tsbAddPosition;
-        private ToolStripButton tsbExportPosition;
-        private ToolStripButton tsbImportPosition;
         private ToolStripSeparator toolStripSeparator1;
         private DataGridView dtgvPosition;
         private ToolStripLabel toolStripLabel1;

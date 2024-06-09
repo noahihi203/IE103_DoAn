@@ -117,17 +117,5 @@ namespace DoAnIE103
 
 
         #endregion
-
-
-
-
-        private void dtgvPosition_CurrentCellChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void dtgvPosition_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

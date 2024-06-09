@@ -17,6 +17,7 @@ namespace DoAnIE103
         public fAddNewEmployee()
         {
             InitializeComponent();
+            LoadDataIntoComboBoxColumn();
         }
 
         void addEmployeeFromHeretoFEmployee()
@@ -43,9 +44,12 @@ namespace DoAnIE103
             string sdt = tbASDT.Text;
             string cccd = tbACCCD.Text;
             string diachi = tbADiaChi.Text;
-            int macv = Convert.ToInt32(tbAMaCV.Text);
-            int mapb = Convert.ToInt32(tbAMaPB.Text);
-            int maluong = Convert.ToInt32(tbAMaLuong.Text);
+
+            
+            int macv = Convert.ToInt32(cbbAEChucVu.SelectedValue);
+            int mapb = Convert.ToInt32(cbbAEPhongBan.SelectedValue);
+            DataRow dr = WageDAO.Instance.getLuongByMaCV(macv).Rows[0];
+            int maluong = Convert.ToInt32(dr["MALUONG"]);
             string ngaynhanluong = dtpANgayNhanLuong.Value.Date.ToString("yyyy-MM-dd");
 
             if (EmployeeDAO.Instance.InsertEmployee(manv, hoten, gioitinh, ngaysinh, sdt, cccd, diachi, macv, mapb, maluong, ngaynhanluong))
@@ -59,6 +63,29 @@ namespace DoAnIE103
             }
         }
 
+        private void LoadDataIntoComboBoxColumn()
+        {
+            // Lấy dữ liệu từ bảng 
+            DataTable dataPB = DataProvider.Instance.executeQuery("SELECT * FROM PHONGBAN");
+            DataTable dataCV = DataProvider.Instance.executeQuery("SELECT * FROM CHUCVU");
+            DataTable datGT = DataProvider.Instance.executeQuery("SELECT DISTINCT GIOITINH FROM NHANVIEN");
+
+            // Lấy cột ComboBox vừa tạo
+            cbbAEPhongBan.DataSource = dataPB;
+            cbbAEPhongBan.ValueMember = "MAPB";
+            cbbAEPhongBan.DisplayMember = "TENPB";
+
+            cbbAEChucVu.DataSource = dataCV;
+            cbbAEChucVu.ValueMember = "MACV";
+            cbbAEChucVu.DisplayMember = "TENCV";
+
+            cbAGioiTinh.DataSource = datGT;
+            cbAGioiTinh.DisplayMember = "GIOITINH";
+
+            cbAGioiTinh.Text = null;
+            cbbAEChucVu.Text = null;
+            cbbAEPhongBan.Text = null;
+        }
         private void fAddNewEmployee_FormClosed(object sender, FormClosedEventArgs e)
         {
         }

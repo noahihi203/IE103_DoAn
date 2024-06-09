@@ -32,12 +32,9 @@
             toolStrip2 = new ToolStrip();
             tsbAdd = new ToolStripButton();
             tsbDelete = new ToolStripButton();
-            tsbEdit = new ToolStripButton();
-            tsbPrint = new ToolStripButton();
             tsbExport = new ToolStripButton();
             tsbImport = new ToolStripButton();
             dtgvEmployee = new DataGridView();
-            groupBox1 = new GroupBox();
             MANV = new DataGridViewTextBoxColumn();
             HOTEN = new DataGridViewTextBoxColumn();
             GIOITINH = new DataGridViewTextBoxColumn();
@@ -50,6 +47,8 @@
             MALUONG = new DataGridViewTextBoxColumn();
             NGAYNHANLUONG = new DataGridViewTextBoxColumn();
             TENDANGNHAP = new DataGridViewTextBoxColumn();
+            groupBox1 = new GroupBox();
+            tsbEdit = new ToolStripButton();
             toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvEmployee).BeginInit();
             groupBox1.SuspendLayout();
@@ -58,7 +57,7 @@
             // toolStrip2
             // 
             toolStrip2.ImageScalingSize = new Size(20, 20);
-            toolStrip2.Items.AddRange(new ToolStripItem[] { tsbAdd, tsbDelete, tsbEdit, tsbPrint, tsbExport, tsbImport });
+            toolStrip2.Items.AddRange(new ToolStripItem[] { tsbAdd, tsbDelete, tsbEdit, tsbExport, tsbImport });
             toolStrip2.Location = new Point(0, 0);
             toolStrip2.Name = "toolStrip2";
             toolStrip2.Size = new Size(1145, 27);
@@ -84,23 +83,6 @@
             tsbDelete.Text = "Xoá";
             tsbDelete.Click += tsbDelete_Click;
             // 
-            // tsbEdit
-            // 
-            tsbEdit.Image = (Image)resources.GetObject("tsbEdit.Image");
-            tsbEdit.ImageTransparentColor = Color.Magenta;
-            tsbEdit.Name = "tsbEdit";
-            tsbEdit.Size = new Size(58, 24);
-            tsbEdit.Text = "Sửa";
-            tsbEdit.Click += tsbEdit_Click;
-            // 
-            // tsbPrint
-            // 
-            tsbPrint.Image = (Image)resources.GetObject("tsbPrint.Image");
-            tsbPrint.ImageTransparentColor = Color.Magenta;
-            tsbPrint.Name = "tsbPrint";
-            tsbPrint.Size = new Size(45, 24);
-            tsbPrint.Text = "In";
-            // 
             // tsbExport
             // 
             tsbExport.Image = (Image)resources.GetObject("tsbExport.Image");
@@ -117,6 +99,7 @@
             tsbImport.Name = "tsbImport";
             tsbImport.Size = new Size(78, 24);
             tsbImport.Text = "Import";
+            tsbImport.Click += tsbImport_Click;
             // 
             // dtgvEmployee
             // 
@@ -133,18 +116,6 @@
             dtgvEmployee.Size = new Size(1109, 616);
             dtgvEmployee.TabIndex = 7;
             dtgvEmployee.CellClick += dtgvEmployee_CellClick;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(dtgvEmployee);
-            groupBox1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(12, 47);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1121, 634);
-            groupBox1.TabIndex = 8;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Danh sách nhân viên";
-            groupBox1.Enter += groupBox1_Enter;
             // 
             // MANV
             // 
@@ -260,6 +231,27 @@
             TENDANGNHAP.Name = "TENDANGNHAP";
             TENDANGNHAP.ReadOnly = true;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(dtgvEmployee);
+            groupBox1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(12, 47);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1121, 634);
+            groupBox1.TabIndex = 8;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Danh sách nhân viên";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // tsbEdit
+            // 
+            tsbEdit.Image = (Image)resources.GetObject("tsbEdit.Image");
+            tsbEdit.ImageTransparentColor = Color.Magenta;
+            tsbEdit.Name = "tsbEdit";
+            tsbEdit.Size = new Size(58, 24);
+            tsbEdit.Text = "Sửa";
+            tsbEdit.Click += tsbEdit_Click;
+            // 
             // fEmployee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -284,8 +276,6 @@
         private ToolStrip toolStrip2;
         private ToolStripButton tsbAdd;
         private ToolStripButton tsbDelete;
-        private ToolStripButton tsbEdit;
-        private ToolStripButton tsbPrint;
         private DataGridView dtgvEmployee;
         private GroupBox groupBox1;
         private ToolStripButton tsbExport;
@@ -302,5 +292,6 @@
         private DataGridViewTextBoxColumn MALUONG;
         private DataGridViewTextBoxColumn NGAYNHANLUONG;
         private DataGridViewTextBoxColumn TENDANGNHAP;
+        private ToolStripButton tsbEdit;
     }
 }
