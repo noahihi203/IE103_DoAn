@@ -72,7 +72,7 @@ namespace DoAnIE103
                     Const.userType = 0;
                 }
                 fMain f = new fMain();
-                f.ShowDialog();
+                f.Show();
                 this.Hide();
                 f.Logout += F_Logout;
             }

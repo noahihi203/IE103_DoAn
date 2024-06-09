@@ -30,27 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
             gbTTNguoiDung = new GroupBox();
-            dtpMNgaySinh = new DateTimePicker();
-            lbMDiaChi = new Label();
-            lbMCCCD = new Label();
-            lbMPhongBan = new Label();
-            lbMSDT = new Label();
-            lbMChucVu = new Label();
-            lbMGioiTinh = new Label();
-            lbMHoTen = new Label();
-            label6 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label1 = new Label();
-            lbMLuongThang = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label2 = new Label();
-            lbMMaNV = new Label();
             hệThốngToolStripMenuItem = new ToolStripMenuItem();
             tsmiUser = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
@@ -62,230 +41,47 @@
             trợGiúpToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
             gbTTLuongNguoiDung = new GroupBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            label1 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label6 = new Label();
+            lbMHoTen = new Label();
+            lbMGioiTinh = new Label();
+            lbMChucVu = new Label();
+            lbMSDT = new Label();
+            lbMPhongBan = new Label();
+            lbMCCCD = new Label();
+            lbMDiaChi = new Label();
+            dtpMNgaySinh = new DateTimePicker();
             dtpMNgayNhanLuong = new DateTimePicker();
+            label10 = new Label();
+            label11 = new Label();
+            lbMLuongThang = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
             gbTTNguoiDung.SuspendLayout();
             menuStrip1.SuspendLayout();
             gbTTLuongNguoiDung.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // gbTTNguoiDung
             // 
             gbTTNguoiDung.BackColor = Color.White;
-            gbTTNguoiDung.Controls.Add(dtpMNgaySinh);
-            gbTTNguoiDung.Controls.Add(lbMDiaChi);
-            gbTTNguoiDung.Controls.Add(lbMCCCD);
-            gbTTNguoiDung.Controls.Add(lbMPhongBan);
-            gbTTNguoiDung.Controls.Add(lbMSDT);
-            gbTTNguoiDung.Controls.Add(lbMChucVu);
-            gbTTNguoiDung.Controls.Add(lbMGioiTinh);
-            gbTTNguoiDung.Controls.Add(lbMHoTen);
-            gbTTNguoiDung.Controls.Add(label6);
-            gbTTNguoiDung.Controls.Add(label9);
-            gbTTNguoiDung.Controls.Add(label8);
-            gbTTNguoiDung.Controls.Add(label7);
-            gbTTNguoiDung.Controls.Add(label5);
-            gbTTNguoiDung.Controls.Add(label4);
-            gbTTNguoiDung.Controls.Add(label3);
-            gbTTNguoiDung.Controls.Add(label1);
-            gbTTNguoiDung.Location = new Point(12, 43);
+            gbTTNguoiDung.Controls.Add(tableLayoutPanel1);
+            gbTTNguoiDung.Location = new Point(13, 39);
+            gbTTNguoiDung.Margin = new Padding(4);
             gbTTNguoiDung.Name = "gbTTNguoiDung";
-            gbTTNguoiDung.Size = new Size(722, 382);
+            gbTTNguoiDung.Padding = new Padding(4);
+            gbTTNguoiDung.Size = new Size(922, 401);
             gbTTNguoiDung.TabIndex = 2;
             gbTTNguoiDung.TabStop = false;
             gbTTNguoiDung.Text = "Thông tin người dùng";
-            // 
-            // dtpMNgaySinh
-            // 
-            dtpMNgaySinh.CalendarMonthBackground = Color.Cornsilk;
-            dtpMNgaySinh.Checked = false;
-            dtpMNgaySinh.CustomFormat = "dd-MM-yyyy";
-            dtpMNgaySinh.Enabled = false;
-            dtpMNgaySinh.Format = DateTimePickerFormat.Custom;
-            dtpMNgaySinh.Location = new Point(157, 121);
-            dtpMNgaySinh.Name = "dtpMNgaySinh";
-            dtpMNgaySinh.Size = new Size(165, 28);
-            dtpMNgaySinh.TabIndex = 37;
-            // 
-            // lbMDiaChi
-            // 
-            lbMDiaChi.AutoSize = true;
-            lbMDiaChi.Location = new Point(157, 329);
-            lbMDiaChi.Name = "lbMDiaChi";
-            lbMDiaChi.Size = new Size(165, 21);
-            lbMDiaChi.TabIndex = 36;
-            lbMDiaChi.Text = "Chưa có thông tin";
-            // 
-            // lbMCCCD
-            // 
-            lbMCCCD.AutoSize = true;
-            lbMCCCD.Location = new Point(157, 262);
-            lbMCCCD.Name = "lbMCCCD";
-            lbMCCCD.Size = new Size(165, 21);
-            lbMCCCD.TabIndex = 35;
-            lbMCCCD.Text = "Chưa có thông tin";
-            // 
-            // lbMPhongBan
-            // 
-            lbMPhongBan.AutoSize = true;
-            lbMPhongBan.Location = new Point(506, 193);
-            lbMPhongBan.Name = "lbMPhongBan";
-            lbMPhongBan.Size = new Size(165, 21);
-            lbMPhongBan.TabIndex = 34;
-            lbMPhongBan.Text = "Chưa có thông tin";
-            // 
-            // lbMSDT
-            // 
-            lbMSDT.AutoSize = true;
-            lbMSDT.Location = new Point(157, 193);
-            lbMSDT.Name = "lbMSDT";
-            lbMSDT.Size = new Size(165, 21);
-            lbMSDT.TabIndex = 33;
-            lbMSDT.Text = "Chưa có thông tin";
-            // 
-            // lbMChucVu
-            // 
-            lbMChucVu.AutoSize = true;
-            lbMChucVu.Location = new Point(506, 127);
-            lbMChucVu.Name = "lbMChucVu";
-            lbMChucVu.Size = new Size(165, 21);
-            lbMChucVu.TabIndex = 32;
-            lbMChucVu.Text = "Chưa có thông tin";
-            // 
-            // lbMGioiTinh
-            // 
-            lbMGioiTinh.AutoSize = true;
-            lbMGioiTinh.Location = new Point(506, 50);
-            lbMGioiTinh.Name = "lbMGioiTinh";
-            lbMGioiTinh.Size = new Size(165, 21);
-            lbMGioiTinh.TabIndex = 30;
-            lbMGioiTinh.Text = "Chưa có thông tin";
-            // 
-            // lbMHoTen
-            // 
-            lbMHoTen.AutoSize = true;
-            lbMHoTen.Location = new Point(157, 50);
-            lbMHoTen.Name = "lbMHoTen";
-            lbMHoTen.Size = new Size(165, 21);
-            lbMHoTen.TabIndex = 29;
-            lbMHoTen.Text = "Chưa có thông tin";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(20, 262);
-            label6.Name = "label6";
-            label6.Size = new Size(69, 21);
-            label6.TabIndex = 28;
-            label6.Text = "CCCD:";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(391, 193);
-            label9.Name = "label9";
-            label9.Size = new Size(110, 21);
-            label9.TabIndex = 18;
-            label9.Text = "Phòng ban:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(391, 127);
-            label8.Name = "label8";
-            label8.Size = new Size(91, 21);
-            label8.TabIndex = 17;
-            label8.Text = "Chức vụ:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(20, 329);
-            label7.Name = "label7";
-            label7.Size = new Size(76, 21);
-            label7.TabIndex = 15;
-            label7.Text = "Địa chỉ:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(20, 193);
-            label5.Name = "label5";
-            label5.Size = new Size(131, 21);
-            label5.TabIndex = 11;
-            label5.Text = "Số điện thoại:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(20, 127);
-            label4.Name = "label4";
-            label4.Size = new Size(104, 21);
-            label4.TabIndex = 8;
-            label4.Text = "Ngày sinh:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(391, 50);
-            label3.Name = "label3";
-            label3.Size = new Size(92, 21);
-            label3.TabIndex = 7;
-            label3.Text = "Giới tính:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(20, 50);
-            label1.Name = "label1";
-            label1.Size = new Size(99, 21);
-            label1.TabIndex = 5;
-            label1.Text = "Họ và tên:";
-            // 
-            // lbMLuongThang
-            // 
-            lbMLuongThang.AutoSize = true;
-            lbMLuongThang.Location = new Point(198, 51);
-            lbMLuongThang.Name = "lbMLuongThang";
-            lbMLuongThang.Size = new Size(165, 21);
-            lbMLuongThang.TabIndex = 37;
-            lbMLuongThang.Text = "Chưa có thông tin";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(25, 108);
-            label11.Name = "label11";
-            label11.Size = new Size(110, 21);
-            label11.TabIndex = 24;
-            label11.Text = "Ngày nhận:";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(25, 51);
-            label10.Name = "label10";
-            label10.Size = new Size(167, 21);
-            label10.TabIndex = 22;
-            label10.Text = "Lương tháng này:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(519, 182);
-            label2.Name = "label2";
-            label2.Size = new Size(132, 21);
-            label2.TabIndex = 6;
-            label2.Text = "Mã nhân viên:";
-            // 
-            // lbMMaNV
-            // 
-            lbMMaNV.Location = new Point(657, 182);
-            lbMMaNV.Name = "lbMMaNV";
-            lbMMaNV.Size = new Size(59, 17);
-            lbMMaNV.TabIndex = 39;
-            lbMMaNV.Text = "NULL";
             // 
             // hệThốngToolStripMenuItem
             // 
@@ -345,77 +141,348 @@
             thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
             thốngKêToolStripMenuItem.Size = new Size(131, 31);
             thốngKêToolStripMenuItem.Text = "Thống kê";
+            thốngKêToolStripMenuItem.Click += thốngKêToolStripMenuItem_Click;
             // 
             // trợGiúpToolStripMenuItem
             // 
             trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
             trợGiúpToolStripMenuItem.Size = new Size(120, 31);
             trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            trợGiúpToolStripMenuItem.Click += trợGiúpToolStripMenuItem_Click;
             // 
             // menuStrip1
             // 
             menuStrip1.BackColor = Color.DarkCyan;
             menuStrip1.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            menuStrip1.GripStyle = ToolStripGripStyle.Visible;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { hệThốngToolStripMenuItem, quảnLýToolStripMenuItem, thốngKêToolStripMenuItem, trợGiúpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(746, 35);
+            menuStrip1.Padding = new Padding(4, 2, 0, 2);
+            menuStrip1.RenderMode = ToolStripRenderMode.System;
+            menuStrip1.Size = new Size(948, 35);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
             // gbTTLuongNguoiDung
             // 
             gbTTLuongNguoiDung.BackColor = Color.White;
-            gbTTLuongNguoiDung.Controls.Add(dtpMNgayNhanLuong);
-            gbTTLuongNguoiDung.Controls.Add(lbMMaNV);
-            gbTTLuongNguoiDung.Controls.Add(label10);
-            gbTTLuongNguoiDung.Controls.Add(label11);
-            gbTTLuongNguoiDung.Controls.Add(lbMLuongThang);
-            gbTTLuongNguoiDung.Controls.Add(label2);
+            gbTTLuongNguoiDung.Controls.Add(tableLayoutPanel2);
             gbTTLuongNguoiDung.ForeColor = SystemColors.ActiveCaptionText;
-            gbTTLuongNguoiDung.Location = new Point(12, 431);
+            gbTTLuongNguoiDung.Location = new Point(13, 448);
+            gbTTLuongNguoiDung.Margin = new Padding(4);
             gbTTLuongNguoiDung.Name = "gbTTLuongNguoiDung";
-            gbTTLuongNguoiDung.Size = new Size(722, 211);
+            gbTTLuongNguoiDung.Padding = new Padding(4);
+            gbTTLuongNguoiDung.Size = new Size(922, 149);
             gbTTLuongNguoiDung.TabIndex = 39;
             gbTTLuongNguoiDung.TabStop = false;
             gbTTLuongNguoiDung.Text = "Thông tin về lương của người dùng";
-            gbTTLuongNguoiDung.Enter += groupBox2_Enter;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.Controls.Add(lbMDiaChi, 3, 3);
+            tableLayoutPanel1.Controls.Add(dtpMNgaySinh, 1, 1);
+            tableLayoutPanel1.Controls.Add(label7, 2, 3);
+            tableLayoutPanel1.Controls.Add(lbMPhongBan, 3, 2);
+            tableLayoutPanel1.Controls.Add(lbMCCCD, 1, 3);
+            tableLayoutPanel1.Controls.Add(label9, 2, 2);
+            tableLayoutPanel1.Controls.Add(lbMChucVu, 3, 1);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(lbMGioiTinh, 3, 0);
+            tableLayoutPanel1.Controls.Add(label8, 2, 1);
+            tableLayoutPanel1.Controls.Add(lbMSDT, 1, 2);
+            tableLayoutPanel1.Controls.Add(label4, 0, 1);
+            tableLayoutPanel1.Controls.Add(label6, 0, 3);
+            tableLayoutPanel1.Controls.Add(label5, 0, 2);
+            tableLayoutPanel1.Controls.Add(label3, 2, 0);
+            tableLayoutPanel1.Controls.Add(lbMHoTen, 1, 0);
+            tableLayoutPanel1.Location = new Point(7, 34);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.Size = new Size(908, 360);
+            tableLayoutPanel1.TabIndex = 38;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Location = new Point(4, 31);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(124, 27);
+            label1.TabIndex = 5;
+            label1.Text = "Họ và tên:";
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Left;
+            label3.AutoSize = true;
+            label3.Location = new Point(401, 31);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 27);
+            label3.TabIndex = 7;
+            label3.Text = "Giới tính:";
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Left;
+            label4.AutoSize = true;
+            label4.Location = new Point(4, 121);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(130, 27);
+            label4.TabIndex = 8;
+            label4.Text = "Ngày sinh:";
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Left;
+            label5.AutoSize = true;
+            label5.Location = new Point(4, 211);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(166, 27);
+            label5.TabIndex = 11;
+            label5.Text = "Số điện thoại:";
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Left;
+            label7.AutoSize = true;
+            label7.Location = new Point(401, 301);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(97, 27);
+            label7.TabIndex = 15;
+            label7.Text = "Địa chỉ:";
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Left;
+            label8.AutoSize = true;
+            label8.Location = new Point(401, 121);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(115, 27);
+            label8.TabIndex = 17;
+            label8.Text = "Chức vụ:";
+            // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.Left;
+            label9.AutoSize = true;
+            label9.Location = new Point(401, 211);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(140, 27);
+            label9.TabIndex = 18;
+            label9.Text = "Phòng ban:";
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Left;
+            label6.AutoSize = true;
+            label6.Location = new Point(4, 301);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(87, 27);
+            label6.TabIndex = 28;
+            label6.Text = "CCCD:";
+            // 
+            // lbMHoTen
+            // 
+            lbMHoTen.Anchor = AnchorStyles.Left;
+            lbMHoTen.AutoSize = true;
+            lbMHoTen.Location = new Point(178, 31);
+            lbMHoTen.Margin = new Padding(4, 0, 4, 0);
+            lbMHoTen.Name = "lbMHoTen";
+            lbMHoTen.Size = new Size(215, 27);
+            lbMHoTen.TabIndex = 29;
+            lbMHoTen.Text = "Chưa có thông tin";
+            lbMHoTen.Click += lbMHoTen_Click;
+            // 
+            // lbMGioiTinh
+            // 
+            lbMGioiTinh.Anchor = AnchorStyles.Left;
+            lbMGioiTinh.AutoSize = true;
+            lbMGioiTinh.Location = new Point(549, 31);
+            lbMGioiTinh.Margin = new Padding(4, 0, 4, 0);
+            lbMGioiTinh.Name = "lbMGioiTinh";
+            lbMGioiTinh.Size = new Size(215, 27);
+            lbMGioiTinh.TabIndex = 30;
+            lbMGioiTinh.Text = "Chưa có thông tin";
+            // 
+            // lbMChucVu
+            // 
+            lbMChucVu.Anchor = AnchorStyles.Left;
+            lbMChucVu.AutoSize = true;
+            lbMChucVu.Location = new Point(549, 121);
+            lbMChucVu.Margin = new Padding(4, 0, 4, 0);
+            lbMChucVu.Name = "lbMChucVu";
+            lbMChucVu.Size = new Size(215, 27);
+            lbMChucVu.TabIndex = 32;
+            lbMChucVu.Text = "Chưa có thông tin";
+            // 
+            // lbMSDT
+            // 
+            lbMSDT.Anchor = AnchorStyles.Left;
+            lbMSDT.AutoSize = true;
+            lbMSDT.Location = new Point(178, 211);
+            lbMSDT.Margin = new Padding(4, 0, 4, 0);
+            lbMSDT.Name = "lbMSDT";
+            lbMSDT.Size = new Size(215, 27);
+            lbMSDT.TabIndex = 33;
+            lbMSDT.Text = "Chưa có thông tin";
+            // 
+            // lbMPhongBan
+            // 
+            lbMPhongBan.Anchor = AnchorStyles.Left;
+            lbMPhongBan.AutoSize = true;
+            lbMPhongBan.Location = new Point(549, 211);
+            lbMPhongBan.Margin = new Padding(4, 0, 4, 0);
+            lbMPhongBan.Name = "lbMPhongBan";
+            lbMPhongBan.Size = new Size(215, 27);
+            lbMPhongBan.TabIndex = 34;
+            lbMPhongBan.Text = "Chưa có thông tin";
+            // 
+            // lbMCCCD
+            // 
+            lbMCCCD.Anchor = AnchorStyles.Left;
+            lbMCCCD.AutoSize = true;
+            lbMCCCD.Location = new Point(178, 301);
+            lbMCCCD.Margin = new Padding(4, 0, 4, 0);
+            lbMCCCD.Name = "lbMCCCD";
+            lbMCCCD.Size = new Size(215, 27);
+            lbMCCCD.TabIndex = 35;
+            lbMCCCD.Text = "Chưa có thông tin";
+            // 
+            // lbMDiaChi
+            // 
+            lbMDiaChi.Anchor = AnchorStyles.Left;
+            lbMDiaChi.AutoSize = true;
+            lbMDiaChi.Location = new Point(549, 301);
+            lbMDiaChi.Margin = new Padding(4, 0, 4, 0);
+            lbMDiaChi.Name = "lbMDiaChi";
+            lbMDiaChi.Size = new Size(215, 27);
+            lbMDiaChi.TabIndex = 36;
+            lbMDiaChi.Text = "Chưa có thông tin";
+            // 
+            // dtpMNgaySinh
+            // 
+            dtpMNgaySinh.Anchor = AnchorStyles.Left;
+            dtpMNgaySinh.CalendarMonthBackground = Color.Cornsilk;
+            dtpMNgaySinh.Checked = false;
+            dtpMNgaySinh.CustomFormat = "dd-MM-yyyy";
+            dtpMNgaySinh.Enabled = false;
+            dtpMNgaySinh.Format = DateTimePickerFormat.Custom;
+            dtpMNgaySinh.Location = new Point(178, 118);
+            dtpMNgaySinh.Margin = new Padding(4);
+            dtpMNgaySinh.Name = "dtpMNgaySinh";
+            dtpMNgaySinh.Size = new Size(209, 34);
+            dtpMNgaySinh.TabIndex = 37;
             // 
             // dtpMNgayNhanLuong
             // 
+            dtpMNgayNhanLuong.Anchor = AnchorStyles.Left;
             dtpMNgayNhanLuong.CalendarMonthBackground = Color.Blue;
             dtpMNgayNhanLuong.CustomFormat = "dd-MM-yyyy";
             dtpMNgayNhanLuong.Enabled = false;
             dtpMNgayNhanLuong.Format = DateTimePickerFormat.Custom;
-            dtpMNgayNhanLuong.Location = new Point(198, 102);
+            dtpMNgayNhanLuong.Location = new Point(178, 64);
+            dtpMNgayNhanLuong.Margin = new Padding(4);
             dtpMNgayNhanLuong.Name = "dtpMNgayNhanLuong";
-            dtpMNgayNhanLuong.Size = new Size(165, 28);
-            dtpMNgayNhanLuong.TabIndex = 40;
+            dtpMNgayNhanLuong.Size = new Size(215, 34);
+            dtpMNgayNhanLuong.TabIndex = 44;
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Left;
+            label10.AutoSize = true;
+            label10.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Location = new Point(4, 13);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(166, 27);
+            label10.TabIndex = 41;
+            label10.Text = "Lương tháng:";
+            // 
+            // label11
+            // 
+            label11.Anchor = AnchorStyles.Left;
+            label11.AutoSize = true;
+            label11.Location = new Point(4, 67);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(138, 27);
+            label11.TabIndex = 42;
+            label11.Text = "Ngày nhận:";
+            // 
+            // lbMLuongThang
+            // 
+            lbMLuongThang.Anchor = AnchorStyles.Left;
+            lbMLuongThang.AutoSize = true;
+            lbMLuongThang.Location = new Point(178, 13);
+            lbMLuongThang.Margin = new Padding(4, 0, 4, 0);
+            lbMLuongThang.Name = "lbMLuongThang";
+            lbMLuongThang.Size = new Size(215, 27);
+            lbMLuongThang.TabIndex = 43;
+            lbMLuongThang.Text = "Chưa có thông tin";
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.Controls.Add(dtpMNgayNhanLuong, 1, 1);
+            tableLayoutPanel2.Controls.Add(label10, 0, 0);
+            tableLayoutPanel2.Controls.Add(label11, 0, 1);
+            tableLayoutPanel2.Controls.Add(lbMLuongThang, 1, 0);
+            tableLayoutPanel2.Location = new Point(7, 34);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Size = new Size(908, 108);
+            tableLayoutPanel2.TabIndex = 0;
             // 
             // fMain
             // 
-            AutoScaleDimensions = new SizeF(11F, 21F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(746, 654);
+            ClientSize = new Size(948, 610);
             Controls.Add(gbTTLuongNguoiDung);
             Controls.Add(gbTTNguoiDung);
             Controls.Add(menuStrip1);
-            Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 3, 4, 3);
+            Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(5, 4, 5, 4);
             Name = "fMain";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Main";
+            Text = "App quản lý nhân sự";
             FormClosing += fMain_FormClosing;
             FormClosed += fMain_FormClosed;
             Load += fMain_Load;
             gbTTNguoiDung.ResumeLayout(false);
-            gbTTNguoiDung.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             gbTTLuongNguoiDung.ResumeLayout(false);
-            gbTTLuongNguoiDung.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -423,10 +490,6 @@
         #endregion
         private GroupBox gbTTNguoiDung;
         private TextBox tbMMaNV;
-        private Label label2;
-        private Label label1;
-        private Label label4;
-        private Label label3;
         private ToolStrip toolStrip1;
         private ToolStripLabel toolStripLabel1;
         private ToolStripLabel toolStripLabel2;
@@ -442,24 +505,28 @@
         private MenuStrip menuStrip1;
         private TextBox tbMaNV;
         private TextBox textBox1;
-        private Label label5;
-        private Label label7;
-        private Label label11;
-        private Label label10;
-        private Label label9;
-        private Label label8;
-        private Label label6;
-        private Label lbMMaNV;
-        private Label lbMLuongThang;
+        private GroupBox gbTTLuongNguoiDung;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label label1;
+        private DateTimePicker dtpMNgaySinh;
         private Label lbMDiaChi;
         private Label lbMCCCD;
         private Label lbMPhongBan;
         private Label lbMSDT;
         private Label lbMChucVu;
         private Label lbMGioiTinh;
+        private Label label6;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private Label label5;
+        private Label label4;
+        private Label label3;
         private Label lbMHoTen;
-        private GroupBox gbTTLuongNguoiDung;
-        private DateTimePicker dtpMNgaySinh;
         private DateTimePicker dtpMNgayNhanLuong;
+        private Label label10;
+        private Label label11;
+        private Label lbMLuongThang;
+        private TableLayoutPanel tableLayoutPanel2;
     }
 }

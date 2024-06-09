@@ -57,7 +57,6 @@ namespace DoAnIE103
             }
             DataRow dt = data.Rows[0];
 
-            lbMMaNV.Text = dt["MANV"].ToString();
             lbMHoTen.Text = dt["HOTEN"].ToString();
             lbMDiaChi.Text = dt["DIACHI"].ToString();
             lbMCCCD.Text = dt["CCCD"].ToString();
@@ -67,9 +66,9 @@ namespace DoAnIE103
             lbMPhongBan.Text = DepartmentDAO.Instance.getTenPBByMaPB((int)(dt["MAPB"])).ToString();
             lbMGioiTinh.Text = dt["GIOITINH"].ToString();
             dtpMNgayNhanLuong.Text = dt["NGAYNHANLUONG"].ToString();
-            
-            gbTTNguoiDung.Text = "Thông tin của người dùng " + dt["HOTEN"].ToString();
-            gbTTLuongNguoiDung.Text = "Thông tin về lương của người dùng " + dt["HOTEN"].ToString();
+
+            gbTTNguoiDung.Text = "Thông tin của người dùng " + dt["HOTEN"].ToString() + ", mã nhân viên: " + dt["MANV"].ToString();
+            gbTTLuongNguoiDung.Text = "Thông tin về lương của người dùng " + dt["HOTEN"].ToString() + ", mã nhân viên: " + dt["MANV"].ToString();
         }
 
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -122,9 +121,28 @@ namespace DoAnIE103
             fPosition f = new fPosition();
             f.ShowDialog();
         }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //fStatistical f = new fStatistical();
+            //f.ShowDialog();
+        }
+
+        private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //fHelp f = new fHelp();
+            //f.ShowDialog();
+        }
         #endregion
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+
+
+        private void lbMHoTen_Click(object sender, EventArgs e)
         {
 
         }
