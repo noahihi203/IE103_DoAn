@@ -49,6 +49,18 @@ namespace DoAnIE103.DAO
             return position;
         }
 
+        public string getTenCVByMaCV(int macv)
+        {
+            string query = string.Format("SELECT TENCV FROM CHUCVU WHERE MACV = {0}", macv);
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            if (dt.Rows.Count == 0)
+                return null;
+            else
+            {
+                string tencv = dt.Rows[0]["TENCV"].ToString();
+                return tencv;
+            }
+        }
         public bool insertPosition(int macv, string tencv)
         {
             string query = string.Format("INSERT INTO CHUCVU(MACV, TENCV) VALUES({0}, N'{1}')", macv, tencv);
@@ -56,19 +68,7 @@ namespace DoAnIE103.DAO
             return result > 0;
         }
 
-        public string getTenCVByMaCV(int macv)
-        {
-            string query = string.Format("SELECT * FROM CHUCVU WHERE MACV = {0}", macv);
-            DataTable dt = DataProvider.Instance.executeQuery(query);
-            if (dt.Rows.Count > 0)
-            {
-                DataRow dr = dt.Rows[0];
-                string tencv = dr["MACV"].ToString();
-                return tencv;
-            }
-            else
-                return null;
-        }
+       
         public bool updatePosition(int macv, string tencv)
         {
             //string tencv = getTenCVByMaCV(macv);

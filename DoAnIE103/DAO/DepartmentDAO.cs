@@ -19,6 +19,18 @@ namespace DoAnIE103.DAO
 
         private DepartmentDAO() { }
 
+        public string getTenPBByMaPB(int mapb)
+        {
+            string query = string.Format("SELECT TENPB FROM PHONGBAN WHERE MAPB = {0}", mapb);
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            if (dt.Rows.Count == 0)
+                return null;
+            else
+            {
+                string tenpb = dt.Rows[0]["TENPB"].ToString();
+                return tenpb;
+            }
+        }
         public List<Department> getPositionList()
         {
             List<Department> list = new List<Department>();

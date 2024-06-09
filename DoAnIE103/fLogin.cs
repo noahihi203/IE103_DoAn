@@ -61,7 +61,7 @@ namespace DoAnIE103
 
             string username = tbTenDangNhap.Text;
             string password = GetHash(tbMatKhau.Text.ToString());
-
+            Const.userID = username;
 
             if (CheckLogin(username, password)) // Check if the entered password account is correct
             {
@@ -72,7 +72,7 @@ namespace DoAnIE103
                     Const.userType = 0;
                 }
                 fMain f = new fMain();
-                f.Show();
+                f.ShowDialog();
                 this.Hide();
                 f.Logout += F_Logout;
             }
@@ -81,7 +81,7 @@ namespace DoAnIE103
                 MessageBox.Show("Ban da nhap sai ten dang nhap hoac mat khau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
+            
         }
 
         private void F_Logout(object sender, EventArgs e)

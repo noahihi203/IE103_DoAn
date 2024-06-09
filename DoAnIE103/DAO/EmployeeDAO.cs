@@ -32,6 +32,22 @@ namespace DoAnIE103.DAO
             }
             return l;
         }
+        public void getTENDANGNHAPbyMaNV(int manv)
+        {
+            string query = string.Format("SELECT TENDANGNHAP FROM NHANVIEN WHERE MANV = {0}", manv);
+            string tendangnhap = DataProvider.Instance.executeQuery(query).ToString();
+        }
+        public DataTable getEmployeeByUserID(string userID)
+        {
+            string query = string.Format("SELECT * FROM NHANVIEN WHERE TENDANGNHAP = N'{0}'", userID);
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+
+            return null;
+        }
 
         public bool InsertEmployee(int manv, string hoten, string gioitinh, string ngaysinh, string sdt, string cccd, string diachi, int macv, int mapb, int maluong, string ngaynhanluong)
         {
@@ -50,11 +66,7 @@ namespace DoAnIE103.DAO
             return result > 0;
         }
 
-        public void getTENDANGNHAPbyMaNV(int manv)
-        {
-            string query = string.Format("SELECT TENDANGNHAP FROM NHANVIEN WHERE MANV = {0}", manv);
-            string tendangnhap = DataProvider.Instance.executeQuery(query).ToString();
-        }
+       
         public bool DeleteEmployee(int manv)
         {
             // Xóa nhân viên

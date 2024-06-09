@@ -1,9 +1,11 @@
-﻿using System;
+﻿using DoAnIE103.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DoAnIE103.DAO
 {
@@ -54,7 +56,7 @@ namespace DoAnIE103.DAO
 
             return null; // Trường hợp không tìm thấy tên đăng nhập
         }
-
+        
         public bool InsertUser(string tendangnhap, string matkhau, int macv)
         {
             string query = string.Format("INSERT dbo.TAIKHOAN ( TENDANGNHAP, MATKHAU, MACV ) VALUES ( N'{0}', N'{1}', {2} )", tendangnhap, matkhau, macv);

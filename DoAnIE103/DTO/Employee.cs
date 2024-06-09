@@ -53,7 +53,7 @@ namespace DoAnIE103.DTO
 
         public Employee(DataRow row)
         {
-            maNV = (int)row["MANV"];
+            maNV = (int)(row["MANV"]);
             hoTen = row["HOTEN"].ToString();
             gioiTinh = row["GIOITINH"].ToString();
             ngaySinh = Convert.ToDateTime(row["NGAYSINH"]);
