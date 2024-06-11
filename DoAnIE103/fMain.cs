@@ -1,14 +1,20 @@
-﻿using DoAnIE103.DAO;
+﻿using CsvHelper;
+using DoAnIE103.DAO;
 using DoAnIE103.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Collections.Generic;
+using CsvHelper.Configuration;
+
 
 namespace DoAnIE103
 {
@@ -45,7 +51,7 @@ namespace DoAnIE103
             loadDataToForm();
             Decentralization();
         }
-
+         int manv;
         private void loadDataToForm()
         {
             DataTable data = EmployeeDAO.Instance.getEmployeeByUserID(Const.userID);
@@ -69,6 +75,8 @@ namespace DoAnIE103
 
             gbTTNguoiDung.Text = "Thông tin của người dùng " + dt["HOTEN"].ToString() + ", mã nhân viên: " + dt["MANV"].ToString();
             gbTTLuongNguoiDung.Text = "Thông tin về lương của người dùng " + dt["HOTEN"].ToString() + ", mã nhân viên: " + dt["MANV"].ToString();
+
+            manv = Convert.ToInt32(dt["MANV"].ToString());
 
         }
 
@@ -143,24 +151,121 @@ namespace DoAnIE103
 
 
 
-        private void lbMHoTen_Click(object sender, EventArgs e)
-        {
+ 
 
+        private void bảngChấmCôngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fTimesheets f = new fTimesheets();
+            f.ShowDialog();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
+        string filePath = "C:\\Users\\user\\OneDrive\\Máy tính\\DoAnIE103\\CheckInCheckOut.csv";
 
+        private void btCheckIn_Click(object sender, EventArgs e)
+        {
+            btCheckOut.Enabled = true;
+
+            bool hasCheckedIn = false;
+            using (var reader = new StreamReader(filePath))
+            using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))
+            {
+                csv.Read();
+                string i = null;
+                try
+                {
+                    i = csv.GetField<string>(0);
+                }
+                catch
+                {
+
+                }
+                if (i != null)
+                {
+                    btCheckIn.Enabled = false;
+                    btCheckOut.Enabled = true;
+                    MessageBox.Show("Đã check in rồi");
+                    return;
+                }
+
+            }
+
+            using (StreamWriter sw = new StreamWriter(filePath, false))
+            using (CsvWriter csvWriter = new CsvWriter(sw, CultureInfo.InvariantCulture))
+            {
+                if (true) // Kiểm tra vị trí
+                {
+
+                    // Ghi thời gian check-in vào file
+                    csvWriter.WriteField(DateTime.Now);
+                    csvWriter.NextRecord();
+
+                    MessageBox.Show("Đã Check in!");
+                }
+                else
+                {
+                    MessageBox.Show("Bạn đang không ở công ty đẻ check in");
+                    btCheckIn.Enabled = false;
+                }
+            }
         }
 
-        private void gbTTLuongNguoiDung_Enter(object sender, EventArgs e)
+
+
+        private void btCheckOut_Click(object sender, EventArgs e)
         {
+            btCheckIn.Enabled = true;
 
-        }
+            bool hasCheckedIn = false;
+            using (var reader = new StreamReader(filePath))
+            using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))
+            {
+                csv.Read();
+                string eww = null;
+                try
+                {
+                    eww = csv.GetField<string>(0);
+                }
+                catch
+                {
 
-        private void gbTTLuongNguoiDung_Enter_1(object sender, EventArgs e)
-        {
+                }
+                if (eww == null)
+                {
+                    btCheckOut.Enabled = false;
+                    btCheckIn.Enabled = true;
 
+                    MessageBox.Show("Chưa check in");
+                    return;
+                }
+
+            }
+            CheckInAndOutDate i = new CheckInAndOutDate();
+
+            if (true) //Kiem tra vi tri
+            {
+                using (var reader = new StreamReader(filePath))
+                using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))
+                {
+                    csv.Read();
+                    i.CheckInTime= csv.GetField<DateTime>(0);
+                }
+                i.CheckOutTime = DateTime.Now;
+                i.WorkTime = i.CheckOutTime - i.CheckInTime;
+                i.WorkTimeDay = i.WorkTime.TotalDays * 3;
+
+                MessageBox.Show("Đã Check Out thành công!");
+            }
+            File.WriteAllText(filePath, string.Empty);
+
+
+            if (TimesheetsDAO.Instance.updateBangCong(i.WorkTimeDay, DateTime.Now.Year, manv, DateTime.Now.Month))
+            {
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Co loi khi them so ngay lam viec");
+            }    
         }
     }
 

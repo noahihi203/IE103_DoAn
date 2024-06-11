@@ -60,9 +60,12 @@
             tsmiEmployee = new ToolStripMenuItem();
             tsmiPhongBan = new ToolStripMenuItem();
             tsmiChucVu = new ToolStripMenuItem();
+            bảngChấmCôngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem = new ToolStripMenuItem();
             trợGiúpToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
+            btCheckIn = new Button();
+            btCheckOut = new Button();
             gbTTNguoiDung.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             gbTTLuongNguoiDung.SuspendLayout();
@@ -75,7 +78,7 @@
             gbTTNguoiDung.BackColor = Color.White;
             gbTTNguoiDung.Controls.Add(tableLayoutPanel1);
             gbTTNguoiDung.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gbTTNguoiDung.Location = new Point(13, 39);
+            gbTTNguoiDung.Location = new Point(20, 79);
             gbTTNguoiDung.Margin = new Padding(4);
             gbTTNguoiDung.Name = "gbTTNguoiDung";
             gbTTNguoiDung.Padding = new Padding(4);
@@ -119,7 +122,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel1.Size = new Size(543, 341);
             tableLayoutPanel1.TabIndex = 38;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // label3
             // 
@@ -277,7 +279,7 @@
             gbTTLuongNguoiDung.Controls.Add(tableLayoutPanel2);
             gbTTLuongNguoiDung.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gbTTLuongNguoiDung.ForeColor = SystemColors.ActiveCaptionText;
-            gbTTLuongNguoiDung.Location = new Point(13, 421);
+            gbTTLuongNguoiDung.Location = new Point(20, 469);
             gbTTLuongNguoiDung.Margin = new Padding(4);
             gbTTLuongNguoiDung.Name = "gbTTLuongNguoiDung";
             gbTTLuongNguoiDung.Padding = new Padding(4);
@@ -285,7 +287,6 @@
             gbTTLuongNguoiDung.TabIndex = 39;
             gbTTLuongNguoiDung.TabStop = false;
             gbTTLuongNguoiDung.Text = "Thông tin về lương của người dùng";
-            gbTTLuongNguoiDung.Enter += gbTTLuongNguoiDung_Enter_1;
             // 
             // tableLayoutPanel2
             // 
@@ -372,7 +373,7 @@
             // 
             // quảnLýToolStripMenuItem
             // 
-            quảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tsmiEmployee, tsmiPhongBan, tsmiChucVu });
+            quảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tsmiEmployee, tsmiPhongBan, tsmiChucVu, bảngChấmCôngToolStripMenuItem });
             quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
             quảnLýToolStripMenuItem.Size = new Size(97, 28);
             quảnLýToolStripMenuItem.Text = "Quản lý";
@@ -399,6 +400,13 @@
             tsmiChucVu.Text = "Quản lý chức vụ";
             tsmiChucVu.Click += tsmiChucVu_Click;
             // 
+            // bảngChấmCôngToolStripMenuItem
+            // 
+            bảngChấmCôngToolStripMenuItem.Name = "bảngChấmCôngToolStripMenuItem";
+            bảngChấmCôngToolStripMenuItem.Size = new Size(274, 28);
+            bảngChấmCôngToolStripMenuItem.Text = "Bảng chấm công";
+            bảngChấmCôngToolStripMenuItem.Click += bảngChấmCôngToolStripMenuItem_Click;
+            // 
             // thốngKêToolStripMenuItem
             // 
             thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
@@ -417,23 +425,52 @@
             // 
             menuStrip1.BackColor = Color.DarkGray;
             menuStrip1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuStrip1.GripStyle = ToolStripGripStyle.Visible;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { hệThốngToolStripMenuItem, quảnLýToolStripMenuItem, thốngKêToolStripMenuItem, trợGiúpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(4, 2, 0, 2);
             menuStrip1.RenderMode = ToolStripRenderMode.System;
+            menuStrip1.ShowItemToolTips = true;
             menuStrip1.Size = new Size(582, 32);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
+            // 
+            // btCheckIn
+            // 
+            btCheckIn.AutoSize = true;
+            btCheckIn.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btCheckIn.Font = new Font("Arial", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btCheckIn.Location = new Point(61, 46);
+            btCheckIn.Name = "btCheckIn";
+            btCheckIn.Size = new Size(72, 26);
+            btCheckIn.TabIndex = 40;
+            btCheckIn.Text = "Check In";
+            btCheckIn.UseVisualStyleBackColor = true;
+            btCheckIn.Click += btCheckIn_Click;
+            // 
+            // btCheckOut
+            // 
+            btCheckOut.Anchor = AnchorStyles.Left;
+            btCheckOut.AutoSize = true;
+            btCheckOut.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btCheckOut.Font = new Font("Arial", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btCheckOut.Location = new Point(139, 46);
+            btCheckOut.Name = "btCheckOut";
+            btCheckOut.Size = new Size(82, 26);
+            btCheckOut.TabIndex = 41;
+            btCheckOut.Text = "Check Out";
+            btCheckOut.UseVisualStyleBackColor = true;
+            btCheckOut.Click += btCheckOut_Click;
             // 
             // fMain
             // 
             AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(582, 549);
+            ClientSize = new Size(582, 596);
+            Controls.Add(btCheckOut);
+            Controls.Add(btCheckIn);
             Controls.Add(gbTTLuongNguoiDung);
             Controls.Add(gbTTNguoiDung);
             Controls.Add(menuStrip1);
@@ -499,5 +536,8 @@
         private Label label9;
         private TextBox cbbMLuongThang;
         private Label label11;
+        private ToolStripMenuItem bảngChấmCôngToolStripMenuItem;
+        private Button btCheckIn;
+        private Button btCheckOut;
     }
 }
