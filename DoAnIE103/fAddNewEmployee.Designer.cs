@@ -336,7 +336,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "fAddNewEmployee";
             FormClosed += fAddNewEmployee_FormClosed;
-            Enter += fAddNewEmployee_Enter;
+            //Enter += fAddNewEmployee_Enter;
             groupBox1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

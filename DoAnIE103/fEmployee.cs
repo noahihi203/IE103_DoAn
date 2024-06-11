@@ -25,11 +25,7 @@ namespace DoAnIE103
             InitializeComponent();
         }
 
-        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            //return;
-        }
-
+        #region methods
         private void fEmployee_Load(object sender, EventArgs e)
         {
             dtgvEmployee.DataSource = emPloyeeList;
@@ -38,7 +34,7 @@ namespace DoAnIE103
 
         void loadPhongBanIntoCBB(ComboBox cb)
         {
-            cb.DataSource = DepartmentDAO.Instance.getPositionList();
+            cb.DataSource = DepartmentDAO.Instance.GetDepartmentsList();
             cb.DisplayMember = "TENPB";
             cb.ValueMember = "MAPB";
             //DoAnIE103.DTO.LoaiTaiKhoan
@@ -77,6 +73,7 @@ namespace DoAnIE103
             dtgvEmployee.Columns["TENDANGNHAP"].Visible = false;
 
             dtgvEmployee.DataSource = emPloyeeList;
+            // CBBTENCV
 
             dtgvEmployee.DefaultCellStyle.Font = new Font("Arial", 10);
             dtgvEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 8, FontStyle.Bold);
@@ -90,14 +87,64 @@ namespace DoAnIE103
             tbMatKhau.DataBindings.Add(new Binding("Text", dtgvUsers.DataSource, "MATKHAU", true, DataSourceUpdateMode.Never));
         }*/
 
+        private void ExportExcel(string path)
+        {
+            Excel.Application app = new Excel.Application();
+            app.Application.Workbooks.Add(Type.Missing);
+            for (int i = 0; i < dtgvEmployee.Columns.Count; i++)
+            {
+                app.Cells[1, i + 1] = dtgvEmployee.Columns[i].HeaderText;
+            }
+            for (int i = 0; i < dtgvEmployee.Rows.Count; i++)
+            {
+                for (int j = 0; j < dtgvEmployee.Columns.Count; j++)
+                {
+                    app.Cells[i + 2, j + 1] = dtgvEmployee.Rows[i].Cells[j].Value;
+                }
+
+            }
+            app.Columns.AutoFit();
+            app.ActiveWorkbook.SaveCopyAs(path);
+            app.ActiveWorkbook.Saved = true;
+            app.Quit();
+            Marshal.ReleaseComObject(app);
+        }
+        private void ImportExcel(string path)
+        {
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(path)))
+            {
+                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
+
+                for (int i = excelWorksheet.Dimension.Start.Row + 1; i <= excelWorksheet.Dimension.End.Row; i++)
+                {
+                    List<string> listRows = new List<string>();
+                    for (int j = excelWorksheet.Dimension.Start.Column; j < excelWorksheet.Dimension.End.Column; j++)
+                    {
+                        listRows.Add(excelWorksheet.Cells[i, j].Value.ToString());
+                    }
+                    int maluong = Convert.ToInt32(listRows[9]);
+                    int mapb = Convert.ToInt32(listRows[8]);
+                    int macv = Convert.ToInt32(listRows[7]);
+                    int manv = Convert.ToInt32(listRows[0]);
+
+                    EmployeeDAO.Instance.InsertEmployee(manv, listRows[1], listRows[2], listRows[3], listRows[4], listRows[5], listRows[6], macv, mapb, maluong, listRows[10]);
+                }
+            }
+
+        }
+
+        #endregion
         #region events
+        //add Employyee
         private void tsbAdd_Click(object sender, EventArgs e)
         {
             fAddNewEmployee f = new fAddNewEmployee();
             f.ShowDialog();
-            this.Refresh();
+            loadEmployeeList();
         }
 
+        //delete Employee
         public void dtgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
@@ -129,39 +176,35 @@ namespace DoAnIE103
 
         private void tsbEdit_Click(object sender, EventArgs e)
         {
-            fEditEmployee f = new fEditEmployee();
-            f.ShowDialog();
+            /*fEditEmployee f = new fEditEmployee();
+            f.ShowDialog();*/
         }
 
-        #endregion
-
-
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void dtgvEmployee_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            string newValue = dtgvEmployee.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
 
-        }
+            int maNVinEdit = (int)dtgvEmployee.Rows[e.RowIndex].Cells["MANV"].Value;
 
-        private void ExportExcel(string path)
-        {
-            Excel.Application app = new Excel.Application();
-            app.Application.Workbooks.Add(Type.Missing);
-            for (int i = 0; i < dtgvEmployee.Columns.Count; i++)
+            DataTable data = new DataTable();
+            data = EmployeeDAO.Instance.getEmployeeByEmployeeID(maNVinEdit);
+            DataRow dr = data.NewRow();
+            dr =   data.Rows[0];
+
+            string query = string.Format("UPDATE NHANVIEN SET {0} = N'{1}' WHERE MANV = {2}", dtgvEmployee.Columns[e.ColumnIndex].DataPropertyName.ToString(), newValue, maNVinEdit);
+            int result = DataProvider.Instance.executeNonQuery(query);
+            if (result > 0)
             {
-                app.Cells[1, i + 1] = dtgvEmployee.Columns[i].HeaderText;
+                MessageBox.Show("Sửa nhân viên thành công!");
+                loadEmployeeList();
+                return;
             }
-            for (int i = 0; i < dtgvEmployee.Rows.Count; i++)
+            else
             {
-                for (int j = 0; j < dtgvEmployee.Columns.Count; j++)
-                {
-                    app.Cells[i + 2, j + 1] = dtgvEmployee.Rows[i].Cells[j].Value;
-                }
-
+                MessageBox.Show("Sửa nhân viên thất bại!");
+                loadEmployeeList();
+                return;
             }
-            app.Columns.AutoFit();
-            app.ActiveWorkbook.SaveCopyAs(path);
-            app.ActiveWorkbook.Saved = true;
-            app.Quit();
-            Marshal.ReleaseComObject(app);
         }
 
         private void tsbExport_Click(object sender, EventArgs e)
@@ -182,31 +225,6 @@ namespace DoAnIE103
                 }
             }
         }
-        private void ImportExcel(string path)
-        {
-            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
-            using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(path)))
-            {
-                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
-
-                for (int i = excelWorksheet.Dimension.Start.Row + 1; i <= excelWorksheet.Dimension.End.Row; i++)
-                {
-                    List<string> listRows = new List<string>();
-                    for (int j = excelWorksheet.Dimension.Start.Column; j < excelWorksheet.Dimension.End.Column; j++)
-                    {
-                        listRows.Add(excelWorksheet.Cells[i, j].Value.ToString());
-                    }
-                    int maluong = Convert.ToInt32(listRows[9]);
-                    int mapb = Convert.ToInt32(listRows[8]);
-                    int macv = Convert.ToInt32(listRows[7]);
-                    int manv = Convert.ToInt32(listRows[0]);
-                    
-                    EmployeeDAO.Instance.InsertEmployee(manv, listRows[1], listRows[2], listRows[3], listRows[4], listRows[5], listRows[6], macv, mapb, maluong, listRows[10]);
-                }
-            }
-
-        }
-
 
         private void tsbImport_Click(object sender, EventArgs e)
         {
@@ -227,5 +245,33 @@ namespace DoAnIE103
             }
             loadEmployeeList();
         }
+        #endregion
+
+
+
+        private void dtgvEmployee_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            return;
+        }
+
+        private void dtgvEmployee_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            return;
+        }
+
+        private void dtgvEmployee_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            return;
+        }
+
+        private void dtgvEmployee_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void dtgvEmployee_Click(object sender, EventArgs e)
+        {
+            return;
+        }
     }
+
 }

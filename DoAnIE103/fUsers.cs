@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,17 +30,23 @@ namespace DoAnIE103
             dtgvUsers.DataSource = taiKhoanList;
             loadListUser();
             loadLoaiTaiKhoanIntoCBB(cbbLoaiTaiKhoan);
-            addUserBinding();
+            //addUserBinding();
         }
         void loadListUser()
         {
             dtgvUsers.DataSource = null;
-            DataTable data = DataProvider.Instance.executeQuery("SELECT * FROM TAIKHOAN");
+            string query = string.Format("SELECT * FROM TAIKHOAN WHERE TENDANGNHAP = N'{0}'", Const.userID);
+            DataTable data = DataProvider.Instance.executeQuery(query);
             taiKhoanList.DataSource = data;
+            dtgvUsers.Visible = false;
 
-            dtgvUsers.DataSource = taiKhoanList;
-            dtgvUsers.Columns["MACV"].Visible = false;
+            //dtgvUsers.DataSource = taiKhoanList;
+
+            tbTenDangNhap.Text = Const.userID;
+            tbMatKhau.Text = Const.passWord;
             
+            cbbLoaiTaiKhoan.Enabled = false;
+           
             dtgvUsers.Refresh();
         }
 
@@ -51,16 +58,16 @@ namespace DoAnIE103
             //DoAnIE103.DTO.LoaiTaiKhoan
         }
 
-        void addUserBinding()
+        /*void addUserBinding()
         {
             tbTenDangNhap.DataBindings.Add(new Binding("Text", dtgvUsers.DataSource, "TENDANGNHAP", true, DataSourceUpdateMode.Never));
             tbMatKhau.DataBindings.Add(new Binding("Text", dtgvUsers.DataSource, "MATKHAU", true, DataSourceUpdateMode.Never));
 
-        }
+        }*/
         #endregion
 
         #region event
-        private void btThem_Click(object sender, EventArgs e) // bt Thêm nhân viên
+        /*private void btThem_Click(object sender, EventArgs e) // bt Thêm nhân viên
         {
             string tenDangNhap = tbTenDangNhap.Text;
             string matKhau = tbMatKhau.Text;
@@ -83,12 +90,22 @@ namespace DoAnIE103
                 MessageBox.Show("Có lỗi khi thêm tài khoản!");
                 return;
             }
+        }*/ // bt them tai khoan, nhung tai khoan da dc tao tu dong khi them nhan vien roi
+        public static string GetHash(string input)
+        {
+            string query = string.Format("SELECT CONVERT(VARCHAR(40), HASHBYTES('SHA1', CAST('{0}' AS NVARCHAR(4000))), 2) AS MATKHAUSAUHASH", input);
+            DataTable dataTable = new DataTable();
+            dataTable = DataProvider.Instance.executeQuery(query);
+
+            DataRow dataRow = dataTable.Rows[0];
+            string hash = dataRow["MATKHAUSAUHASH"].ToString();
+            return hash;
         }
 
         private void btSua_Click(object sender, EventArgs e) // bt Sửa nhân viên
         {
             string tenDangNhap = tbTenDangNhap.Text;
-            string matKhau = tbMatKhau.Text;
+            string matKhau = GetHash(tbMatKhau.Text.ToString());
             int maloaiTaiKhoan = (int)(cbbLoaiTaiKhoan.SelectedItem as Position).MaCV;
 
 
@@ -103,7 +120,7 @@ namespace DoAnIE103
                 return;
             }
         }
-        private void btXoa_Click(object sender, EventArgs e)
+        /*private void btXoa_Click(object sender, EventArgs e)
         {
             string tenDangNhap = tbTenDangNhap.Text;
 
@@ -119,7 +136,7 @@ namespace DoAnIE103
                 MessageBox.Show("Có lỗi khi xoá tài khoản!");
                 return;
             }
-        }
+        }*/ //bt xoa nhan vien
 
         private void tbTenDangNhap_TextChanged(object sender, EventArgs e)
         {

@@ -35,19 +35,17 @@
             tbMatKhau = new TextBox();
             cbbLoaiTaiKhoan = new ComboBox();
             dtgvUsers = new DataGridView();
-            btThem = new Button();
-            btXoa = new Button();
-            btSua = new Button();
-            btThoat = new Button();
             TENDANGNHAP = new DataGridViewTextBoxColumn();
             MATKHAU = new DataGridViewTextBoxColumn();
+            btSua = new Button();
+            btThoat = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvUsers).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(16, 49);
+            label1.Location = new Point(21, 32);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(133, 21);
@@ -57,7 +55,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(16, 113);
+            label2.Location = new Point(21, 91);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(95, 21);
@@ -67,7 +65,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(16, 175);
+            label3.Location = new Point(21, 153);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(138, 21);
@@ -76,15 +74,16 @@
             // 
             // tbTenDangNhap
             // 
-            tbTenDangNhap.Location = new Point(173, 49);
+            tbTenDangNhap.Location = new Point(178, 32);
             tbTenDangNhap.Name = "tbTenDangNhap";
+            tbTenDangNhap.ReadOnly = true;
             tbTenDangNhap.Size = new Size(216, 28);
             tbTenDangNhap.TabIndex = 3;
             tbTenDangNhap.TextChanged += tbTenDangNhap_TextChanged;
             // 
             // tbMatKhau
             // 
-            tbMatKhau.Location = new Point(173, 113);
+            tbMatKhau.Location = new Point(178, 91);
             tbMatKhau.Name = "tbMatKhau";
             tbMatKhau.Size = new Size(216, 28);
             tbMatKhau.TabIndex = 4;
@@ -93,7 +92,7 @@
             // 
             cbbLoaiTaiKhoan.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cbbLoaiTaiKhoan.FormattingEnabled = true;
-            cbbLoaiTaiKhoan.Location = new Point(173, 175);
+            cbbLoaiTaiKhoan.Location = new Point(178, 153);
             cbbLoaiTaiKhoan.Name = "cbbLoaiTaiKhoan";
             cbbLoaiTaiKhoan.Size = new Size(216, 29);
             cbbLoaiTaiKhoan.TabIndex = 5;
@@ -105,55 +104,15 @@
             dtgvUsers.BackgroundColor = SystemColors.ButtonFace;
             dtgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvUsers.Columns.AddRange(new DataGridViewColumn[] { TENDANGNHAP, MATKHAU });
-            dtgvUsers.Location = new Point(418, 49);
+            dtgvUsers.Location = new Point(21, 205);
             dtgvUsers.MultiSelect = false;
             dtgvUsers.Name = "dtgvUsers";
             dtgvUsers.ReadOnly = true;
             dtgvUsers.RowHeadersWidth = 51;
             dtgvUsers.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dtgvUsers.Size = new Size(398, 398);
+            dtgvUsers.Size = new Size(383, 77);
             dtgvUsers.TabIndex = 6;
             dtgvUsers.CellClick += dtgvUsers_CellClick;
-            // 
-            // btThem
-            // 
-            btThem.Location = new Point(64, 236);
-            btThem.Name = "btThem";
-            btThem.Size = new Size(74, 65);
-            btThem.TabIndex = 7;
-            btThem.Text = "Thêm";
-            btThem.UseVisualStyleBackColor = true;
-            btThem.Click += btThem_Click;
-            // 
-            // btXoa
-            // 
-            btXoa.Location = new Point(173, 236);
-            btXoa.Name = "btXoa";
-            btXoa.Size = new Size(74, 65);
-            btXoa.TabIndex = 8;
-            btXoa.Text = "Xoá";
-            btXoa.UseVisualStyleBackColor = true;
-            btXoa.Click += btXoa_Click;
-            // 
-            // btSua
-            // 
-            btSua.Location = new Point(279, 236);
-            btSua.Name = "btSua";
-            btSua.Size = new Size(74, 65);
-            btSua.TabIndex = 9;
-            btSua.Text = "Sửa";
-            btSua.UseVisualStyleBackColor = true;
-            btSua.Click += btSua_Click;
-            // 
-            // btThoat
-            // 
-            btThoat.Location = new Point(279, 382);
-            btThoat.Name = "btThoat";
-            btThoat.Size = new Size(83, 65);
-            btThoat.TabIndex = 10;
-            btThoat.Text = "Thoát";
-            btThoat.UseVisualStyleBackColor = true;
-            btThoat.Click += btThoat_Click;
             // 
             // TENDANGNHAP
             // 
@@ -171,15 +130,33 @@
             MATKHAU.Name = "MATKHAU";
             MATKHAU.ReadOnly = true;
             // 
+            // btSua
+            // 
+            btSua.Location = new Point(214, 302);
+            btSua.Name = "btSua";
+            btSua.Size = new Size(74, 38);
+            btSua.TabIndex = 9;
+            btSua.Text = "Sửa";
+            btSua.UseVisualStyleBackColor = true;
+            btSua.Click += btSua_Click;
+            // 
+            // btThoat
+            // 
+            btThoat.Location = new Point(294, 302);
+            btThoat.Name = "btThoat";
+            btThoat.Size = new Size(83, 38);
+            btThoat.TabIndex = 10;
+            btThoat.Text = "Thoát";
+            btThoat.UseVisualStyleBackColor = true;
+            btThoat.Click += btThoat_Click;
+            // 
             // fUsers
             // 
             AutoScaleDimensions = new SizeF(11F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(828, 472);
+            ClientSize = new Size(425, 365);
             Controls.Add(btThoat);
             Controls.Add(btSua);
-            Controls.Add(btXoa);
-            Controls.Add(btThem);
             Controls.Add(dtgvUsers);
             Controls.Add(cbbLoaiTaiKhoan);
             Controls.Add(tbMatKhau);
@@ -207,8 +184,6 @@
         private TextBox tbMatKhau;
         private ComboBox cbbLoaiTaiKhoan;
         private DataGridView dtgvUsers;
-        private Button btThem;
-        private Button btXoa;
         private Button btSua;
         private Button btThoat;
         private DataGridViewTextBoxColumn TENDANGNHAP;

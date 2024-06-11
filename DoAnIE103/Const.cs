@@ -13,5 +13,6 @@ namespace DoAnIE103
         public static int PositionId;
 
         public static string userID = null;
+        public static string passWord = null;
     }
 }

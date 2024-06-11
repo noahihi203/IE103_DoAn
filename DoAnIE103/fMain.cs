@@ -57,18 +57,19 @@ namespace DoAnIE103
             }
             DataRow dt = data.Rows[0];
 
-            lbMHoTen.Text = dt["HOTEN"].ToString();
-            lbMDiaChi.Text = dt["DIACHI"].ToString();
-            lbMCCCD.Text = dt["CCCD"].ToString();
+            cbbMHoTen.Text = dt["HOTEN"].ToString();
+            cbbMDiaChi.Text = dt["DIACHI"].ToString();
+            cbbMCCCD.Text = dt["CCCD"].ToString();
             dtpMNgaySinh.Text = dt["NGAYSINH"].ToString();
-            lbMSDT.Text = dt["SDT"].ToString();
-            lbMChucVu.Text = PositionDAO.Instance.getTenCVByMaCV((int)(dt["MACV"])).ToString();
-            lbMPhongBan.Text = DepartmentDAO.Instance.getTenPBByMaPB((int)(dt["MAPB"])).ToString();
-            lbMGioiTinh.Text = dt["GIOITINH"].ToString();
+            cbbMSDT.Text = dt["SDT"].ToString();
+            cbbMChucVu.Text = PositionDAO.Instance.getTenCVByMaCV((int)(dt["MACV"])).ToString();
+            cbbMPhongBan.Text = DepartmentDAO.Instance.getTenPBByMaPB((int)(dt["MAPB"])).ToString();
+            cbbMGioiTinh.Text = dt["GIOITINH"].ToString();
             dtpMNgayNhanLuong.Text = dt["NGAYNHANLUONG"].ToString();
 
             gbTTNguoiDung.Text = "Thông tin của người dùng " + dt["HOTEN"].ToString() + ", mã nhân viên: " + dt["MANV"].ToString();
             gbTTLuongNguoiDung.Text = "Thông tin về lương của người dùng " + dt["HOTEN"].ToString() + ", mã nhân viên: " + dt["MANV"].ToString();
+
         }
 
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -143,6 +144,21 @@ namespace DoAnIE103
 
 
         private void lbMHoTen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gbTTLuongNguoiDung_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbTTLuongNguoiDung_Enter_1(object sender, EventArgs e)
         {
 
         }

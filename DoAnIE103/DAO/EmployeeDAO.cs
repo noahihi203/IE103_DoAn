@@ -48,6 +48,17 @@ namespace DoAnIE103.DAO
 
             return null;
         }
+        public DataTable getEmployeeByEmployeeID(int EmployeeID)
+        {
+            string query = string.Format("SELECT * FROM NHANVIEN WHERE MANV = N'{0}'", EmployeeID);
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+
+            return null;
+        }
 
         public bool InsertEmployee(int manv, string hoten, string gioitinh, string ngaysinh, string sdt, string cccd, string diachi, int macv, int mapb, int maluong, string ngaynhanluong)
         {
@@ -75,6 +86,54 @@ namespace DoAnIE103.DAO
             return result > 0;
         }
 
+        //update one
+        public bool updateEmployeeNameByMaNV(int manv, string ten)
+        {
+            string query = string.Format("UPDATE NHANVIEN SET HOTEN = N'{0}' WHERE MANV = {1}", ten, manv);
+            return DataProvider.Instance.executeNonQuery(query) > 0;
+        }
+
+        public bool updateEmployeeGioiTinhByMaNV(int manv, string gioitinh)
+        {
+            string query = string.Format("UPDATE NHANVIEN SET GIOITINH = N'{0}' WHERE MANV = {1}", gioitinh, manv);
+            return DataProvider.Instance.executeNonQuery(query) > 0;
+        }
+
+        public bool updateEmployeeNgaySinhByMaNV(int manv, DateTime ngaysinh)
+        {
+            string query = string.Format("UPDATE NHANVIEN SET NGAYSINH = '{0}' WHERE MANV = {1}", ngaysinh.ToString("yyyy-MM-dd"), manv);
+            return DataProvider.Instance.executeNonQuery(query) > 0;
+        }
+
+        public bool updateEmployeeSDTByMaNV(int manv, string sdt)
+        {
+            string query = string.Format("UPDATE NHANVIEN SET SDT = '{0}' WHERE MANV = {1}", sdt, manv);
+            return DataProvider.Instance.executeNonQuery(query) > 0;
+        }
+
+        public bool updateEmployeeCCCDByMaNV(int manv, string cccd)
+        {
+            string query = string.Format("UPDATE NHANVIEN SET CCCD = '{0}' WHERE MANV = {1}", cccd, manv);
+            return DataProvider.Instance.executeNonQuery(query) > 0;
+        }
+
+        public bool updateEmployeeDiaChiByMaNV(int manv, string diachi)
+        {
+            string query = string.Format("UPDATE NHANVIEN SET DIACHI = N'{0}' WHERE MANV = {1}", diachi, manv);
+            return DataProvider.Instance.executeNonQuery(query) > 0;
+        }
+
+        public bool updateEmployeeChucVuByMaNV(int manv, int chucvu)
+        {
+            string query = string.Format("UPDATE NHANVIEN SET CHUCVU = {0} WHERE MANV = {1}", chucvu, manv);
+            return DataProvider.Instance.executeNonQuery(query) > 0;
+        }
+
+        public bool updateEmployeePhongBanByMaNV(int manv, int phongban)
+        {
+            string query = string.Format("UPDATE NHANVIEN SET PHONGBAN = {0} WHERE MANV = {1}", phongban, manv);
+            return DataProvider.Instance.executeNonQuery(query) > 0;
+        }
 
     }
 }

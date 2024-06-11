@@ -17,10 +17,10 @@ namespace DoAnIE103
         {
             if (UserDAO.Instance.checkUserName(username))
             {
-                return true;
+                if (ValidatePassword(username, password))
+                    return true;
             }
-            if (ValidatePassword(username, password))
-                return true;
+            
             return false;
         }
 
@@ -43,25 +43,23 @@ namespace DoAnIE103
 
         public static string GetHash(string input)
         {
-            using (SHA1 sha1 = SHA1.Create())
-            {
-                byte[] bytes = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
 
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2")); // Convert byte to hexadecimal string
-                }
-                return builder.ToString();
-            }
+            string query = string.Format("SELECT CONVERT(VARCHAR(40), HASHBYTES('SHA1', CAST('{0}' AS NVARCHAR(4000))), 2) AS MATKHAUSAUHASH", input);
+            DataTable dataTable = new DataTable();
+            dataTable = DataProvider.Instance.executeQuery(query);
+
+            DataRow dataRow = dataTable.Rows[0];
+            string hash = dataRow["MATKHAUSAUHASH"].ToString();
+            return hash;
         }
 
         private void btDangNhap_Click(object sender, EventArgs e)
         {
 
             string username = tbTenDangNhap.Text;
-            string password = GetHash(tbMatKhau.Text.ToString());
+            string password = tbMatKhau.Text;
             Const.userID = username;
+            Const.passWord = tbMatKhau.Text;
 
             if (CheckLogin(username, password)) // Check if the entered password account is correct
             {

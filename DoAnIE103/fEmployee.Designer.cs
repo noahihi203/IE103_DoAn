@@ -32,9 +32,11 @@
             toolStrip2 = new ToolStrip();
             tsbAdd = new ToolStripButton();
             tsbDelete = new ToolStripButton();
+            tsbEdit = new ToolStripButton();
             tsbExport = new ToolStripButton();
             tsbImport = new ToolStripButton();
             dtgvEmployee = new DataGridView();
+            groupBox1 = new GroupBox();
             MANV = new DataGridViewTextBoxColumn();
             HOTEN = new DataGridViewTextBoxColumn();
             GIOITINH = new DataGridViewTextBoxColumn();
@@ -44,11 +46,6 @@
             DIACHI = new DataGridViewTextBoxColumn();
             CBBTENCV = new DataGridViewComboBoxColumn();
             CBBTENPB = new DataGridViewComboBoxColumn();
-            MALUONG = new DataGridViewTextBoxColumn();
-            NGAYNHANLUONG = new DataGridViewTextBoxColumn();
-            TENDANGNHAP = new DataGridViewTextBoxColumn();
-            groupBox1 = new GroupBox();
-            tsbEdit = new ToolStripButton();
             toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvEmployee).BeginInit();
             groupBox1.SuspendLayout();
@@ -63,7 +60,6 @@
             toolStrip2.Size = new Size(1145, 27);
             toolStrip2.TabIndex = 6;
             toolStrip2.Text = "toolStrip2";
-            toolStrip2.ItemClicked += toolStrip2_ItemClicked;
             // 
             // tsbAdd
             // 
@@ -82,6 +78,15 @@
             tsbDelete.Size = new Size(59, 24);
             tsbDelete.Text = "Xoá";
             tsbDelete.Click += tsbDelete_Click;
+            // 
+            // tsbEdit
+            // 
+            tsbEdit.Image = (Image)resources.GetObject("tsbEdit.Image");
+            tsbEdit.ImageTransparentColor = Color.Magenta;
+            tsbEdit.Name = "tsbEdit";
+            tsbEdit.Size = new Size(58, 24);
+            tsbEdit.Text = "Sửa";
+            tsbEdit.Click += tsbEdit_Click;
             // 
             // tsbExport
             // 
@@ -108,7 +113,7 @@
             dtgvEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvEmployee.BackgroundColor = SystemColors.ButtonHighlight;
             dtgvEmployee.ColumnHeadersHeight = 29;
-            dtgvEmployee.Columns.AddRange(new DataGridViewColumn[] { MANV, HOTEN, GIOITINH, NGAYSINH, SDT, CCCD, DIACHI, CBBTENCV, CBBTENPB, MALUONG, NGAYNHANLUONG, TENDANGNHAP });
+            dtgvEmployee.Columns.AddRange(new DataGridViewColumn[] { MANV, HOTEN, GIOITINH, NGAYSINH, SDT, CCCD, DIACHI, CBBTENCV, CBBTENPB });
             dtgvEmployee.GridColor = Color.Black;
             dtgvEmployee.Location = new Point(6, 29);
             dtgvEmployee.Name = "dtgvEmployee";
@@ -116,6 +121,23 @@
             dtgvEmployee.Size = new Size(1109, 616);
             dtgvEmployee.TabIndex = 7;
             dtgvEmployee.CellClick += dtgvEmployee_CellClick;
+            dtgvEmployee.CellContentDoubleClick += dtgvEmployee_CellContentDoubleClick;
+            dtgvEmployee.CellDoubleClick += dtgvEmployee_CellDoubleClick;
+            dtgvEmployee.CellEndEdit += dtgvEmployee_CellEndEdit;
+            dtgvEmployee.CellEnter += dtgvEmployee_CellEnter;
+            dtgvEmployee.CellMouseClick += dtgvEmployee_CellMouseClick;
+            dtgvEmployee.Click += dtgvEmployee_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(dtgvEmployee);
+            groupBox1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(12, 47);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1121, 634);
+            groupBox1.TabIndex = 8;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Danh sách nhân viên";
             // 
             // MANV
             // 
@@ -135,7 +157,6 @@
             HOTEN.HeaderText = "Họ và tên";
             HOTEN.MinimumWidth = 6;
             HOTEN.Name = "HOTEN";
-            HOTEN.ReadOnly = true;
             // 
             // GIOITINH
             // 
@@ -144,7 +165,6 @@
             GIOITINH.HeaderText = "Giới tính";
             GIOITINH.MinimumWidth = 6;
             GIOITINH.Name = "GIOITINH";
-            GIOITINH.ReadOnly = true;
             // 
             // NGAYSINH
             // 
@@ -153,7 +173,6 @@
             NGAYSINH.HeaderText = "Ngày sinh";
             NGAYSINH.MinimumWidth = 6;
             NGAYSINH.Name = "NGAYSINH";
-            NGAYSINH.ReadOnly = true;
             // 
             // SDT
             // 
@@ -162,7 +181,6 @@
             SDT.HeaderText = "Số điện thoại";
             SDT.MinimumWidth = 6;
             SDT.Name = "SDT";
-            SDT.ReadOnly = true;
             // 
             // CCCD
             // 
@@ -171,7 +189,6 @@
             CCCD.HeaderText = "Căn cước";
             CCCD.MinimumWidth = 6;
             CCCD.Name = "CCCD";
-            CCCD.ReadOnly = true;
             // 
             // DIACHI
             // 
@@ -180,7 +197,6 @@
             DIACHI.HeaderText = "Địa chỉ";
             DIACHI.MinimumWidth = 6;
             DIACHI.Name = "DIACHI";
-            DIACHI.ReadOnly = true;
             // 
             // CBBTENCV
             // 
@@ -189,7 +205,6 @@
             CBBTENCV.HeaderText = "Chức vụ";
             CBBTENCV.MinimumWidth = 6;
             CBBTENCV.Name = "CBBTENCV";
-            CBBTENCV.ReadOnly = true;
             CBBTENCV.Resizable = DataGridViewTriState.True;
             CBBTENCV.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
@@ -200,57 +215,8 @@
             CBBTENPB.HeaderText = "Phòng ban";
             CBBTENPB.MinimumWidth = 6;
             CBBTENPB.Name = "CBBTENPB";
-            CBBTENPB.ReadOnly = true;
             CBBTENPB.Resizable = DataGridViewTriState.True;
             CBBTENPB.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // MALUONG
-            // 
-            MALUONG.DataPropertyName = "MALUONG";
-            MALUONG.FillWeight = 44.3364143F;
-            MALUONG.HeaderText = "Mã lương";
-            MALUONG.MinimumWidth = 6;
-            MALUONG.Name = "MALUONG";
-            MALUONG.ReadOnly = true;
-            // 
-            // NGAYNHANLUONG
-            // 
-            NGAYNHANLUONG.DataPropertyName = "NGAYNHANLUONG";
-            NGAYNHANLUONG.FillWeight = 44.3364143F;
-            NGAYNHANLUONG.HeaderText = "Ngày nhận lương";
-            NGAYNHANLUONG.MinimumWidth = 6;
-            NGAYNHANLUONG.Name = "NGAYNHANLUONG";
-            NGAYNHANLUONG.ReadOnly = true;
-            // 
-            // TENDANGNHAP
-            // 
-            TENDANGNHAP.DataPropertyName = "TENDANGNHAP";
-            TENDANGNHAP.FillWeight = 44.3364143F;
-            TENDANGNHAP.HeaderText = "Tên đăng nhập";
-            TENDANGNHAP.MinimumWidth = 6;
-            TENDANGNHAP.Name = "TENDANGNHAP";
-            TENDANGNHAP.ReadOnly = true;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(dtgvEmployee);
-            groupBox1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(12, 47);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1121, 634);
-            groupBox1.TabIndex = 8;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Danh sách nhân viên";
-            groupBox1.Enter += groupBox1_Enter;
-            // 
-            // tsbEdit
-            // 
-            tsbEdit.Image = (Image)resources.GetObject("tsbEdit.Image");
-            tsbEdit.ImageTransparentColor = Color.Magenta;
-            tsbEdit.Name = "tsbEdit";
-            tsbEdit.Size = new Size(58, 24);
-            tsbEdit.Text = "Sửa";
-            tsbEdit.Click += tsbEdit_Click;
             // 
             // fEmployee
             // 
@@ -280,6 +246,7 @@
         private GroupBox groupBox1;
         private ToolStripButton tsbExport;
         private ToolStripButton tsbImport;
+        private ToolStripButton tsbEdit;
         private DataGridViewTextBoxColumn MANV;
         private DataGridViewTextBoxColumn HOTEN;
         private DataGridViewTextBoxColumn GIOITINH;
@@ -289,9 +256,5 @@
         private DataGridViewTextBoxColumn DIACHI;
         private DataGridViewComboBoxColumn CBBTENCV;
         private DataGridViewComboBoxColumn CBBTENPB;
-        private DataGridViewTextBoxColumn MALUONG;
-        private DataGridViewTextBoxColumn NGAYNHANLUONG;
-        private DataGridViewTextBoxColumn TENDANGNHAP;
-        private ToolStripButton tsbEdit;
     }
 }

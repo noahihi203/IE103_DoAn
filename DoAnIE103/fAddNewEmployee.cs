@@ -20,19 +20,9 @@ namespace DoAnIE103
             LoadDataIntoComboBoxColumn();
         }
 
-        void addEmployeeFromHeretoFEmployee()
-        {
-
-        }
-
         private void btAHuy_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void fAddNewEmployee_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void btAThem_Click(object sender, EventArgs e)

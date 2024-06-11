@@ -31,7 +31,24 @@ namespace DoAnIE103.DAO
                 return tenpb;
             }
         }
-        public List<Department> getPositionList()
+        /*public Position getDepartment(int mapb)
+        {
+            Department department = null;
+
+            string query = string.Format("SELECT * FROM PHONGBAN WHERE MAPB = {0}", mapb);
+            DataTable data = DataProvider.Instance.executeQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                department = new Department(item);
+                return department;
+            }
+
+
+            return department;
+        }*/
+
+        public List<Department> GetDepartmentsList()
         {
             List<Department> list = new List<Department>();
             string query = "SELECT * FROM PHONGBAN";
@@ -42,6 +59,29 @@ namespace DoAnIE103.DAO
                 list.Add(dpm);
             }
             return list;
+        }
+
+        public bool insertDepartment(int mapb, string tenpb)
+        {
+            string query = string.Format("INSERT INTO PHONGBAN(MAPB, TENPB) VALUES({0}, N'{1}')", mapb, tenpb);
+            int result = DataProvider.Instance.executeNonQuery(query);
+            return result > 0;
+        }
+
+
+        public bool updateDepartment(int mapb, string tenpb)
+        {
+            //string tencv = getTenCVByMaCV(macv);
+            string query = string.Format("UPDATE PHONGBAN SET TENPB = N'{0}' WHERE MAPB = {1}", mapb, tenpb);
+            int result = DataProvider.Instance.executeNonQuery(query);
+            return result > 0;
+        }
+
+        public bool deleteDepartment(int mapb)
+        {
+            string query = string.Format("DELETE PHONGBAN WHERE MAPB = {0}", mapb);
+            int result = DataProvider.Instance.executeNonQuery(query);
+            return result > 0;
         }
     }
 }
