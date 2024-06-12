@@ -28,71 +28,114 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            button1 = new Button();
-            button2 = new Button();
             dtgvTimesheet = new DataGridView();
-            groupBox1.SuspendLayout();
+            groupBox1 = new GroupBox();
+            HOTEN = new DataGridViewTextBoxColumn();
+            MABC = new DataGridViewTextBoxColumn();
+            THANG = new DataGridViewTextBoxColumn();
+            SONGAYLAM = new DataGridViewTextBoxColumn();
+            SONGAYNGHI = new DataGridViewTextBoxColumn();
+            GHICHU = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgvTimesheet).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
+            // 
+            // dtgvTimesheet
+            // 
+            dtgvTimesheet.AllowUserToAddRows = false;
+            dtgvTimesheet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvTimesheet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvTimesheet.Columns.AddRange(new DataGridViewColumn[] { HOTEN, MABC, THANG, SONGAYLAM, SONGAYNGHI, GHICHU });
+            dtgvTimesheet.Location = new Point(6, 26);
+            dtgvTimesheet.Name = "dtgvTimesheet";
+            dtgvTimesheet.RowHeadersVisible = false;
+            dtgvTimesheet.RowHeadersWidth = 51;
+            dtgvTimesheet.Size = new Size(690, 394);
+            dtgvTimesheet.TabIndex = 0;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dtgvTimesheet);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(534, 426);
+            groupBox1.Size = new Size(702, 426);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Hiển thị danh sách nhân viên kèm số ngày đi làm, số ngày vắng";
+            groupBox1.Text = "Danh sách bảng công";
             // 
-            // button1
+            // HOTEN
             // 
-            button1.Location = new Point(569, 286);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 68);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            HOTEN.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            HOTEN.DataPropertyName = "HOTEN";
+            HOTEN.HeaderText = "Họ và tên";
+            HOTEN.MinimumWidth = 6;
+            HOTEN.Name = "HOTEN";
+            HOTEN.ReadOnly = true;
+            HOTEN.Width = 115;
             // 
-            // button2
+            // MABC
             // 
-            button2.Location = new Point(569, 370);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 68);
-            button2.TabIndex = 3;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            MABC.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            MABC.DataPropertyName = "MABC";
+            MABC.HeaderText = "Mã bảng công";
+            MABC.MinimumWidth = 6;
+            MABC.Name = "MABC";
+            MABC.ReadOnly = true;
             // 
-            // dtgvTimesheet
+            // THANG
             // 
-            dtgvTimesheet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvTimesheet.Location = new Point(6, 47);
-            dtgvTimesheet.Name = "dtgvTimesheet";
-            dtgvTimesheet.RowHeadersWidth = 51;
-            dtgvTimesheet.Size = new Size(300, 188);
-            dtgvTimesheet.TabIndex = 0;
+            THANG.DataPropertyName = "THANG";
+            THANG.HeaderText = "Tháng";
+            THANG.MinimumWidth = 6;
+            THANG.Name = "THANG";
+            THANG.ReadOnly = true;
+            // 
+            // SONGAYLAM
+            // 
+            SONGAYLAM.DataPropertyName = "SONGAYLAM";
+            SONGAYLAM.HeaderText = "Số ngày làm";
+            SONGAYLAM.MinimumWidth = 6;
+            SONGAYLAM.Name = "SONGAYLAM";
+            SONGAYLAM.ReadOnly = true;
+            // 
+            // SONGAYNGHI
+            // 
+            SONGAYNGHI.DataPropertyName = "SONGAYNGHI";
+            SONGAYNGHI.HeaderText = "Số ngày nghỉ";
+            SONGAYNGHI.MinimumWidth = 6;
+            SONGAYNGHI.Name = "SONGAYNGHI";
+            SONGAYNGHI.ReadOnly = true;
+            // 
+            // GHICHU
+            // 
+            GHICHU.DataPropertyName = "GHICHU";
+            GHICHU.HeaderText = "Ghi chú";
+            GHICHU.MinimumWidth = 6;
+            GHICHU.Name = "GHICHU";
             // 
             // fTimesheets
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(687, 450);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(719, 450);
             Controls.Add(groupBox1);
             Name = "fTimesheets";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bảng công";
-            groupBox1.ResumeLayout(false);
+            Load += fTimesheets_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvTimesheet).EndInit();
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private GroupBox groupBox1;
-        private Button button1;
-        private Button button2;
         private DataGridView dtgvTimesheet;
+        private GroupBox groupBox1;
+        private DataGridViewTextBoxColumn HOTEN;
+        private DataGridViewTextBoxColumn MABC;
+        private DataGridViewTextBoxColumn THANG;
+        private DataGridViewTextBoxColumn SONGAYLAM;
+        private DataGridViewTextBoxColumn SONGAYNGHI;
+        private DataGridViewTextBoxColumn GHICHU;
     }
 }

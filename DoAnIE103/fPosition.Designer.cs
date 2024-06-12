@@ -137,6 +137,7 @@
             dtgvPosition.Location = new Point(90, 26);
             dtgvPosition.MultiSelect = false;
             dtgvPosition.Name = "dtgvPosition";
+            dtgvPosition.RowHeadersVisible = false;
             dtgvPosition.RowHeadersWidth = 51;
             dtgvPosition.Size = new Size(317, 393);
             dtgvPosition.TabIndex = 9;

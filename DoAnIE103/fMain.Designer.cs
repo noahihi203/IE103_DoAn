@@ -66,6 +66,7 @@
             menuStrip1 = new MenuStrip();
             btCheckIn = new Button();
             btCheckOut = new Button();
+            btSaveProfile = new Button();
             gbTTNguoiDung.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             gbTTLuongNguoiDung.SuspendLayout();
@@ -76,13 +77,14 @@
             // gbTTNguoiDung
             // 
             gbTTNguoiDung.BackColor = Color.White;
+            gbTTNguoiDung.Controls.Add(btSaveProfile);
             gbTTNguoiDung.Controls.Add(tableLayoutPanel1);
             gbTTNguoiDung.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gbTTNguoiDung.Location = new Point(20, 79);
+            gbTTNguoiDung.Location = new Point(13, 79);
             gbTTNguoiDung.Margin = new Padding(4);
             gbTTNguoiDung.Name = "gbTTNguoiDung";
             gbTTNguoiDung.Padding = new Padding(4);
-            gbTTNguoiDung.Size = new Size(557, 382);
+            gbTTNguoiDung.Size = new Size(561, 419);
             gbTTNguoiDung.TabIndex = 2;
             gbTTNguoiDung.TabStop = false;
             gbTTNguoiDung.Text = "Thông tin người dùng";
@@ -109,7 +111,7 @@
             tableLayoutPanel1.Controls.Add(cbbMDiaChi, 0, 5);
             tableLayoutPanel1.Controls.Add(cbbMChucVu, 1, 5);
             tableLayoutPanel1.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tableLayoutPanel1.Location = new Point(7, 34);
+            tableLayoutPanel1.Location = new Point(11, 28);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 8;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
@@ -120,14 +122,14 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.Size = new Size(543, 341);
+            tableLayoutPanel1.Size = new Size(539, 340);
             tableLayoutPanel1.TabIndex = 38;
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label3.AutoSize = true;
-            label3.Location = new Point(275, 273);
+            label3.Location = new Point(273, 273);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(84, 21);
@@ -160,7 +162,7 @@
             // 
             label8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label8.AutoSize = true;
-            label8.Location = new Point(275, 189);
+            label8.Location = new Point(273, 189);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(83, 21);
@@ -176,7 +178,7 @@
             // 
             // cbbMGioiTinh
             // 
-            cbbMGioiTinh.Location = new Point(274, 297);
+            cbbMGioiTinh.Location = new Point(272, 297);
             cbbMGioiTinh.Name = "cbbMGioiTinh";
             cbbMGioiTinh.Size = new Size(210, 28);
             cbbMGioiTinh.TabIndex = 58;
@@ -192,7 +194,7 @@
             // 
             label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label6.AutoSize = true;
-            label6.Location = new Point(275, 105);
+            label6.Location = new Point(273, 105);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(67, 21);
@@ -203,7 +205,7 @@
             // 
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label4.AutoSize = true;
-            label4.Location = new Point(275, 21);
+            label4.Location = new Point(273, 21);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(95, 21);
@@ -217,7 +219,7 @@
             dtpMNgaySinh.CustomFormat = "dd-MM-yyyy";
             dtpMNgaySinh.Enabled = false;
             dtpMNgaySinh.Format = DateTimePickerFormat.Custom;
-            dtpMNgaySinh.Location = new Point(275, 46);
+            dtpMNgaySinh.Location = new Point(273, 46);
             dtpMNgaySinh.Margin = new Padding(4);
             dtpMNgaySinh.Name = "dtpMNgaySinh";
             dtpMNgaySinh.Size = new Size(209, 28);
@@ -247,7 +249,7 @@
             // 
             // cbbMCCCD
             // 
-            cbbMCCCD.Location = new Point(274, 129);
+            cbbMCCCD.Location = new Point(272, 129);
             cbbMCCCD.Name = "cbbMCCCD";
             cbbMCCCD.Size = new Size(210, 28);
             cbbMCCCD.TabIndex = 48;
@@ -268,7 +270,7 @@
             // 
             // cbbMChucVu
             // 
-            cbbMChucVu.Location = new Point(274, 213);
+            cbbMChucVu.Location = new Point(272, 213);
             cbbMChucVu.Name = "cbbMChucVu";
             cbbMChucVu.Size = new Size(210, 28);
             cbbMChucVu.TabIndex = 56;
@@ -279,7 +281,7 @@
             gbTTLuongNguoiDung.Controls.Add(tableLayoutPanel2);
             gbTTLuongNguoiDung.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gbTTLuongNguoiDung.ForeColor = SystemColors.ActiveCaptionText;
-            gbTTLuongNguoiDung.Location = new Point(20, 469);
+            gbTTLuongNguoiDung.Location = new Point(13, 506);
             gbTTLuongNguoiDung.Margin = new Padding(4);
             gbTTLuongNguoiDung.Name = "gbTTLuongNguoiDung";
             gbTTLuongNguoiDung.Padding = new Padding(4);
@@ -309,6 +311,7 @@
             // 
             cbbMLuongThang.Location = new Point(3, 45);
             cbbMLuongThang.Name = "cbbMLuongThang";
+            cbbMLuongThang.ReadOnly = true;
             cbbMLuongThang.Size = new Size(160, 28);
             cbbMLuongThang.TabIndex = 40;
             // 
@@ -432,7 +435,7 @@
             menuStrip1.Padding = new Padding(4, 2, 0, 2);
             menuStrip1.RenderMode = ToolStripRenderMode.System;
             menuStrip1.ShowItemToolTips = true;
-            menuStrip1.Size = new Size(582, 32);
+            menuStrip1.Size = new Size(587, 32);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -441,7 +444,7 @@
             btCheckIn.AutoSize = true;
             btCheckIn.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btCheckIn.Font = new Font("Arial", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btCheckIn.Location = new Point(61, 46);
+            btCheckIn.Location = new Point(61, 35);
             btCheckIn.Name = "btCheckIn";
             btCheckIn.Size = new Size(72, 26);
             btCheckIn.TabIndex = 40;
@@ -455,7 +458,7 @@
             btCheckOut.AutoSize = true;
             btCheckOut.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btCheckOut.Font = new Font("Arial", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btCheckOut.Location = new Point(139, 46);
+            btCheckOut.Location = new Point(139, 35);
             btCheckOut.Name = "btCheckOut";
             btCheckOut.Size = new Size(82, 26);
             btCheckOut.TabIndex = 41;
@@ -463,12 +466,22 @@
             btCheckOut.UseVisualStyleBackColor = true;
             btCheckOut.Click += btCheckOut_Click;
             // 
+            // btSaveProfile
+            // 
+            btSaveProfile.Location = new Point(411, 374);
+            btSaveProfile.Name = "btSaveProfile";
+            btSaveProfile.Size = new Size(94, 29);
+            btSaveProfile.TabIndex = 39;
+            btSaveProfile.Text = "Lưu";
+            btSaveProfile.UseVisualStyleBackColor = true;
+            btSaveProfile.Click += btSaveProfile_Click;
+            // 
             // fMain
             // 
             AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(582, 596);
+            ClientSize = new Size(587, 639);
             Controls.Add(btCheckOut);
             Controls.Add(btCheckIn);
             Controls.Add(gbTTLuongNguoiDung);
@@ -539,5 +552,6 @@
         private ToolStripMenuItem bảngChấmCôngToolStripMenuItem;
         private Button btCheckIn;
         private Button btCheckOut;
+        private Button btSaveProfile;
     }
 }

@@ -137,6 +137,7 @@
             dtgvDepartment.Location = new Point(90, 26);
             dtgvDepartment.MultiSelect = false;
             dtgvDepartment.Name = "dtgvDepartment";
+            dtgvDepartment.RowHeadersVisible = false;
             dtgvDepartment.RowHeadersWidth = 51;
             dtgvDepartment.Size = new Size(317, 393);
             dtgvDepartment.TabIndex = 9;

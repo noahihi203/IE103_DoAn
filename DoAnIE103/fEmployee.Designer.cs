@@ -36,7 +36,6 @@
             tsbExport = new ToolStripButton();
             tsbImport = new ToolStripButton();
             dtgvEmployee = new DataGridView();
-            groupBox1 = new GroupBox();
             MANV = new DataGridViewTextBoxColumn();
             HOTEN = new DataGridViewTextBoxColumn();
             GIOITINH = new DataGridViewTextBoxColumn();
@@ -46,6 +45,7 @@
             DIACHI = new DataGridViewTextBoxColumn();
             CBBTENCV = new DataGridViewComboBoxColumn();
             CBBTENPB = new DataGridViewComboBoxColumn();
+            groupBox1 = new GroupBox();
             toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvEmployee).BeginInit();
             groupBox1.SuspendLayout();
@@ -117,6 +117,7 @@
             dtgvEmployee.GridColor = Color.Black;
             dtgvEmployee.Location = new Point(6, 29);
             dtgvEmployee.Name = "dtgvEmployee";
+            dtgvEmployee.RowHeadersVisible = false;
             dtgvEmployee.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             dtgvEmployee.Size = new Size(1109, 616);
             dtgvEmployee.TabIndex = 7;
@@ -127,17 +128,6 @@
             dtgvEmployee.CellEnter += dtgvEmployee_CellEnter;
             dtgvEmployee.CellMouseClick += dtgvEmployee_CellMouseClick;
             dtgvEmployee.Click += dtgvEmployee_Click;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(dtgvEmployee);
-            groupBox1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(12, 47);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1121, 634);
-            groupBox1.TabIndex = 8;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Danh sách nhân viên";
             // 
             // MANV
             // 
@@ -217,6 +207,17 @@
             CBBTENPB.Name = "CBBTENPB";
             CBBTENPB.Resizable = DataGridViewTriState.True;
             CBBTENPB.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(dtgvEmployee);
+            groupBox1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(12, 47);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1121, 634);
+            groupBox1.TabIndex = 8;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Danh sách nhân viên";
             // 
             // fEmployee
             // 

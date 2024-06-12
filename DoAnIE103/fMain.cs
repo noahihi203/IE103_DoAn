@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using CsvHelper.Configuration;
 
 
+
 namespace DoAnIE103
 {
     public partial class fMain : Form
@@ -51,7 +52,7 @@ namespace DoAnIE103
             loadDataToForm();
             Decentralization();
         }
-         int manv;
+        int manv;
         private void loadDataToForm()
         {
             DataTable data = EmployeeDAO.Instance.getEmployeeByUserID(Const.userID);
@@ -75,11 +76,32 @@ namespace DoAnIE103
 
             gbTTNguoiDung.Text = "Thông tin của người dùng " + dt["HOTEN"].ToString() + ", mã nhân viên: " + dt["MANV"].ToString();
             gbTTLuongNguoiDung.Text = "Thông tin về lương của người dùng " + dt["HOTEN"].ToString() + ", mã nhân viên: " + dt["MANV"].ToString();
-
             manv = Convert.ToInt32(dt["MANV"].ToString());
+            Const.EmployeeId = manv;
+            cbbMLuongThang = getLuong(Const.EmployeeId);
 
         }
-
+        private double getLuong(int manv)
+        {
+            double luongDu = WageDAO.Instance.getLuongByMaNV(manv);
+            DataTable data = new DataTable();
+            data = TimesheetsDAO.Instance.getDanhSachBangCong(Const.EmployeeId);
+            double songayLam;
+            double songayNghi;
+            foreach (DataRow dr in data.Rows)
+            {
+                if (Convert.ToInt32(dr["THANG"]) == Convert.ToInt32(DateTime.Now.Month)
+                    && Convert.ToInt32(dr["MABC"]) == Convert.ToInt32(DateTime.Now.Year)
+                    && Convert.ToInt32(dr["MANV"]) == manv)
+                {
+                    songayLam = Convert.ToDouble(dr["SONGAYLAM"]);
+                    songayNghi = Convert.ToDouble(dr["SONGAYNGHI"]);
+                }
+            }
+            double luong = (luongDu / 24) * songayLam;
+            return luong;
+            
+        }
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isExit)
@@ -151,12 +173,17 @@ namespace DoAnIE103
 
 
 
- 
+
 
         private void bảngChấmCôngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fTimesheets f = new fTimesheets();
             f.ShowDialog();
+        }
+
+        public bool verifyLocation() // Hàm để xác nhận vị trí
+        {
+            return true;
         }
 
         string filePath = "C:\\Users\\user\\OneDrive\\Máy tính\\DoAnIE103\\CheckInCheckOut.csv";
@@ -192,7 +219,7 @@ namespace DoAnIE103
             using (StreamWriter sw = new StreamWriter(filePath, false))
             using (CsvWriter csvWriter = new CsvWriter(sw, CultureInfo.InvariantCulture))
             {
-                if (true) // Kiểm tra vị trí
+                if (verifyLocation()) // Kiểm tra vị trí
                 {
 
                     // Ghi thời gian check-in vào file
@@ -213,7 +240,6 @@ namespace DoAnIE103
 
         private void btCheckOut_Click(object sender, EventArgs e)
         {
-            btCheckIn.Enabled = true;
 
             bool hasCheckedIn = false;
             using (var reader = new StreamReader(filePath))
@@ -241,13 +267,13 @@ namespace DoAnIE103
             }
             CheckInAndOutDate i = new CheckInAndOutDate();
 
-            if (true) //Kiem tra vi tri
+            if (verifyLocation()) //Kiem tra vi tri
             {
                 using (var reader = new StreamReader(filePath))
                 using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))
                 {
                     csv.Read();
-                    i.CheckInTime= csv.GetField<DateTime>(0);
+                    i.CheckInTime = csv.GetField<DateTime>(0);
                 }
                 i.CheckOutTime = DateTime.Now;
                 i.WorkTime = i.CheckOutTime - i.CheckInTime;
@@ -265,7 +291,12 @@ namespace DoAnIE103
             else
             {
                 MessageBox.Show("Co loi khi them so ngay lam viec");
-            }    
+            }
+        }
+
+        private void btSaveProfile_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

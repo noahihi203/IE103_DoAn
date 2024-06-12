@@ -108,6 +108,7 @@
             dtgvUsers.MultiSelect = false;
             dtgvUsers.Name = "dtgvUsers";
             dtgvUsers.ReadOnly = true;
+            dtgvUsers.RowHeadersVisible = false;
             dtgvUsers.RowHeadersWidth = 51;
             dtgvUsers.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dtgvUsers.Size = new Size(383, 77);

@@ -26,5 +26,18 @@ namespace DoAnIE103.DAO
                 return dt;
             return null;
         }
+
+        public double getLuongByMaNV(int manv)
+        {
+            string query = string.Format("SELECT (LUONGBS - PHUCAP + LUONGCB) AS LUONGTOTAL FROM LUONG WHERE MACV = (SELECT MACV FROM NHANVIEN WHERE MANV = {0})", manv);
+
+            DataTable dt = DataProvider.Instance.executeQuery(query);
+            if (dt.Rows.Count > 0)
+            { 
+                return Convert.ToDouble(dt.Rows[0]["LUONGTOTAL"]); 
+            }
+            return 0;
+        }
+
     }
 }
