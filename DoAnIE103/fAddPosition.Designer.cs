@@ -38,6 +38,8 @@
             // 
             // btAddPositionInFA
             // 
+            btAddPositionInFA.BackColor = Color.FromArgb(255, 255, 192);
+            btAddPositionInFA.FlatStyle = FlatStyle.Popup;
             btAddPositionInFA.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btAddPositionInFA.ForeColor = SystemColors.ActiveCaptionText;
             btAddPositionInFA.Location = new Point(156, 140);
@@ -45,18 +47,20 @@
             btAddPositionInFA.Size = new Size(94, 29);
             btAddPositionInFA.TabIndex = 2;
             btAddPositionInFA.Text = "Thêm";
-            btAddPositionInFA.UseVisualStyleBackColor = true;
+            btAddPositionInFA.UseVisualStyleBackColor = false;
             btAddPositionInFA.Click += btAddPositionInFA_Click;
             // 
             // btCancelInFA
             // 
+            btCancelInFA.BackColor = Color.FromArgb(255, 255, 192);
+            btCancelInFA.FlatStyle = FlatStyle.Popup;
             btCancelInFA.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btCancelInFA.Location = new Point(256, 140);
             btCancelInFA.Name = "btCancelInFA";
             btCancelInFA.Size = new Size(94, 29);
             btCancelInFA.TabIndex = 1;
             btCancelInFA.Text = "Hủy";
-            btCancelInFA.UseVisualStyleBackColor = true;
+            btCancelInFA.UseVisualStyleBackColor = false;
             btCancelInFA.Click += btCancelInFA_Click;
             // 
             // label1
@@ -79,6 +83,8 @@
             // 
             // tbMaCVInFA
             // 
+            tbMaCVInFA.BackColor = Color.FromArgb(255, 224, 192);
+            tbMaCVInFA.BorderStyle = BorderStyle.FixedSingle;
             tbMaCVInFA.Location = new Point(143, 33);
             tbMaCVInFA.Name = "tbMaCVInFA";
             tbMaCVInFA.Size = new Size(209, 27);
@@ -86,6 +92,8 @@
             // 
             // tbTenCVInFA
             // 
+            tbTenCVInFA.BackColor = Color.FromArgb(255, 224, 192);
+            tbTenCVInFA.BorderStyle = BorderStyle.FixedSingle;
             tbTenCVInFA.Location = new Point(143, 86);
             tbTenCVInFA.Name = "tbTenCVInFA";
             tbTenCVInFA.Size = new Size(209, 27);
@@ -96,6 +104,7 @@
             AcceptButton = btAddPositionInFA;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(192, 255, 192);
             CancelButton = btCancelInFA;
             ClientSize = new Size(383, 194);
             Controls.Add(tbTenCVInFA);
@@ -106,6 +115,7 @@
             Controls.Add(btAddPositionInFA);
             FormBorderStyle = FormBorderStyle.None;
             Name = "fAddPosition";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "fAddPosition";
             ResumeLayout(false);
             PerformLayout();

@@ -70,12 +70,15 @@
             // 
             // btAHuy
             // 
+            btAHuy.BackColor = Color.FromArgb(192, 255, 192);
+            btAHuy.FlatStyle = FlatStyle.Popup;
+            btAHuy.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btAHuy.Location = new Point(638, 220);
             btAHuy.Name = "btAHuy";
             btAHuy.Size = new Size(94, 29);
             btAHuy.TabIndex = 12;
             btAHuy.Text = "Huỷ";
-            btAHuy.UseVisualStyleBackColor = true;
+            btAHuy.UseVisualStyleBackColor = false;
             btAHuy.Click += btAHuy_Click;
             // 
             // tableLayoutPanel1
@@ -119,6 +122,8 @@
             // tbACCCD
             // 
             tbACCCD.Anchor = AnchorStyles.Left;
+            tbACCCD.BackColor = Color.FromArgb(255, 224, 192);
+            tbACCCD.BorderStyle = BorderStyle.FixedSingle;
             tbACCCD.Location = new Point(180, 104);
             tbACCCD.Name = "tbACCCD";
             tbACCCD.Size = new Size(138, 27);
@@ -127,6 +132,7 @@
             // cbbAEChucVu
             // 
             cbbAEChucVu.Anchor = AnchorStyles.Left;
+            cbbAEChucVu.BackColor = Color.FromArgb(255, 224, 192);
             cbbAEChucVu.FormattingEnabled = true;
             cbbAEChucVu.Location = new Point(564, 104);
             cbbAEChucVu.Name = "cbbAEChucVu";
@@ -158,6 +164,7 @@
             // cbbAEPhongBan
             // 
             cbbAEPhongBan.Anchor = AnchorStyles.Left;
+            cbbAEPhongBan.BackColor = Color.FromArgb(255, 224, 192);
             cbbAEPhongBan.FormattingEnabled = true;
             cbbAEPhongBan.Location = new Point(564, 70);
             cbbAEPhongBan.Name = "cbbAEPhongBan";
@@ -178,6 +185,8 @@
             // tbAHoTen
             // 
             tbAHoTen.Anchor = AnchorStyles.Left;
+            tbAHoTen.BackColor = Color.FromArgb(255, 224, 192);
+            tbAHoTen.BorderStyle = BorderStyle.FixedSingle;
             tbAHoTen.Location = new Point(180, 3);
             tbAHoTen.Name = "tbAHoTen";
             tbAHoTen.Size = new Size(212, 27);
@@ -240,6 +249,8 @@
             // tbADiaChi
             // 
             tbADiaChi.Anchor = AnchorStyles.Left;
+            tbADiaChi.BackColor = Color.FromArgb(255, 224, 192);
+            tbADiaChi.BorderStyle = BorderStyle.FixedSingle;
             tbADiaChi.Location = new Point(180, 139);
             tbADiaChi.Name = "tbADiaChi";
             tbADiaChi.Size = new Size(220, 27);
@@ -248,6 +259,8 @@
             // tbAMaNV
             // 
             tbAMaNV.Anchor = AnchorStyles.Left;
+            tbAMaNV.BackColor = Color.FromArgb(255, 224, 192);
+            tbAMaNV.BorderStyle = BorderStyle.FixedSingle;
             tbAMaNV.Location = new Point(564, 3);
             tbAMaNV.Name = "tbAMaNV";
             tbAMaNV.Size = new Size(108, 27);
@@ -288,6 +301,7 @@
             // cbAGioiTinh
             // 
             cbAGioiTinh.Anchor = AnchorStyles.Left;
+            cbAGioiTinh.BackColor = Color.FromArgb(255, 224, 192);
             cbAGioiTinh.FormattingEnabled = true;
             cbAGioiTinh.Location = new Point(180, 36);
             cbAGioiTinh.Name = "cbAGioiTinh";
@@ -297,6 +311,8 @@
             // tbASDT
             // 
             tbASDT.Anchor = AnchorStyles.Left;
+            tbASDT.BackColor = Color.FromArgb(255, 224, 192);
+            tbASDT.BorderStyle = BorderStyle.FixedSingle;
             tbASDT.Location = new Point(180, 70);
             tbASDT.Name = "tbASDT";
             tbASDT.Size = new Size(138, 27);
@@ -315,12 +331,15 @@
             // 
             // btAThem
             // 
+            btAThem.BackColor = Color.FromArgb(192, 255, 192);
+            btAThem.FlatStyle = FlatStyle.Popup;
+            btAThem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btAThem.Location = new Point(538, 220);
             btAThem.Name = "btAThem";
             btAThem.Size = new Size(94, 29);
             btAThem.TabIndex = 11;
             btAThem.Text = "Thêm";
-            btAThem.UseVisualStyleBackColor = true;
+            btAThem.UseVisualStyleBackColor = false;
             btAThem.Click += btAThem_Click;
             // 
             // fAddNewEmployee
@@ -328,6 +347,7 @@
             AcceptButton = btAThem;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(192, 255, 192);
             CancelButton = btAHuy;
             ClientSize = new Size(800, 293);
             Controls.Add(groupBox1);
@@ -336,7 +356,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "fAddNewEmployee";
             FormClosed += fAddNewEmployee_FormClosed;
-            //Enter += fAddNewEmployee_Enter;
             groupBox1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

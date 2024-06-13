@@ -14,6 +14,11 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Collections.Generic;
 using CsvHelper.Configuration;
+using static Stimulsoft.Report.StiOptions.Export;
+using System.Runtime.InteropServices;
+using OfficeOpenXml.FormulaParsing.LexicalAnalysis;
+using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
 
 
 
@@ -36,9 +41,11 @@ namespace DoAnIE103
         #region Method
         void Decentralization()
         {
+
             if (Const.userType == 0)
             {
-                tsmiUser.Enabled = tsmiEmployee.Enabled = tsmiPhongBan.Enabled = tsmiChucVu.Enabled = false;
+                qltsmi.Visible = false;
+                //tsmiUser.Enabled = tsmiEmployee.Enabled = tsmiPhongBan.Enabled = tsmiChucVu.Enabled = false;
             }
 
         }
@@ -51,6 +58,7 @@ namespace DoAnIE103
             //tsbAdd.Enabled = tsbDelete.Enabled = tsbEdit.Enabled = tsbPrint.Enabled = false;
             loadDataToForm();
             Decentralization();
+            thốngKêToolStripMenuItem.Visible = false;
         }
         int manv;
         private void loadDataToForm()
@@ -78,7 +86,7 @@ namespace DoAnIE103
             gbTTLuongNguoiDung.Text = "Thông tin về lương của người dùng " + dt["HOTEN"].ToString() + ", mã nhân viên: " + dt["MANV"].ToString();
             manv = Convert.ToInt32(dt["MANV"].ToString());
             Const.EmployeeId = manv;
-            cbbMLuongThang = getLuong(Const.EmployeeId);
+            cbbMLuongThang.Text = string.Format(getLuong(Const.EmployeeId).ToString() + " VNĐ");
 
         }
         private double getLuong(int manv)
@@ -96,11 +104,11 @@ namespace DoAnIE103
                 {
                     songayLam = Convert.ToDouble(dr["SONGAYLAM"]);
                     songayNghi = Convert.ToDouble(dr["SONGAYNGHI"]);
+                    return (luongDu / 24) * songayLam;
                 }
             }
-            double luong = (luongDu / 24) * songayLam;
-            return luong;
-            
+            return 0;
+
         }
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -125,8 +133,9 @@ namespace DoAnIE103
         private void tsmiEmployee_Click(object sender, EventArgs e)
         {
             fEmployee f = new fEmployee();
+            this.Hide();
             f.ShowDialog();
-
+            this.Show   ();
         }
 
         private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
@@ -138,19 +147,25 @@ namespace DoAnIE103
         private void tsmiUser_Click(object sender, EventArgs e)
         {
             fUsers f = new fUsers();
+            this.Hide();
             f.ShowDialog();
+            this.Show();
         }
 
         private void tsmiPhongBan_Click(object sender, EventArgs e)
         {
             fDepartment f = new fDepartment();
+            this.Hide();
             f.ShowDialog();
+            this.Show();
         }
 
         private void tsmiChucVu_Click(object sender, EventArgs e)
         {
             fPosition f = new fPosition();
+            this.Hide();
             f.ShowDialog();
+            this.Show();
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -166,10 +181,8 @@ namespace DoAnIE103
 
         private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //fHelp f = new fHelp();
-            //f.ShowDialog();
+            MessageBox.Show("Hãy gọi tổng đài chị thỏ ngọc để được trợ giúp nhé bạn <3");
         }
-        #endregion
 
 
 
@@ -178,17 +191,20 @@ namespace DoAnIE103
         private void bảngChấmCôngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fTimesheets f = new fTimesheets();
+            this.Hide();
             f.ShowDialog();
+            this.Show();
         }
 
         public bool verifyLocation() // Hàm để xác nhận vị trí
         {
+
             return true;
         }
 
         string filePath = "C:\\Users\\user\\OneDrive\\Máy tính\\DoAnIE103\\CheckInCheckOut.csv";
 
-        private void btCheckIn_Click(object sender, EventArgs e)
+        private void btCheckIn_Click_1(object sender, EventArgs e)
         {
             btCheckOut.Enabled = true;
 
@@ -238,7 +254,7 @@ namespace DoAnIE103
 
 
 
-        private void btCheckOut_Click(object sender, EventArgs e)
+        private void btCheckOut_Click_1(object sender, EventArgs e)
         {
 
             bool hasCheckedIn = false;
@@ -280,6 +296,8 @@ namespace DoAnIE103
                 i.WorkTimeDay = i.WorkTime.TotalDays * 3;
 
                 MessageBox.Show("Đã Check Out thành công!");
+                btCheckIn.Enabled = true;
+
             }
             File.WriteAllText(filePath, string.Empty);
 
@@ -292,11 +310,68 @@ namespace DoAnIE103
             {
                 MessageBox.Show("Co loi khi them so ngay lam viec");
             }
+
         }
 
-        private void btSaveProfile_Click(object sender, EventArgs e)
-        {
 
+
+
+        private void btExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ExportExcel(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất file thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xuất file không thành công!\n" + ex.Message);
+
+                }
+            }
+
+        }
+
+        private void ExportExcel(string path)
+        {
+            DataTable dt = new DataTable();
+            dt = TimesheetsDAO.Instance.getRP(DateTime.Now);
+
+            Excel.Application app = new Excel.Application();
+            app.Application.Workbooks.Add(Type.Missing);
+            for (int i = 0; i < dt.Columns.Count; i++)
+            {
+                app.Cells[1, i + 1] = dt.Columns[i].ColumnName;
+            }
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    app.Cells[i + 2, j + 1] = dt.Rows[i][j].ToString();
+                }
+
+            }
+            app.Columns.AutoFit();
+            app.ActiveWorkbook.SaveCopyAs(path);
+            app.ActiveWorkbook.Saved = true;
+            app.Quit();
+            Marshal.ReleaseComObject(app);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            return;
         }
     }
 

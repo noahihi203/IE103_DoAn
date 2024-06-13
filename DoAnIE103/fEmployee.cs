@@ -119,7 +119,7 @@ namespace DoAnIE103
                 for (int i = excelWorksheet.Dimension.Start.Row + 1; i <= excelWorksheet.Dimension.End.Row; i++)
                 {
                     List<string> listRows = new List<string>();
-                    for (int j = excelWorksheet.Dimension.Start.Column; j < excelWorksheet.Dimension.End.Column; j++)
+                    for (int j = excelWorksheet.Dimension.Start.Column; j <= excelWorksheet.Dimension.End.Column; j++)
                     {
                         listRows.Add(excelWorksheet.Cells[i, j].Value.ToString());
                     }
@@ -145,18 +145,19 @@ namespace DoAnIE103
         }
 
         //delete Employee
+        int employeeID;
         public void dtgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
             if (index < 0)
                 return;
-            Const.EmployeeId = Convert.ToInt16(dtgvEmployee.Rows[index].Cells[0].Value);
+            employeeID = Convert.ToInt16(dtgvEmployee.Rows[index].Cells[0].Value);
         }
         private void tsbDelete_Click(object sender, EventArgs e)
         {
-            int manv = Const.EmployeeId;
+            int manv = employeeID;
 
-            if (EmployeeDAO.Instance.DeleteEmployee(Const.EmployeeId))
+            if (EmployeeDAO.Instance.DeleteEmployee(employeeID))
             {
                 MessageBox.Show("Xoá tài khoản nhân viên!");
                 loadEmployeeList();
@@ -189,7 +190,7 @@ namespace DoAnIE103
             DataTable data = new DataTable();
             data = EmployeeDAO.Instance.getEmployeeByEmployeeID(maNVinEdit);
             DataRow dr = data.NewRow();
-            dr =   data.Rows[0];
+            dr = data.Rows[0];
 
             string query = string.Format("UPDATE NHANVIEN SET {0} = N'{1}' WHERE MANV = {2}", dtgvEmployee.Columns[e.ColumnIndex].DataPropertyName.ToString(), newValue, maNVinEdit);
             int result = DataProvider.Instance.executeNonQuery(query);
@@ -222,6 +223,7 @@ namespace DoAnIE103
                 catch (Exception ex)
                 {
                     MessageBox.Show("Xuất file không thành công!\n" + ex.Message);
+                    loadEmployeeList() ;
                 }
             }
         }
@@ -271,6 +273,11 @@ namespace DoAnIE103
         private void dtgvEmployee_Click(object sender, EventArgs e)
         {
             return;
+        }
+
+        private void btExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

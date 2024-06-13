@@ -47,7 +47,7 @@ namespace DoAnIE103
             
             cbbLoaiTaiKhoan.Enabled = false;
            
-            dtgvUsers.Refresh();
+            //dtgvUsers.Refresh();
         }
 
         void loadLoaiTaiKhoanIntoCBB(ComboBox cb)
@@ -112,13 +112,14 @@ namespace DoAnIE103
             if (UserDAO.Instance.UpdateUser(tenDangNhap, matKhau, maloaiTaiKhoan))
             {
                 MessageBox.Show("Sửa tài khoản thành công!");
-                loadListUser();
+                Const.passWord = tbMatKhau.Text.ToString();
             }
             else
             {
                 MessageBox.Show("Có lỗi khi sửa tài khoản!");
                 return;
             }
+            loadListUser();
         }
         /*private void btXoa_Click(object sender, EventArgs e)
         {

@@ -22,5 +22,15 @@ namespace DoAnIE103
         {
             dtgvTimesheet.DataSource = TimesheetsDAO.Instance.getDanhSachBangCong(Const.EmployeeId);
         }
+
+        private void btExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btExit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

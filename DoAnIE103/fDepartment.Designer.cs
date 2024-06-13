@@ -48,7 +48,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.White;
+            groupBox1.BackColor = Color.FromArgb(192, 255, 192);
             groupBox1.Controls.Add(toolStrip1);
             groupBox1.Controls.Add(dtgvDepartment);
             groupBox1.Location = new Point(12, 13);
@@ -60,7 +60,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.BackColor = Color.White;
+            toolStrip1.BackColor = Color.FromArgb(255, 224, 192);
             toolStrip1.Dock = DockStyle.Left;
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip1.ImageScalingSize = new Size(20, 20);
@@ -169,8 +169,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(192, 255, 192);
             ClientSize = new Size(436, 450);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "fDepartment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Phòng ban";

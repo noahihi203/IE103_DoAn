@@ -20,7 +20,7 @@ namespace DoAnIE103
                 if (ValidatePassword(username, password))
                     return true;
             }
-            
+
             return false;
         }
 
@@ -53,7 +53,7 @@ namespace DoAnIE103
             return hash;
         }
 
-        private void btDangNhap_Click(object sender, EventArgs e)
+        private void btDangNhap_Click_1(object sender, EventArgs e)
         {
 
             string username = tbTenDangNhap.Text;
@@ -79,7 +79,7 @@ namespace DoAnIE103
                 MessageBox.Show("Ban da nhap sai ten dang nhap hoac mat khau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            
+
         }
 
         private void F_Logout(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace DoAnIE103
             this.Show();
         }
 
-        private void btThoat_Click(object sender, EventArgs e)
+        private void btThoat_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -99,7 +99,7 @@ namespace DoAnIE103
             Application.Exit();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
                 tbMatKhau.UseSystemPasswordChar = false;
@@ -116,5 +116,6 @@ namespace DoAnIE103
         {
 
         }
+
     }
 }

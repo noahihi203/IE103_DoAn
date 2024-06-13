@@ -74,6 +74,7 @@
             // 
             // tbTenDangNhap
             // 
+            tbTenDangNhap.BackColor = Color.FromArgb(255, 224, 192);
             tbTenDangNhap.Location = new Point(178, 32);
             tbTenDangNhap.Name = "tbTenDangNhap";
             tbTenDangNhap.ReadOnly = true;
@@ -83,6 +84,7 @@
             // 
             // tbMatKhau
             // 
+            tbMatKhau.BackColor = Color.FromArgb(255, 224, 192);
             tbMatKhau.Location = new Point(178, 91);
             tbMatKhau.Name = "tbMatKhau";
             tbMatKhau.Size = new Size(216, 28);
@@ -90,6 +92,7 @@
             // 
             // cbbLoaiTaiKhoan
             // 
+            cbbLoaiTaiKhoan.BackColor = Color.FromArgb(255, 224, 192);
             cbbLoaiTaiKhoan.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cbbLoaiTaiKhoan.FormattingEnabled = true;
             cbbLoaiTaiKhoan.Location = new Point(178, 153);
@@ -101,7 +104,7 @@
             // 
             dtgvUsers.AllowUserToAddRows = false;
             dtgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgvUsers.BackgroundColor = SystemColors.ButtonFace;
+            dtgvUsers.BackgroundColor = Color.White;
             dtgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvUsers.Columns.AddRange(new DataGridViewColumn[] { TENDANGNHAP, MATKHAU });
             dtgvUsers.Location = new Point(21, 205);
@@ -133,28 +136,33 @@
             // 
             // btSua
             // 
+            btSua.BackColor = Color.FromArgb(255, 255, 192);
+            btSua.FlatStyle = FlatStyle.Popup;
             btSua.Location = new Point(214, 302);
             btSua.Name = "btSua";
             btSua.Size = new Size(74, 38);
             btSua.TabIndex = 9;
             btSua.Text = "Sửa";
-            btSua.UseVisualStyleBackColor = true;
+            btSua.UseVisualStyleBackColor = false;
             btSua.Click += btSua_Click;
             // 
             // btThoat
             // 
+            btThoat.BackColor = Color.FromArgb(255, 255, 192);
+            btThoat.FlatStyle = FlatStyle.Popup;
             btThoat.Location = new Point(294, 302);
             btThoat.Name = "btThoat";
             btThoat.Size = new Size(83, 38);
             btThoat.TabIndex = 10;
             btThoat.Text = "Thoát";
-            btThoat.UseVisualStyleBackColor = true;
+            btThoat.UseVisualStyleBackColor = false;
             btThoat.Click += btThoat_Click;
             // 
             // fUsers
             // 
             AutoScaleDimensions = new SizeF(11F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(192, 255, 192);
             ClientSize = new Size(425, 365);
             Controls.Add(btThoat);
             Controls.Add(btSua);
@@ -166,6 +174,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "fUsers";
             StartPosition = FormStartPosition.CenterScreen;

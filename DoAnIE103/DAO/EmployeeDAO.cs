@@ -86,6 +86,8 @@ namespace DoAnIE103.DAO
             return result > 0;
         }
 
+        //update in main
+
         //update one
         public bool updateEmployeeNameByMaNV(int manv, string ten)
         {

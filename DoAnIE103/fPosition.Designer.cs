@@ -48,7 +48,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.White;
+            groupBox1.BackColor = Color.FromArgb(192, 255, 192);
             groupBox1.Controls.Add(toolStrip1);
             groupBox1.Controls.Add(dtgvPosition);
             groupBox1.Location = new Point(12, 12);
@@ -60,14 +60,15 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.BackColor = Color.White;
+            toolStrip1.BackColor = Color.FromArgb(255, 192, 192);
             toolStrip1.Dock = DockStyle.Left;
-            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripSeparator3, toolStripLabel1, toolStripSeparator2, tsbAddPosition, tsbDeletePosition, toolStripSeparator1, tsbExitPosition });
             toolStrip1.Location = new Point(3, 23);
             toolStrip1.Name = "toolStrip1";
+            toolStrip1.RenderMode = ToolStripRenderMode.System;
             toolStrip1.Size = new Size(84, 399);
+            toolStrip1.Stretch = true;
             toolStrip1.TabIndex = 10;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -165,7 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Green;
+            BackColor = Color.FromArgb(192, 255, 192);
             ClientSize = new Size(437, 449);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;

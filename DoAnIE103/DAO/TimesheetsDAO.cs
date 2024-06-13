@@ -29,6 +29,21 @@ namespace DoAnIE103.DAO
             }
             return null;
         }
+
+        public DataTable getRP(DateTime time)
+        {
+            int thang = time.Month;
+            int year = time.Year;
+
+            DataTable dt = new DataTable();
+            string query = string.Format("SELECT DISTINCT NHANVIEN.MANV as 'Mã nhân viên', NHANVIEN.HOTEN as 'Họ và tên', PHONGBAN.TENPB 'Phòng ban', CHUCVU.TENCV as 'Chức vụ', NHANVIEN.NGAYSINH as 'Ngày sinh', BANGCONG.SONGAYLAM 'Số ngày làm', BANGCONG.SONGAYNGHI as 'Số ngày nghỉ',(((LUONG.LUONGBS + LUONG.LUONGCB - LUONG.PHUCAP)/(BANGCONG.SONGAYLAM + BANGCONG.SONGAYNGHI)) * BANGCONG.SONGAYLAM) AS 'Lương' , MONTH(GETDATE()) AS 'Tháng', YEAR(GETDATE()) AS 'Năm' FROM NHANVIEN, BANGCONG, LUONG, PHONGBAN, CHUCVU WHERE NHANVIEN.MANV = BANGCONG.MANV AND PHONGBAN.MAPB = NHANVIEN.MAPB AND NHANVIEN.MACV = CHUCVU.MACV AND CHUCVU.MACV = LUONG.MACV AND MABC = {0} AND THANG = {1}", year, thang);
+            dt = DataProvider.Instance.executeQuery(query);
+            if (dt != null)
+            {
+                return dt;
+            }
+            return null;
+        }
         public bool insertBangCong(int mabc, int manv, int thang)
         {
             string query = string.Format("INSERT INTO BangCong (MaBC, SoNgayLam, SoNgayNghi, MaNV, THANG) VALUES ({0}, {1}, {2}, {3}, {4}),", mabc, 0, 24, manv, thang);

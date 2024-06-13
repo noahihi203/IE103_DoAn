@@ -56,17 +56,20 @@
             hệThốngToolStripMenuItem = new ToolStripMenuItem();
             tsmiUser = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
-            quảnLýToolStripMenuItem = new ToolStripMenuItem();
+            qltsmi = new ToolStripMenuItem();
             tsmiEmployee = new ToolStripMenuItem();
             tsmiPhongBan = new ToolStripMenuItem();
             tsmiChucVu = new ToolStripMenuItem();
             bảngChấmCôngToolStripMenuItem = new ToolStripMenuItem();
+            báoCáoToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
             thốngKêToolStripMenuItem = new ToolStripMenuItem();
             trợGiúpToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
-            btCheckIn = new Button();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             btCheckOut = new Button();
-            btSaveProfile = new Button();
+            btCheckIn = new Button();
+            btExit = new Button();
             gbTTNguoiDung.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             gbTTLuongNguoiDung.SuspendLayout();
@@ -76,15 +79,14 @@
             // 
             // gbTTNguoiDung
             // 
-            gbTTNguoiDung.BackColor = Color.White;
-            gbTTNguoiDung.Controls.Add(btSaveProfile);
+            gbTTNguoiDung.BackColor = Color.FromArgb(192, 255, 192);
             gbTTNguoiDung.Controls.Add(tableLayoutPanel1);
             gbTTNguoiDung.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gbTTNguoiDung.Location = new Point(13, 79);
+            gbTTNguoiDung.Location = new Point(9, 36);
             gbTTNguoiDung.Margin = new Padding(4);
             gbTTNguoiDung.Name = "gbTTNguoiDung";
             gbTTNguoiDung.Padding = new Padding(4);
-            gbTTNguoiDung.Size = new Size(561, 419);
+            gbTTNguoiDung.Size = new Size(565, 379);
             gbTTNguoiDung.TabIndex = 2;
             gbTTNguoiDung.TabStop = false;
             gbTTNguoiDung.Text = "Thông tin người dùng";
@@ -122,17 +124,18 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.Size = new Size(539, 340);
+            tableLayoutPanel1.Size = new Size(543, 340);
             tableLayoutPanel1.TabIndex = 38;
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label3.AutoSize = true;
-            label3.Location = new Point(273, 273);
+            label3.Font = new Font("Arial", 10.8F, FontStyle.Bold);
+            label3.Location = new Point(275, 273);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(84, 21);
+            label3.Size = new Size(92, 21);
             label3.TabIndex = 60;
             label3.Text = "Giới tính:";
             // 
@@ -140,10 +143,11 @@
             // 
             label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
+            label9.Font = new Font("Arial", 10.8F, FontStyle.Bold);
             label9.Location = new Point(4, 273);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(102, 21);
+            label9.Size = new Size(110, 21);
             label9.TabIndex = 59;
             label9.Text = "Phòng ban:";
             // 
@@ -151,10 +155,11 @@
             // 
             label7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label7.AutoSize = true;
+            label7.Font = new Font("Arial", 10.8F, FontStyle.Bold);
             label7.Location = new Point(4, 189);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(70, 21);
+            label7.Size = new Size(76, 21);
             label7.TabIndex = 54;
             label7.Text = "Địa chỉ:";
             // 
@@ -162,31 +167,41 @@
             // 
             label8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label8.AutoSize = true;
-            label8.Location = new Point(273, 189);
+            label8.Font = new Font("Arial", 10.8F, FontStyle.Bold);
+            label8.Location = new Point(275, 189);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(83, 21);
+            label8.Size = new Size(91, 21);
             label8.TabIndex = 53;
             label8.Text = "Chức vụ:";
             // 
             // cbbMPhongBan
             // 
+            cbbMPhongBan.BackColor = Color.FromArgb(255, 224, 192);
+            cbbMPhongBan.BorderStyle = BorderStyle.FixedSingle;
             cbbMPhongBan.Location = new Point(3, 297);
             cbbMPhongBan.Name = "cbbMPhongBan";
+            cbbMPhongBan.ReadOnly = true;
             cbbMPhongBan.Size = new Size(167, 28);
             cbbMPhongBan.TabIndex = 57;
             // 
             // cbbMGioiTinh
             // 
-            cbbMGioiTinh.Location = new Point(272, 297);
+            cbbMGioiTinh.BackColor = Color.FromArgb(255, 224, 192);
+            cbbMGioiTinh.BorderStyle = BorderStyle.FixedSingle;
+            cbbMGioiTinh.Location = new Point(274, 297);
             cbbMGioiTinh.Name = "cbbMGioiTinh";
+            cbbMGioiTinh.ReadOnly = true;
             cbbMGioiTinh.Size = new Size(210, 28);
             cbbMGioiTinh.TabIndex = 58;
             // 
             // cbbMSDT
             // 
+            cbbMSDT.BackColor = Color.FromArgb(255, 224, 192);
+            cbbMSDT.BorderStyle = BorderStyle.FixedSingle;
             cbbMSDT.Location = new Point(3, 129);
             cbbMSDT.Name = "cbbMSDT";
+            cbbMSDT.ReadOnly = true;
             cbbMSDT.Size = new Size(167, 28);
             cbbMSDT.TabIndex = 50;
             // 
@@ -194,10 +209,11 @@
             // 
             label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label6.AutoSize = true;
-            label6.Location = new Point(273, 105);
+            label6.Font = new Font("Arial", 10.8F, FontStyle.Bold);
+            label6.Location = new Point(275, 105);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(67, 21);
+            label6.Size = new Size(69, 21);
             label6.TabIndex = 42;
             label6.Text = "CCCD:";
             // 
@@ -205,21 +221,22 @@
             // 
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label4.AutoSize = true;
-            label4.Location = new Point(273, 21);
+            label4.Font = new Font("Arial", 10.8F, FontStyle.Bold);
+            label4.Location = new Point(275, 21);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(95, 21);
+            label4.Size = new Size(104, 21);
             label4.TabIndex = 40;
             label4.Text = "Ngày sinh:";
             // 
             // dtpMNgaySinh
             // 
-            dtpMNgaySinh.CalendarMonthBackground = Color.Cornsilk;
+            dtpMNgaySinh.CalendarMonthBackground = Color.FromArgb(255, 224, 192);
             dtpMNgaySinh.Checked = false;
             dtpMNgaySinh.CustomFormat = "dd-MM-yyyy";
             dtpMNgaySinh.Enabled = false;
             dtpMNgaySinh.Format = DateTimePickerFormat.Custom;
-            dtpMNgaySinh.Location = new Point(273, 46);
+            dtpMNgaySinh.Location = new Point(275, 46);
             dtpMNgaySinh.Margin = new Padding(4);
             dtpMNgaySinh.Name = "dtpMNgaySinh";
             dtpMNgaySinh.Size = new Size(209, 28);
@@ -229,10 +246,11 @@
             // 
             label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
+            label1.Font = new Font("Arial", 10.8F, FontStyle.Bold);
             label1.Location = new Point(4, 21);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(92, 21);
+            label1.Size = new Size(99, 21);
             label1.TabIndex = 5;
             label1.Text = "Họ và tên:";
             // 
@@ -240,52 +258,65 @@
             // 
             label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label5.AutoSize = true;
+            label5.Font = new Font("Arial", 10.8F, FontStyle.Bold);
             label5.Location = new Point(4, 105);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(120, 21);
+            label5.Size = new Size(131, 21);
             label5.TabIndex = 11;
             label5.Text = "Số điện thoại:";
             // 
             // cbbMCCCD
             // 
-            cbbMCCCD.Location = new Point(272, 129);
+            cbbMCCCD.BackColor = Color.FromArgb(255, 224, 192);
+            cbbMCCCD.BorderStyle = BorderStyle.FixedSingle;
+            cbbMCCCD.Location = new Point(274, 129);
             cbbMCCCD.Name = "cbbMCCCD";
+            cbbMCCCD.ReadOnly = true;
             cbbMCCCD.Size = new Size(210, 28);
             cbbMCCCD.TabIndex = 48;
             // 
             // cbbMHoTen
             // 
+            cbbMHoTen.BackColor = Color.FromArgb(255, 224, 192);
+            cbbMHoTen.BorderStyle = BorderStyle.FixedSingle;
             cbbMHoTen.Location = new Point(3, 45);
             cbbMHoTen.Name = "cbbMHoTen";
+            cbbMHoTen.ReadOnly = true;
             cbbMHoTen.Size = new Size(174, 28);
             cbbMHoTen.TabIndex = 49;
             // 
             // cbbMDiaChi
             // 
+            cbbMDiaChi.BackColor = Color.FromArgb(255, 224, 192);
+            cbbMDiaChi.BorderStyle = BorderStyle.FixedSingle;
             cbbMDiaChi.Location = new Point(3, 213);
             cbbMDiaChi.Name = "cbbMDiaChi";
+            cbbMDiaChi.ReadOnly = true;
             cbbMDiaChi.Size = new Size(167, 28);
             cbbMDiaChi.TabIndex = 55;
             // 
             // cbbMChucVu
             // 
-            cbbMChucVu.Location = new Point(272, 213);
+            cbbMChucVu.BackColor = Color.FromArgb(255, 224, 192);
+            cbbMChucVu.BorderStyle = BorderStyle.FixedSingle;
+            cbbMChucVu.Location = new Point(274, 213);
             cbbMChucVu.Name = "cbbMChucVu";
+            cbbMChucVu.ReadOnly = true;
             cbbMChucVu.Size = new Size(210, 28);
             cbbMChucVu.TabIndex = 56;
             // 
             // gbTTLuongNguoiDung
             // 
-            gbTTLuongNguoiDung.BackColor = Color.White;
+            gbTTLuongNguoiDung.BackColor = Color.FromArgb(192, 255, 192);
             gbTTLuongNguoiDung.Controls.Add(tableLayoutPanel2);
             gbTTLuongNguoiDung.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gbTTLuongNguoiDung.ForeColor = SystemColors.ActiveCaptionText;
-            gbTTLuongNguoiDung.Location = new Point(13, 506);
+            gbTTLuongNguoiDung.Location = new Point(9, 423);
             gbTTLuongNguoiDung.Margin = new Padding(4);
             gbTTLuongNguoiDung.Name = "gbTTLuongNguoiDung";
             gbTTLuongNguoiDung.Padding = new Padding(4);
-            gbTTLuongNguoiDung.Size = new Size(557, 120);
+            gbTTLuongNguoiDung.Size = new Size(565, 120);
             gbTTLuongNguoiDung.TabIndex = 39;
             gbTTLuongNguoiDung.TabStop = false;
             gbTTLuongNguoiDung.Text = "Thông tin về lương của người dùng";
@@ -304,15 +335,17 @@
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(543, 85);
+            tableLayoutPanel2.Size = new Size(547, 85);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // cbbMLuongThang
             // 
+            cbbMLuongThang.BackColor = Color.FromArgb(255, 224, 192);
+            cbbMLuongThang.BorderStyle = BorderStyle.FixedSingle;
             cbbMLuongThang.Location = new Point(3, 45);
             cbbMLuongThang.Name = "cbbMLuongThang";
             cbbMLuongThang.ReadOnly = true;
-            cbbMLuongThang.Size = new Size(160, 28);
+            cbbMLuongThang.Size = new Size(219, 28);
             cbbMLuongThang.TabIndex = 40;
             // 
             // dtpMNgayNhanLuong
@@ -321,7 +354,7 @@
             dtpMNgayNhanLuong.CustomFormat = "dd-MM-yyyy";
             dtpMNgayNhanLuong.Enabled = false;
             dtpMNgayNhanLuong.Format = DateTimePickerFormat.Custom;
-            dtpMNgayNhanLuong.Location = new Point(275, 46);
+            dtpMNgayNhanLuong.Location = new Point(277, 46);
             dtpMNgayNhanLuong.Margin = new Padding(4);
             dtpMNgayNhanLuong.Name = "dtpMNgayNhanLuong";
             dtpMNgayNhanLuong.Size = new Size(209, 28);
@@ -331,11 +364,11 @@
             // 
             label10.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label10.AutoSize = true;
-            label10.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Font = new Font("Arial", 10.8F, FontStyle.Bold);
             label10.Location = new Point(4, 21);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(119, 21);
+            label10.Size = new Size(130, 21);
             label10.TabIndex = 41;
             label10.Text = "Lương tháng:";
             // 
@@ -343,10 +376,11 @@
             // 
             label11.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label11.AutoSize = true;
-            label11.Location = new Point(275, 21);
+            label11.Font = new Font("Arial", 10.8F, FontStyle.Bold);
+            label11.Location = new Point(277, 21);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(102, 21);
+            label11.Size = new Size(110, 21);
             label11.TabIndex = 45;
             label11.Text = "Ngày nhận:";
             // 
@@ -374,13 +408,13 @@
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
             // 
-            // quảnLýToolStripMenuItem
+            // qltsmi
             // 
-            quảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tsmiEmployee, tsmiPhongBan, tsmiChucVu, bảngChấmCôngToolStripMenuItem });
-            quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            quảnLýToolStripMenuItem.Size = new Size(97, 28);
-            quảnLýToolStripMenuItem.Text = "Quản lý";
-            quảnLýToolStripMenuItem.Click += quảnLýToolStripMenuItem_Click;
+            qltsmi.DropDownItems.AddRange(new ToolStripItem[] { tsmiEmployee, tsmiPhongBan, tsmiChucVu, bảngChấmCôngToolStripMenuItem, báoCáoToolStripMenuItem });
+            qltsmi.Name = "qltsmi";
+            qltsmi.Size = new Size(97, 28);
+            qltsmi.Text = "Quản lý";
+            qltsmi.Click += quảnLýToolStripMenuItem_Click;
             // 
             // tsmiEmployee
             // 
@@ -410,6 +444,20 @@
             bảngChấmCôngToolStripMenuItem.Text = "Bảng chấm công";
             bảngChấmCôngToolStripMenuItem.Click += bảngChấmCôngToolStripMenuItem_Click;
             // 
+            // báoCáoToolStripMenuItem
+            // 
+            báoCáoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2 });
+            báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
+            báoCáoToolStripMenuItem.Size = new Size(274, 28);
+            báoCáoToolStripMenuItem.Text = "Báo Cáo";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(234, 28);
+            toolStripMenuItem2.Text = "Báo cáo lương";
+            toolStripMenuItem2.Click += toolStripMenuItem2_Click;
+            // 
             // thốngKêToolStripMenuItem
             // 
             thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
@@ -426,10 +474,10 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = Color.DarkGray;
+            menuStrip1.BackColor = Color.FromArgb(255, 192, 192);
             menuStrip1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { hệThốngToolStripMenuItem, quảnLýToolStripMenuItem, thốngKêToolStripMenuItem, trợGiúpToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { hệThốngToolStripMenuItem, qltsmi, thốngKêToolStripMenuItem, trợGiúpToolStripMenuItem, toolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(4, 2, 0, 2);
@@ -438,57 +486,74 @@
             menuStrip1.Size = new Size(587, 32);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
-            // btCheckIn
+            // toolStripMenuItem1
             // 
-            btCheckIn.AutoSize = true;
-            btCheckIn.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btCheckIn.Font = new Font("Arial", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btCheckIn.Location = new Point(61, 35);
-            btCheckIn.Name = "btCheckIn";
-            btCheckIn.Size = new Size(72, 26);
-            btCheckIn.TabIndex = 40;
-            btCheckIn.Text = "Check In";
-            btCheckIn.UseVisualStyleBackColor = true;
-            btCheckIn.Click += btCheckIn_Click;
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(14, 28);
             // 
             // btCheckOut
             // 
             btCheckOut.Anchor = AnchorStyles.Left;
             btCheckOut.AutoSize = true;
             btCheckOut.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btCheckOut.BackColor = Color.FromArgb(255, 255, 192);
+            btCheckOut.FlatStyle = FlatStyle.Popup;
             btCheckOut.Font = new Font("Arial", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btCheckOut.Location = new Point(139, 35);
+            btCheckOut.Location = new Point(390, 562);
             btCheckOut.Name = "btCheckOut";
             btCheckOut.Size = new Size(82, 26);
-            btCheckOut.TabIndex = 41;
+            btCheckOut.TabIndex = 43;
             btCheckOut.Text = "Check Out";
-            btCheckOut.UseVisualStyleBackColor = true;
-            btCheckOut.Click += btCheckOut_Click;
+            btCheckOut.UseVisualStyleBackColor = false;
+            btCheckOut.Click += btCheckOut_Click_1;
             // 
-            // btSaveProfile
+            // btCheckIn
             // 
-            btSaveProfile.Location = new Point(411, 374);
-            btSaveProfile.Name = "btSaveProfile";
-            btSaveProfile.Size = new Size(94, 29);
-            btSaveProfile.TabIndex = 39;
-            btSaveProfile.Text = "Lưu";
-            btSaveProfile.UseVisualStyleBackColor = true;
-            btSaveProfile.Click += btSaveProfile_Click;
+            btCheckIn.AutoSize = true;
+            btCheckIn.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btCheckIn.BackColor = Color.FromArgb(255, 255, 192);
+            btCheckIn.FlatStyle = FlatStyle.Popup;
+            btCheckIn.Font = new Font("Arial", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btCheckIn.Location = new Point(312, 562);
+            btCheckIn.Name = "btCheckIn";
+            btCheckIn.Size = new Size(72, 26);
+            btCheckIn.TabIndex = 42;
+            btCheckIn.Text = "Check In";
+            btCheckIn.UseVisualStyleBackColor = false;
+            btCheckIn.Click += btCheckIn_Click_1;
+            // 
+            // btExit
+            // 
+            btExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btExit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btExit.BackColor = Color.FromArgb(255, 255, 192);
+            btExit.FlatStyle = FlatStyle.Popup;
+            btExit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btExit.Location = new Point(480, 559);
+            btExit.Name = "btExit";
+            btExit.Size = new Size(89, 29);
+            btExit.TabIndex = 44;
+            btExit.Text = "Thoát";
+            btExit.UseVisualStyleBackColor = false;
+            btExit.Click += btExit_Click;
             // 
             // fMain
             // 
             AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(587, 639);
+            BackColor = Color.FromArgb(192, 255, 192);
+            ClientSize = new Size(587, 607);
+            ControlBox = false;
+            Controls.Add(btExit);
             Controls.Add(btCheckOut);
             Controls.Add(btCheckIn);
             Controls.Add(gbTTLuongNguoiDung);
             Controls.Add(gbTTNguoiDung);
             Controls.Add(menuStrip1);
             Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "fMain";
@@ -518,7 +583,7 @@
         private ToolStripMenuItem hệThốngToolStripMenuItem;
         private ToolStripMenuItem tsmiUser;
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
-        private ToolStripMenuItem quảnLýToolStripMenuItem;
+        private ToolStripMenuItem qltsmi;
         private ToolStripMenuItem tsmiEmployee;
         private ToolStripMenuItem tsmiPhongBan;
         private ToolStripMenuItem tsmiChucVu;
@@ -550,8 +615,11 @@
         private TextBox cbbMLuongThang;
         private Label label11;
         private ToolStripMenuItem bảngChấmCôngToolStripMenuItem;
-        private Button btCheckIn;
+        private ToolStripMenuItem toolStripMenuItem1;
         private Button btCheckOut;
-        private Button btSaveProfile;
+        private Button btCheckIn;
+        private Button btExit;
+        private ToolStripMenuItem báoCáoToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem2;
     }
 }

@@ -46,6 +46,7 @@
             CBBTENCV = new DataGridViewComboBoxColumn();
             CBBTENPB = new DataGridViewComboBoxColumn();
             groupBox1 = new GroupBox();
+            btExit = new Button();
             toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvEmployee).BeginInit();
             groupBox1.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             // toolStrip2
             // 
+            toolStrip2.BackColor = Color.FromArgb(255, 192, 192);
             toolStrip2.ImageScalingSize = new Size(20, 20);
             toolStrip2.Items.AddRange(new ToolStripItem[] { tsbAdd, tsbDelete, tsbEdit, tsbExport, tsbImport });
             toolStrip2.Location = new Point(0, 0);
@@ -111,7 +113,7 @@
             dtgvEmployee.AllowUserToAddRows = false;
             dtgvEmployee.AllowUserToDeleteRows = false;
             dtgvEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgvEmployee.BackgroundColor = SystemColors.ButtonHighlight;
+            dtgvEmployee.BackgroundColor = Color.White;
             dtgvEmployee.ColumnHeadersHeight = 29;
             dtgvEmployee.Columns.AddRange(new DataGridViewColumn[] { MANV, HOTEN, GIOITINH, NGAYSINH, SDT, CCCD, DIACHI, CBBTENCV, CBBTENPB });
             dtgvEmployee.GridColor = Color.Black;
@@ -212,20 +214,39 @@
             // 
             groupBox1.Controls.Add(dtgvEmployee);
             groupBox1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(12, 47);
+            groupBox1.Location = new Point(12, 30);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1121, 634);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách nhân viên";
             // 
+            // btExit
+            // 
+            btExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btExit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btExit.BackColor = Color.FromArgb(255, 255, 192);
+            btExit.FlatStyle = FlatStyle.Popup;
+            btExit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btExit.Location = new Point(1044, 682);
+            btExit.Name = "btExit";
+            btExit.Size = new Size(89, 29);
+            btExit.TabIndex = 45;
+            btExit.Text = "Thoát";
+            btExit.UseVisualStyleBackColor = false;
+            btExit.Click += btExit_Click;
+            // 
             // fEmployee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1145, 693);
+            BackColor = Color.FromArgb(192, 255, 192);
+            ClientSize = new Size(1145, 723);
+            ControlBox = false;
+            Controls.Add(btExit);
             Controls.Add(groupBox1);
             Controls.Add(toolStrip2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "fEmployee";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "fEmployee";
@@ -257,5 +278,6 @@
         private DataGridViewTextBoxColumn DIACHI;
         private DataGridViewComboBoxColumn CBBTENCV;
         private DataGridViewComboBoxColumn CBBTENPB;
+        private Button btExit;
     }
 }
