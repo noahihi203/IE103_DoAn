@@ -21,6 +21,7 @@ namespace DoAnIE103
         public fUsers()
         {
             InitializeComponent();
+            //loadListUser();
         }
 
         #region method

@@ -79,7 +79,7 @@ namespace DoAnIE103.DAO
 
         public DataRow getTenCVvaMaCVbyTenDangNhap(string tendangnhap)
         {
-            string query = string.Format("SELECT TENDANGNHAP, MATKHAU, TAIKHOAN.MACV, CHUCVU.TENCV FROM CHUCVU, TAIKHOAN WHERE TAIKHOAN.MACV = CHUCVU.MACV AND TENDANGNHAP = N'{0}'", tendangnhap);
+            string query = string.Format("SELECT NHANVIEN.TENDANGNHAP, NHANVIEN.MACV, CHUCVU.TENCV FROM CHUCVU, NHANVIEN WHERE NHANVIEN.TENDANGNHAP = N'{0}' AND NHANVIEN.MACV = CHUCVU.MACV", tendangnhap);
             DataTable data = DataProvider.Instance.executeQuery(query);
             DataRow dr = data.Rows[0];
             return dr;
