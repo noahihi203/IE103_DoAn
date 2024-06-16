@@ -58,8 +58,9 @@ namespace DoAnIE103
 
             string username = tbTenDangNhap.Text;
             string password = tbMatKhau.Text;
-            Const.userID = username;
-            Const.passWord = tbMatKhau.Text;
+            Const.userID = tbTenDangNhap.Text; //ten dang nhap
+            Const.passWord = tbMatKhau.Text; //mat khau
+            Const.PositionId = UserDAO.Instance.checkRole(tbTenDangNhap.Text); //ma chuc vu
 
             if (CheckLogin(username, password)) // Check if the entered password account is correct
             {
@@ -77,7 +78,6 @@ namespace DoAnIE103
             else
             {
                 MessageBox.Show("Ban da nhap sai ten dang nhap hoac mat khau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
 
         }
@@ -108,14 +108,6 @@ namespace DoAnIE103
                 tbMatKhau.UseSystemPasswordChar = true;
         }
 
-        private void flogin_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void tbMatKhau_Enter(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

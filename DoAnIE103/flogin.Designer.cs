@@ -201,7 +201,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             FormClosed += flogin_FormClosed;
-            Enter += flogin_Enter;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

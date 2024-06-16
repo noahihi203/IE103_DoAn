@@ -11,8 +11,8 @@ namespace DoAnIE103
         public static int userType;
         public static int EmployeeId;
         public static int PositionId;
-
-        public static string userID = null;
+        
+        public static string userID = null; 
         public static string passWord = null;
     }
 }

@@ -181,7 +181,7 @@ namespace DoAnIE103
 
         private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hãy gọi tổng đài chị thỏ ngọc để được trợ giúp nhé bạn <3");
+            MessageBox.Show("Hãy gọi tổng đài chị thỏ ngọc để được trợ giúp nhé bạn <3", "Thông báo");
         }
 
 

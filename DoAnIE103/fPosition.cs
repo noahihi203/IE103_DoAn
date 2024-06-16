@@ -64,6 +64,7 @@ namespace DoAnIE103
             f.ShowDialog();
             loadPosition();
         }
+        int PositionIdInCell;
 
         private void dtgvPosition_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -71,7 +72,7 @@ namespace DoAnIE103
             if (index < 0 || index > dtgvPosition.Rows.Count - 1)
                 return;
             else
-                Const.PositionId = Convert.ToInt16(dtgvPosition.Rows[index].Cells[0].Value);
+                PositionIdInCell = Convert.ToInt16(dtgvPosition.Rows[index].Cells[0].Value);
         }
 
         private void dtgvPosition_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -102,7 +103,7 @@ namespace DoAnIE103
         }
         private void tsbDeletePosition_Click(object sender, EventArgs e)
         {
-            if (PositionDAO.Instance.deletePosition(Const.PositionId))
+            if (PositionDAO.Instance.deletePosition(PositionIdInCell))
             {
                 MessageBox.Show("Xóa chức vụ thành công!", "Thông báo", MessageBoxButtons.OK);
                 loadPosition();

@@ -34,12 +34,8 @@
             tbTenDangNhap = new TextBox();
             tbMatKhau = new TextBox();
             cbbLoaiTaiKhoan = new ComboBox();
-            dtgvUsers = new DataGridView();
-            TENDANGNHAP = new DataGridViewTextBoxColumn();
-            MATKHAU = new DataGridViewTextBoxColumn();
             btSua = new Button();
             btThoat = new Button();
-            ((System.ComponentModel.ISupportInitialize)dtgvUsers).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -80,7 +76,7 @@
             tbTenDangNhap.ReadOnly = true;
             tbTenDangNhap.Size = new Size(216, 28);
             tbTenDangNhap.TabIndex = 3;
-            tbTenDangNhap.TextChanged += tbTenDangNhap_TextChanged;
+           // tbTenDangNhap.TextChanged += tbTenDangNhap_TextChanged;
             // 
             // tbMatKhau
             // 
@@ -100,45 +96,11 @@
             cbbLoaiTaiKhoan.Size = new Size(216, 29);
             cbbLoaiTaiKhoan.TabIndex = 5;
             // 
-            // dtgvUsers
-            // 
-            dtgvUsers.AllowUserToAddRows = false;
-            dtgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgvUsers.BackgroundColor = Color.White;
-            dtgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvUsers.Columns.AddRange(new DataGridViewColumn[] { TENDANGNHAP, MATKHAU });
-            dtgvUsers.Location = new Point(21, 205);
-            dtgvUsers.MultiSelect = false;
-            dtgvUsers.Name = "dtgvUsers";
-            dtgvUsers.ReadOnly = true;
-            dtgvUsers.RowHeadersVisible = false;
-            dtgvUsers.RowHeadersWidth = 51;
-            dtgvUsers.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dtgvUsers.Size = new Size(383, 77);
-            dtgvUsers.TabIndex = 6;
-            dtgvUsers.CellClick += dtgvUsers_CellClick;
-            // 
-            // TENDANGNHAP
-            // 
-            TENDANGNHAP.DataPropertyName = "TENDANGNHAP";
-            TENDANGNHAP.HeaderText = "Tên đăng nhập";
-            TENDANGNHAP.MinimumWidth = 6;
-            TENDANGNHAP.Name = "TENDANGNHAP";
-            TENDANGNHAP.ReadOnly = true;
-            // 
-            // MATKHAU
-            // 
-            MATKHAU.DataPropertyName = "MATKHAU";
-            MATKHAU.HeaderText = "Mật khẩu";
-            MATKHAU.MinimumWidth = 6;
-            MATKHAU.Name = "MATKHAU";
-            MATKHAU.ReadOnly = true;
-            // 
             // btSua
             // 
             btSua.BackColor = Color.FromArgb(255, 255, 192);
             btSua.FlatStyle = FlatStyle.Popup;
-            btSua.Location = new Point(214, 302);
+            btSua.Location = new Point(217, 237);
             btSua.Name = "btSua";
             btSua.Size = new Size(74, 38);
             btSua.TabIndex = 9;
@@ -150,7 +112,7 @@
             // 
             btThoat.BackColor = Color.FromArgb(255, 255, 192);
             btThoat.FlatStyle = FlatStyle.Popup;
-            btThoat.Location = new Point(294, 302);
+            btThoat.Location = new Point(297, 237);
             btThoat.Name = "btThoat";
             btThoat.Size = new Size(83, 38);
             btThoat.TabIndex = 10;
@@ -163,10 +125,9 @@
             AutoScaleDimensions = new SizeF(11F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 255, 192);
-            ClientSize = new Size(425, 365);
+            ClientSize = new Size(425, 319);
             Controls.Add(btThoat);
             Controls.Add(btSua);
-            Controls.Add(dtgvUsers);
             Controls.Add(cbbLoaiTaiKhoan);
             Controls.Add(tbMatKhau);
             Controls.Add(tbTenDangNhap);
@@ -180,7 +141,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "User";
             Load += fUsers_Load;
-            ((System.ComponentModel.ISupportInitialize)dtgvUsers).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,10 +153,7 @@
         private TextBox tbTenDangNhap;
         private TextBox tbMatKhau;
         private ComboBox cbbLoaiTaiKhoan;
-        private DataGridView dtgvUsers;
         private Button btSua;
         private Button btThoat;
-        private DataGridViewTextBoxColumn TENDANGNHAP;
-        private DataGridViewTextBoxColumn MATKHAU;
     }
 }

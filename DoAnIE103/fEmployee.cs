@@ -146,27 +146,51 @@ namespace DoAnIE103
 
         //delete Employee
         int employeeID;
+        public int PositionID;
         public void dtgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
             if (index < 0)
                 return;
             employeeID = Convert.ToInt16(dtgvEmployee.Rows[index].Cells[0].Value);
+            //PositionID = dtgvEmployee.Rows[index].Cells[8].ColumnIndex;
         }
         private void tsbDelete_Click(object sender, EventArgs e)
         {
             int manv = employeeID;
+            
 
-            if (EmployeeDAO.Instance.DeleteEmployee(employeeID))
+            /*if (manv != Const.EmployeeId)
             {
-                MessageBox.Show("Xoá tài khoản nhân viên!");
-                loadEmployeeList();
+                if (Const.PositionId > PositionID)
+                {*/
+                    if (EmployeeDAO.Instance.DeleteEmployee(employeeID))
+                    {
+                        MessageBox.Show("Xoá tài khoản nhân viên thành công!!");
+                        loadEmployeeList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi khi xoá nhân viên!");
+                        return;
+                    }
+                /*}
+                else if (Const.PositionId < PositionID)
+                {
+                    MessageBox.Show("Không thể xóa xếp của bạn!");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Bạn không thể xóa bản thân :))");
+                return;
+                }
             }
             else
             {
-                MessageBox.Show("Có lỗi khi xoá nhân viên!");
+                MessageBox.Show("Bạn không thể xóa bản thân :))");
                 return;
-            }
+            }*/
         }
 
         private int getMaNV(Employee nhanvien)

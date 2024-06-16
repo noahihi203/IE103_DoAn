@@ -63,9 +63,9 @@ namespace DoAnIE103.DAO
             int result = DataProvider.Instance.executeNonQuery(query);
             return result > 0;
         }
-        public bool UpdateUser(string tendangnhap, string matkhau, int macv)
+        public bool UpdateUser(string tendangnhap, string matkhau)
         {
-            string query = string.Format("UPDATE dbo.TAIKHOAN SET MATKHAU = N'{1}', MACV = {2} WHERE TENDANGNHAP = N'{0}'", tendangnhap, matkhau, macv);
+            string query = string.Format("UPDATE dbo.TAIKHOAN SET MATKHAU = N'{1}' WHERE TENDANGNHAP = N'{0}'", tendangnhap, matkhau);
             int result = DataProvider.Instance.executeNonQuery(query);
             return result > 0;
         }
@@ -75,6 +75,15 @@ namespace DoAnIE103.DAO
             string query = string.Format("DELETE TAIKHOAN WHERE TENDANGNHAP = N'{0}'", tendangnhap);
             int result = DataProvider.Instance.executeNonQuery(query);
             return result > 0;
+        }
+
+        public DataRow getTenCVvaMaCVbyTenDangNhap(string tendangnhap)
+        {
+            string query = string.Format("SELECT TENDANGNHAP, MATKHAU, TAIKHOAN.MACV, CHUCVU.TENCV FROM CHUCVU, TAIKHOAN WHERE TAIKHOAN.MACV = CHUCVU.MACV AND TENDANGNHAP = N'{0}'", tendangnhap);
+            DataTable data = DataProvider.Instance.executeQuery(query);
+            DataRow dr = data.Rows[0];
+            return dr;
+            
         }
     }
 }
