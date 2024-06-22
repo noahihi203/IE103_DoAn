@@ -297,7 +297,7 @@ namespace QLNS
                 i.WorkTime = i.CheckOutTime - i.CheckInTime;
                 i.WorkTimeDay = i.WorkTime.TotalDays * 3;
 
-                MessageBox.Show("Đã Check Out thành công!");
+                MessageBox.Show(string.Format("Check Out thành công, bạn đã làm việc trong " + i.WorkTime.ToString()));
                 btCheckIn.Enabled = true;
 
             }
@@ -312,6 +312,7 @@ namespace QLNS
             {
                 MessageBox.Show("Co loi khi them so ngay lam viec");
             }
+            loadDataToForm();
 
         }
 
@@ -320,7 +321,11 @@ namespace QLNS
 
         private void btExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Bạn muốn thoát ứng dụng chứ?", "Thông báo", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+                Application.Exit();
+            else
+                return;
         }
         #endregion
 

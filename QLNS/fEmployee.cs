@@ -160,25 +160,28 @@ namespace QLNS
         }
 
         //delete Employee
-        int employeeID;
-        public int PositionID;
+        public int employeeID;
         public void dtgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
             if (index < 0)
                 return;
-            employeeID = Convert.ToInt16(dtgvEmployee.Rows[index].Cells[0].Value);
-            //PositionID = dtgvEmployee.Rows[index].Cells[8].ColumnIndex;
+            employeeID = Convert.ToInt32(dtgvEmployee.Rows[index].Cells[0].Value);
+           
         }
-        private void tsbDelete_Click(object sender, EventArgs e)
+        private void tsbDelete_Click(object sender, EventArgs ngue)
         {
             int manv = employeeID;
-            
 
-            /*if (manv != Const.EmployeeId)
+            DataTable dataCV = EmployeeDAO.Instance.getEmployeeByEmployeeID(employeeID);
+            DataRow dr = dataCV.Rows[0];
+
+            int macvInCell = Convert.ToInt32(dr["MACV"]);
+
+            if (manv != Const.EmployeeId)
             {
-                if (Const.PositionId > PositionID)
-                {*/
+                if (Const.PositionId > macvInCell)
+                {
                     if (EmployeeDAO.Instance.DeleteEmployee(employeeID))
                     {
                         MessageBox.Show("Xoá tài khoản nhân viên thành công!!");
@@ -189,8 +192,8 @@ namespace QLNS
                         MessageBox.Show("Có lỗi khi xoá nhân viên!");
                         return;
                     }
-                /*}
-                else if (Const.PositionId < PositionID)
+                }
+                else if (Const.PositionId < macvInCell)
                 {
                     MessageBox.Show("Không thể xóa xếp của bạn!");
                     return;
@@ -205,7 +208,7 @@ namespace QLNS
             {
                 MessageBox.Show("Bạn không thể xóa bản thân :))");
                 return;
-            }*/
+            }
         }
 
         private int getMaNV(Employee nhanvien)
@@ -340,25 +343,8 @@ namespace QLNS
 
         }
 
-        private void fEmployee_Load_1(object sender, EventArgs e)
-        {
 
-        }
 
-        private void tsbAdd_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsbDelete_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsbEdit_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }
