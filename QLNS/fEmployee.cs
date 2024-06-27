@@ -343,8 +343,10 @@ namespace QLNS
 
         }
 
+        private void dtgvEmployee_CellBorderStyleChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 
 }

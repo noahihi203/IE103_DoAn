@@ -142,6 +142,7 @@ namespace QLNS
             this.dtgvEmployee.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dtgvEmployee.Size = new System.Drawing.Size(1109, 489);
             this.dtgvEmployee.TabIndex = 7;
+            this.dtgvEmployee.CellBorderStyleChanged += new System.EventHandler(this.dtgvEmployee_CellBorderStyleChanged);
             this.dtgvEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvEmployee_CellClick);
             this.dtgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvEmployee_CellContentClick);
             this.dtgvEmployee.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvEmployee_CellEndEdit);

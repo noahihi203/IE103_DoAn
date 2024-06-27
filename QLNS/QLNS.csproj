@@ -137,6 +137,12 @@
     <Compile Include="fAddDepartment.Designer.cs">
       <DependentUpon>fAddDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="fAddInsurance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddInsurance.Designer.cs">
+      <DependentUpon>fAddInsurance.cs</DependentUpon>
+    </Compile>
     <Compile Include="fAddNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </Compile>
     <EmbeddedResource Include="fAddDepartment.resx">
       <DependentUpon>fAddDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddInsurance.resx">
+      <DependentUpon>fAddInsurance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fAddNewEmployee.resx">
       <DependentUpon>fAddNewEmployee.cs</DependentUpon>

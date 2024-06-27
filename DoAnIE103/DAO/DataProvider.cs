@@ -20,7 +20,7 @@ namespace DoAnIE103.DAO
 
         private DataProvider() { }
 
-        private string connectionSTR = "Data Source=.\\SQLEXPRESS01;Initial Catalog=QUANLYNHANSU;Integrated Security=True";
+        private string connectionSTR = "Data Source=LAPTOP-F0S4OOBJ\\QLNS;Initial Catalog=QUANLYNHANSU;Integrated Security=True";
 
         public DataTable executeQuery(string query, object[] paramater = null)
         {

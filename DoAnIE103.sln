@@ -5,6 +5,10 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoAnIE103", "DoAnIE103\DoAnIE103.csproj", "{6E94E2D3-4C20-48D1-AF5B-391E640BECF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNS", "QLNS\QLNS.csproj", "{D49692F3-A8DE-4E4B-AFC8-306648F4F458}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D.S Ban Nhân Sự", "..\..\..\Downloads\D.S Ban Nhân Sự-20240627T025405Z-001\D.S Ban Nhân Sự\D.S Ban Nhân Sự\D.S Ban Nhân Sự.csproj", "{435B4148-19CD-4686-8057-E81B53D34DA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{6E94E2D3-4C20-48D1-AF5B-391E640BECF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E94E2D3-4C20-48D1-AF5B-391E640BECF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E94E2D3-4C20-48D1-AF5B-391E640BECF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D49692F3-A8DE-4E4B-AFC8-306648F4F458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D49692F3-A8DE-4E4B-AFC8-306648F4F458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D49692F3-A8DE-4E4B-AFC8-306648F4F458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D49692F3-A8DE-4E4B-AFC8-306648F4F458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{435B4148-19CD-4686-8057-E81B53D34DA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{435B4148-19CD-4686-8057-E81B53D34DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{435B4148-19CD-4686-8057-E81B53D34DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{435B4148-19CD-4686-8057-E81B53D34DA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

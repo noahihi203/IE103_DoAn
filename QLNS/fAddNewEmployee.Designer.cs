@@ -75,7 +75,7 @@ namespace QLNS
             // 
             // btAHuy
             // 
-            this.btAHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btAHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btAHuy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btAHuy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btAHuy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -348,7 +348,7 @@ namespace QLNS
             // 
             // btAThem
             // 
-            this.btAThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btAThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btAThem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btAThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btAThem.Location = new System.Drawing.Point(538, 176);

@@ -14,7 +14,6 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Collections.Generic;
 using CsvHelper.Configuration;
-using static Stimulsoft.Report.StiOptions.Export;
 using System.Runtime.InteropServices;
 using OfficeOpenXml.FormulaParsing.LexicalAnalysis;
 using OfficeOpenXml;
@@ -35,6 +34,7 @@ namespace DoAnIE103
         public fMain()
         {
             InitializeComponent();
+            Decentralization();
         }
 
 
@@ -42,7 +42,8 @@ namespace DoAnIE103
         void Decentralization()
         {
 
-            if (Const.userType == 0)
+            DataRow dr = UserDAO.Instance.getTenCVvaMaCVbyTenDangNhap(Const.userID);
+            if (Convert.ToInt32(dr["MACV"]) == 4)
             {
                 qltsmi.Visible = false;
                 //tsmiUser.Enabled = tsmiEmployee.Enabled = tsmiPhongBan.Enabled = tsmiChucVu.Enabled = false;
@@ -136,6 +137,7 @@ namespace DoAnIE103
             this.Hide();
             f.ShowDialog();
             this.Show   ();
+            loadDataToForm();
         }
 
         private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)

@@ -60,7 +60,7 @@ namespace DoAnIE103
             string password = tbMatKhau.Text;
             Const.userID = tbTenDangNhap.Text; //ten dang nhap
             Const.passWord = tbMatKhau.Text; //mat khau
-            Const.PositionId = UserDAO.Instance.checkRole(tbTenDangNhap.Text); //ma chuc vu
+            //Const.PositionId = UserDAO.Instance.checkRole(tbTenDangNhap.Text); //ma chuc vu
 
             if (CheckLogin(username, password)) // Check if the entered password account is correct
             {
