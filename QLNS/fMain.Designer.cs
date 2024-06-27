@@ -74,6 +74,7 @@ namespace QLNS
             this.btCheckOut = new System.Windows.Forms.Button();
             this.btCheckIn = new System.Windows.Forms.Button();
             this.btExit = new System.Windows.Forms.Button();
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbTTNguoiDung.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbTTLuongNguoiDung.SuspendLayout();
@@ -459,7 +460,8 @@ namespace QLNS
             // báoCáoToolStripMenuItem
             // 
             this.báoCáoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem2,
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem});
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
             this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(274, 28);
             this.báoCáoToolStripMenuItem.Text = "Báo Cáo";
@@ -467,7 +469,7 @@ namespace QLNS
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(234, 28);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(373, 28);
             this.toolStripMenuItem2.Text = "Báo cáo lương";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -562,6 +564,13 @@ namespace QLNS
             this.btExit.UseVisualStyleBackColor = false;
             this.btExit.Click += new System.EventHandler(this.btExit_Click);
             // 
+            // báoCáoDanhSáchNhânViênToolStripMenuItem
+            // 
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Name = "báoCáoDanhSáchNhânViênToolStripMenuItem";
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Size = new System.Drawing.Size(373, 28);
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Text = "Báo cáo danh sách nhân viên";
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Click += new System.EventHandler(this.báoCáoDanhSáchNhânViênToolStripMenuItem_Click);
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
@@ -644,5 +653,6 @@ namespace QLNS
         private ToolStripMenuItem báoCáoToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem2;
         private ToolStripMenuItem quảnLýBảoHiểmToolStripMenuItem;
+        private ToolStripMenuItem báoCáoDanhSáchNhânViênToolStripMenuItem;
     }
 }

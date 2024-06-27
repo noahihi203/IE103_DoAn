@@ -18,6 +18,7 @@ using System.Runtime.InteropServices;
 using OfficeOpenXml.FormulaParsing.LexicalAnalysis;
 using OfficeOpenXml;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices.ComTypes;
 
 
 
@@ -25,6 +26,8 @@ namespace QLNS
 {
     public partial class fMain : Form
     {
+        private string relativePath = "DoAnIE103";
+        private string filePath;
         List<string> gioiTinhList = new List<string>() { "Nam", "Nữ" };
 
 
@@ -33,8 +36,13 @@ namespace QLNS
         public event EventHandler Logout;
         public fMain()
         {
+
             InitializeComponent();
             Decentralization();
+            string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string projectDirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(appDirectory).FullName).FullName).FullName;
+            string doAnIE103Directory = Path.Combine(projectDirectory, relativePath);
+            filePath = Path.Combine(doAnIE103Directory, "CheckInCheckOut.csv");
         }
 
 
@@ -200,12 +208,12 @@ namespace QLNS
 
         public bool verifyLocation() // Hàm để xác nhận vị trí
         {
-
             return true;
         }
 
-        string filePath = "C:\\Users\\user\\OneDrive\\Máy tính\\DoAnIE103\\CheckInCheckOut.csv";
+        //string filePath = new FileInfo("CheckInCheckOut.csv").Directory.FullName;
 
+        
         private void btCheckIn_Click(object sender, EventArgs e)
         {
             btCheckOut.Enabled = true;
@@ -244,7 +252,7 @@ namespace QLNS
                     csvWriter.WriteField(DateTime.Now);
                     csvWriter.NextRecord();
 
-                    MessageBox.Show("Đã Check in!");
+                    MessageBox.Show(string.Format("Bạn đã check in vào lúc " + DateTime.Now),"Check in thành công");
                 }
                 else
                 {
@@ -297,7 +305,7 @@ namespace QLNS
                 i.WorkTime = i.CheckOutTime - i.CheckInTime;
                 i.WorkTimeDay = i.WorkTime.TotalDays * 3;
 
-                MessageBox.Show(string.Format("Check Out thành công, bạn đã làm việc trong " + i.WorkTime.ToString()));
+                MessageBox.Show(string.Format("Bạn đã làm việc trong " + i.WorkTime.Hours + " giờ " + i.WorkTime.Minutes + " phút " + i.WorkTime.Seconds + " giây."), "Check Out thành công");
                 btCheckIn.Enabled = true;
 
             }
@@ -313,7 +321,6 @@ namespace QLNS
                 MessageBox.Show("Co loi khi them so ngay lam viec");
             }
             loadDataToForm();
-
         }
 
 
@@ -395,6 +402,13 @@ namespace QLNS
 
         }
 
+        private void báoCáoDanhSáchNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            showRP showRP = new showRP();
+            
+            showRP.ShowDialog();
+        }
     }
 
 }
