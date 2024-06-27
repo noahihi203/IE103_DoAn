@@ -19,7 +19,7 @@ using OfficeOpenXml.FormulaParsing.LexicalAnalysis;
 using OfficeOpenXml;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices.ComTypes;
-
+using System.Device.Location;
 
 
 namespace QLNS
@@ -68,6 +68,7 @@ namespace QLNS
             loadDataToForm();
             Decentralization();
             thốngKêToolStripMenuItem.Visible = false;
+            trợGiúpToolStripMenuItem.Visible=false;
         }
         int manv;
         private void loadDataToForm()
@@ -208,6 +209,8 @@ namespace QLNS
 
         public bool verifyLocation() // Hàm để xác nhận vị trí
         {
+            /*Location location = new Location();
+*/
             return true;
         }
 

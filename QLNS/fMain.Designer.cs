@@ -66,6 +66,7 @@ namespace QLNS
             this.bảngChấmCôngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýBảoHiểmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +75,6 @@ namespace QLNS
             this.btCheckOut = new System.Windows.Forms.Button();
             this.btCheckIn = new System.Windows.Forms.Button();
             this.btExit = new System.Windows.Forms.Button();
-            this.báoCáoDanhSáchNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbTTNguoiDung.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbTTLuongNguoiDung.SuspendLayout();
@@ -316,7 +316,7 @@ namespace QLNS
             // 
             this.gbTTLuongNguoiDung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gbTTLuongNguoiDung.Controls.Add(this.tableLayoutPanel2);
-            this.gbTTLuongNguoiDung.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTTLuongNguoiDung.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTTLuongNguoiDung.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gbTTLuongNguoiDung.Location = new System.Drawing.Point(9, 423);
             this.gbTTLuongNguoiDung.Margin = new System.Windows.Forms.Padding(4);
@@ -473,6 +473,13 @@ namespace QLNS
             this.toolStripMenuItem2.Text = "Báo cáo lương";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
+            // báoCáoDanhSáchNhânViênToolStripMenuItem
+            // 
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Name = "báoCáoDanhSáchNhânViênToolStripMenuItem";
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Size = new System.Drawing.Size(373, 28);
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Text = "Báo cáo danh sách nhân viên";
+            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Click += new System.EventHandler(this.báoCáoDanhSáchNhânViênToolStripMenuItem_Click);
+            // 
             // quảnLýBảoHiểmToolStripMenuItem
             // 
             this.quảnLýBảoHiểmToolStripMenuItem.Name = "quảnLýBảoHiểmToolStripMenuItem";
@@ -563,13 +570,6 @@ namespace QLNS
             this.btExit.Text = "Thoát";
             this.btExit.UseVisualStyleBackColor = false;
             this.btExit.Click += new System.EventHandler(this.btExit_Click);
-            // 
-            // báoCáoDanhSáchNhânViênToolStripMenuItem
-            // 
-            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Name = "báoCáoDanhSáchNhânViênToolStripMenuItem";
-            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Size = new System.Drawing.Size(373, 28);
-            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Text = "Báo cáo danh sách nhân viên";
-            this.báoCáoDanhSáchNhânViênToolStripMenuItem.Click += new System.EventHandler(this.báoCáoDanhSáchNhânViênToolStripMenuItem_Click);
             // 
             // fMain
             // 

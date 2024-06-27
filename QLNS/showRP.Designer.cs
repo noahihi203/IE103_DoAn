@@ -49,7 +49,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cRPV);
             this.Name = "showRP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "showRP";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.showRP_Load);
             this.ResumeLayout(false);
 

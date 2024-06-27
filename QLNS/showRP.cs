@@ -25,7 +25,7 @@ namespace QLNS
 
             string query = "SELECT NHANVIEN.MANV AS MANV, NHANVIEN.HOTEN AS HOTEN,NHANVIEN.GIOITINH AS GIOITINH, CHUCVU.TENCV AS TENCV,PHONGBAN.TENPB AS TENPB FROM NHANVIEN, CHUCVU, PHONGBAN WHERE NHANVIEN.MAPB = PHONGBAN.MAPB AND NHANVIEN.MACV = CHUCVU.MACV";
             DataTable dt = DataProvider.Instance.executeQuery(query);
-            CrystalReport1 rp = new CrystalReport1();
+            rptNhanSu rp = new rptNhanSu();
             rp.SetDataSource(dt);
             cRPV.ReportSource = rp;
         }
