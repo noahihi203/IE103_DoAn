@@ -20,7 +20,7 @@ namespace QLNS.DAO
 
         private DataProvider() { }
 
-        private string connectionSTR = "Data Source=.\\QLNS;Initial Catalog=QUANLYNHANSU;Integrated Security=True";
+        private string connectionSTR = "Data Source=.\\SQLEXPRESS;Initial Catalog=QUANLYNHANSU;Integrated Security=True";
 
         public DataTable executeQuery(string query, object[] paramater = null)
         {
